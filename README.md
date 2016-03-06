@@ -1,5 +1,4 @@
 # TODO
-- add mocha tests
 - travis-ci
 - cover all
 - add specs
@@ -10,3 +9,17 @@
   https://github.com/cheeriojs/cheerio
 - html to jsx:
   https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md
+
+# Linting
+We use standard js, https://github.com/feross/standard
+
+# Doc
+Doc is under `./doc`, to generate doc, run
+```
+npm run doc
+```
+
+# Development
+```
+npm run tdd
+```

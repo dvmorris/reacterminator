@@ -4,8 +4,9 @@
   "description": "Convert html to react components",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
-    "tdd": "mocha --watch"
+    "test": "standard && istanbul cover _mocha",
+    "tdd": "mocha --watch",
+    "doc": "jsdoc lib -d doc"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,10 @@
   },
   "homepage": "https://github.com/poetic/reacterminator",
   "devDependencies": {
+    "istanbul": "^0.4.2",
+    "jsdoc": "^3.4.0",
     "lodash": "^4.6.1",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "standard": "^6.0.7"
   }
 }
