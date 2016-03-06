@@ -42,11 +42,8 @@ npm run doc
 ```
 
 ### Resouces
-- cheerio:
-  https://github.com/cheeriojs/cheerio
-- html to jsx:
-  https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md
+- [cheerio](https://github.com/cheeriojs/cheerio)
+- [htmltojsx](https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md)
 
 ### TODO
-- publish docs, npm pages
 - how to add specs into repo
