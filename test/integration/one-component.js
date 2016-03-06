@@ -3,6 +3,8 @@ var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
 describe.skip('reacterminator', function () {
+
+  // ----------------------------------------
   it('should generate one component from one div', function () {
     var content =
 `\
@@ -27,6 +29,7 @@ export default ComponentA;
     )
   })
 
+  // ----------------------------------------
   it('should generate one component from an html document', function () {
     var content =
 `
