@@ -1,9 +1,8 @@
 # TODO
-- use es6
+- add mocha tests
 - travis-ci
 - cover all
 - add specs
-- add mocha tests
 - implementation
 
 # Resouces
