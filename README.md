@@ -14,7 +14,8 @@ npm run doc
 ```
 
 # Development
-```
+```shell
+nvm install # .nvmrc is used to specify node version
 npm run tdd
 ```
 
