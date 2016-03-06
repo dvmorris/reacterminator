@@ -36,10 +36,7 @@ npm run test-local
 
 ### Documents
 [jsdoc](https://github.com/jsdoc3/jsdoc)
-Doc is under `./doc`, to generate doc, run
-```
-npm run doc
-```
+Docs are served as [gh-pages](http://poetic.github.io/reacterminator/doc)
 
 ### Resouces
 - [cheerio](https://github.com/cheeriojs/cheerio)
