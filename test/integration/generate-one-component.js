@@ -4,12 +4,11 @@ var reacterminator = require('../../lib/index')
 
 describe.skip('reacterminator', function () {
   it('should generate one component from one div', function () {
-    var source =
+    var content =
 `\
 <div data-component="ComponentA">
 </div>
 `
-    var actual = reacterminator({type: 'string', content: source})
     var expected =
 `\
 class ComponentA extends React.Component {
@@ -22,11 +21,14 @@ class ComponentA extends React.Component {
 
 export default ComponentA;
 `
-    assert.deepEqual(actual, expected)
+    assert.deepEqual(
+      reacterminator({type: 'string', content: content})['ComponentA'],
+      expected
+    )
   })
 
   it('should generate one component from an html document', function () {
-    var source =
+    var content =
 `
 <!DOCTYPE html>
 <html>
@@ -41,7 +43,6 @@ export default ComponentA;
   </body>
 </html>
 `
-    var actual = reacterminator({type: 'string', content: source})
     var expected =
 `
 class ComponentA extends React.Component {
@@ -54,8 +55,9 @@ class ComponentA extends React.Component {
 
 export default ComponentA;
 `
-    assert.deepEqual(actual, expected)
+    assert.deepEqual(
+      reacterminator({type: 'string', content: content})['ComponentA'],
+      expected
+    )
   })
 })
-
-// TODO: assertStringToComponent
