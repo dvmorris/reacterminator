@@ -34,9 +34,8 @@ npm run test-local
 ### Linting
 [standard js](https://github.com/feross/standard)
 
-### Documents
+### [Documents](http://poetic.github.io/reacterminator/doc)
 [jsdoc](https://github.com/jsdoc3/jsdoc)
-Docs are served as [gh-pages](http://poetic.github.io/reacterminator/doc)
 
 ### Resouces
 - [cheerio](https://github.com/cheeriojs/cheerio)
