@@ -1,11 +1,14 @@
 # reacterminator
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
+[![coverall][coverall-image]][coverall-url]
 
-[travis-image]: https://travis-ci.org/poetic/reacterminator.svg?branch=master
-[travis-url]: https://travis-ci.org/poetic/reacterminator
-[npm-image]: https://img.shields.io/npm/v/reacterminator.svg
-[npm-url]: https://npmjs.org/package/reacterminator
+[travis-image]:   https://img.shields.io/travis/poetic/reacterminator.svg?branch=master
+[travis-url]:     https://travis-ci.org/poetic/reacterminator
+[npm-image]:      https://img.shields.io/npm/v/reacterminator.svg
+[npm-url]:        https://npmjs.org/package/reacterminator
+[coverall-image]: https://img.shields.io/coveralls/poetic/reacterminator.svg
+[coverall-url]:   https://coveralls.io/github/poetic/reacterminator
 
 ## Development
 
