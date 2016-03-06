@@ -4,12 +4,6 @@
 - add specs
 - implementation
 
-# Resouces
-- cheerio:
-  https://github.com/cheeriojs/cheerio
-- html to jsx:
-  https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md
-
 # Linting
 We use standard js, https://github.com/feross/standard
 
@@ -23,3 +17,9 @@ npm run doc
 ```
 npm run tdd
 ```
+
+# Resouces
+- cheerio:
+  https://github.com/cheeriojs/cheerio
+- html to jsx:
+  https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md
