@@ -1,25 +1,34 @@
-# TODO
-- travis-ci
-- cover all
-- add specs
-- implementation
+# Development
 
-# Linting
+## Workflow
+- add specs
+- write tests
+- implementation ( `npm tdd` )
+- ensure the following before you do a PR ( `npm test-local` )
+  - linting pass
+  - tests pass
+  - 100% coverage
+
+## Setup
+- install correct node version
+```shell
+nvm install # .nvmrc is used to specify node version
+```
+- make sure you can run this command with out any error
+```
+npm run test-local
+```
+
+## Linting
 We use standard js, https://github.com/feross/standard
 
-# Doc
+## Doc
 Doc is under `./doc`, to generate doc, run
 ```
 npm run doc
 ```
 
-# Development
-```shell
-nvm install # .nvmrc is used to specify node version
-npm run tdd
-```
-
-# Resouces
+## Resouces
 - cheerio:
   https://github.com/cheeriojs/cheerio
 - html to jsx:

@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
+    "test-local": "standard && istanbul cover _mocha --report lcovonly",
     "tdd": "mocha --watch",
     "doc": "jsdoc lib -d doc"
   },
