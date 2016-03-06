@@ -34,7 +34,7 @@ npm run test-local
 ### Linting
 [standard js](https://github.com/feross/standard)
 
-### Doc
+### Documents
 [jsdoc](https://github.com/jsdoc3/jsdoc)
 Doc is under `./doc`, to generate doc, run
 ```
