@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/poetic/reacterminator",
   "devDependencies": {
+    "chai": "^3.5.0",
     "coveralls": "^2.11.8",
     "istanbul": "^0.4.2",
     "jsdoc": "^3.4.0",
