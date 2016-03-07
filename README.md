@@ -13,8 +13,7 @@
 ## Development
 
 ### Workflow
-- add specs
-- write tests
+- write tests ( use tests as specs )
 - implementation ( `npm tdd` )
 - ensure the following before you do a PR ( `npm test-local` )
   - linting pass
@@ -40,6 +39,3 @@ npm run test-local
 ### Resouces
 - [cheerio](https://github.com/cheeriojs/cheerio)
 - [htmltojsx](https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md)
-
-### TODO
-- how to add specs into repo
