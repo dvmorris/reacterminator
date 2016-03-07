@@ -11,7 +11,7 @@ describe.skip('reacterminator', function () {
 <div data-component="ComponentA">
 </div>
 `
-    var expected =
+    var ComponentA =
 `\
 class ComponentA extends React.Component {
   render() {
@@ -25,7 +25,7 @@ export default ComponentA;
 `
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'],
-      expected
+      ComponentA
     )
   })
 
@@ -46,7 +46,7 @@ export default ComponentA;
   </body>
 </html>
 `
-    var expected =
+    var ComponentA =
 `
 class ComponentA extends React.Component {
   render() {
@@ -60,7 +60,7 @@ export default ComponentA;
 `
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'],
-      expected
+      ComponentA
     )
   })
 })
