@@ -40,5 +40,8 @@
       "/coverage",
       "/doc"
     ]
+  },
+  "dependencies": {
+    "cheerio": "^0.20.0"
   }
 }

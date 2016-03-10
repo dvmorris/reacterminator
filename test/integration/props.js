@@ -8,7 +8,7 @@ describe.skip('reacterminator', function () {
   it('should destruct props', function () {
     var content =
 `\
-<div data-component="ComponentA" data-props="firstName, lastName">
+<div data-component="ComponentA" data-component-props="firstName, lastName">
 </div>
 `
     var ComponentA =
@@ -38,7 +38,7 @@ export default ComponentA;
     var content =
 `\
 <div data-component="ComponentA">
-  <div data-component="ComponentB" data-props="firstName">
+  <div data-component="ComponentB" data-component-props="firstName">
     <span data-value="firstName">Chun</span>
   </div>
 </div>

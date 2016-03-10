@@ -9,8 +9,8 @@ describe.skip('reacterminator', function () {
     var content =
 `\
 <div data-component="ComponentA"
-  data-action-on-click="{this.props.onClick}"
-  data-action-on-keyup="{this.props.onKeyup}">
+  data-component-action-on-click="{this.props.onClick}"
+  data-component-action-on-keyup="{this.props.onKeyup}">
 </div>
 `
     var ComponentA =

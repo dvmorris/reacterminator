@@ -8,7 +8,7 @@ describe.skip('reacterminator', function () {
   it('should destruct state', function () {
     var content =
 `\
-<div data-component="ComponentA" data-state="firstName, lastName">
+<div data-component="ComponentA" data-component-state="firstName, lastName">
 </div>
 `
     var ComponentA =
