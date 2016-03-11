@@ -2,30 +2,31 @@
 var assert = require('chai').assert
 var htmlToHtmlSnippets = require('../../../lib/html-to-html-snippets')
 
-describe('index', function () {
+describe('html-to-html-snippets]', function () {
   it('should export a function', function () {
     assert.typeOf(htmlToHtmlSnippets, 'Function')
   })
 
   it('should output one component', function () {
     var html = `\
-<div data-component="ComponentA">
+<div data-component-name="ComponentA">
 </div>`
 
     assert.deepEqual(
       htmlToHtmlSnippets(html),
       {
         ComponentA: {
-          htmlSnippet: '<div>\n</div>'
+          htmlSnippet: '<div> </div>',
+          name: 'ComponentA'
         }
       }
     )
   })
 
-  it.skip('should output two nested components', function () {
+  it('should output two nested components', function () {
     var html = `\
-<div data-component="ComponentA">
-  <div data-component="ComponentB">
+<div data-component-name="ComponentA">
+  <div data-component-name="ComponentB">
   </div>
 </div>`
 
@@ -33,10 +34,12 @@ describe('index', function () {
       htmlToHtmlSnippets(html),
       {
         ComponentA: {
-          htmlSnippet: '<div>\n</div>'
+          name: 'ComponentA',
+          htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> </div> </div>'
         },
         ComponentB: {
-          htmlSnippet: '<div>\n</div>'
+          name: 'ComponentB',
+          htmlSnippet: '<div> </div>'
         }
       }
     )

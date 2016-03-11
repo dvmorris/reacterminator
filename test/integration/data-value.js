@@ -8,7 +8,7 @@ describe.skip('reacterminator', function () {
   it('should replace inner html with data-component-value', function () {
     var content =
 `\
-<div data-component="ComponentA">
+<div data-component-name="ComponentA">
   <span data-component-value={this.props.firstName}>Chun</span>
   <span data-component-value={this.props.lastName}>Yang</span>
 </div>

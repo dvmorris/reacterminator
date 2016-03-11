@@ -8,8 +8,8 @@ describe.skip('reacterminator', function () {
   it('should generate two nested components', function () {
     var content =
 `\
-<div data-component="ComponentA">
-  <div data-component="ComponentB">
+<div data-component-name="ComponentA">
+  <div data-component-name="ComponentB">
   </div>
 </div>
 `
@@ -52,9 +52,9 @@ export default ComponentB;
 
     var content =
 `\
-<div data-component="ComponentA">
-  <div data-component="ComponentB">
-    <div data-component="ComponentC">
+<div data-component-name="ComponentA">
+  <div data-component-name="ComponentB">
+    <div data-component-name="ComponentC">
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ describe.skip('reacterminator', function () {
   it('should generate iterative components', function () {
     var content =
 `\
-<div data-component="ComponentA"
+<div data-component-name="ComponentA"
     data-component-list-item="ComponentB"
     data-component-list-prop="users">
   <div><span>1</span></div>

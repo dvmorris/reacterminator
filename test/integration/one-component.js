@@ -8,7 +8,7 @@ describe.skip('reacterminator', function () {
   it('should generate one component from one div', function () {
     var content =
 `\
-<div data-component="ComponentA">
+<div data-component-name="ComponentA">
 </div>
 `
     var ComponentA =
@@ -41,7 +41,7 @@ export default ComponentA;
     <title></title>
   </head>
   <body>
-    <div data-component="ComponentA"'>
+    <div data-component-name="ComponentA"'>
     </div>
   </body>
 </html>
