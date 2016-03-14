@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
-    "test-local": "standard && istanbul cover _mocha --report lcovonly",
-    "tdd": "mocha --watch",
+    "test:watch": "watch 'standard && mocha' .",
+    "test:watch:mocha": "mocha --watch",
     "doc": "jsdoc lib -d doc"
   },
   "repository": {
@@ -32,7 +32,8 @@
     "jsdoc": "^3.4.0",
     "lodash": "^4.6.1",
     "mocha": "^2.4.5",
-    "standard": "^6.0.7"
+    "standard": "^6.0.7",
+    "watch": "^0.17.1"
   },
   "standard": {
     "ignore": [

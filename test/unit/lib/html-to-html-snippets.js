@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var htmlToHtmlSnippets = require('../../../lib/html-to-html-snippets')
 
-describe('html-to-html-snippets]', function () {
+describe('html-to-html-snippets', function () {
   it('should export a function', function () {
     assert.typeOf(htmlToHtmlSnippets, 'Function')
   })
@@ -58,7 +58,7 @@ describe('html-to-html-snippets]', function () {
           listItem: 'ComponentB',
           listProp: 'users',
           htmlSnippet: '<div> </div>'
-        },
+        }
       }
     )
   })
