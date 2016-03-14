@@ -43,6 +43,8 @@
     ]
   },
   "dependencies": {
+    "babel-generator": "^6.7.2",
+    "babylon": "^6.7.0",
     "cheerio": "^0.20.0"
   }
 }
