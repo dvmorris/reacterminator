@@ -2,11 +2,8 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-
 describe.skip('reacterminator', function () {
-
   it('should throw an error if the data-component-name value is invalid', function () {
-
     assert.throws(
      function () {
        reacterminator({
@@ -46,11 +43,9 @@ describe.skip('reacterminator', function () {
      },
      /value of data-component can not be blank/
     )
-
   })
 
   it('should throw an error if there is no data-component-name', function () {
-
     assert.throws(
      function () {
        reacterminator({

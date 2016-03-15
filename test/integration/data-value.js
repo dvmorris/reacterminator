@@ -3,18 +3,13 @@ var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
 describe.skip('reacterminator', function () {
-
-  // ----------------------------------------
   it('should replace inner html with data-component-value', function () {
-    var content =
-`\
+    var content = `\
 <div data-component-name="ComponentA">
   <span data-component-value={this.props.firstName}>Chun</span>
   <span data-component-value={this.props.lastName}>Yang</span>
-</div>
-`
-    var ComponentA =
-`\
+</div>`
+    var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
     return (
@@ -26,12 +21,10 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;
-`
+export default ComponentA;`
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'],
       ComponentA
     )
   })
-
 })

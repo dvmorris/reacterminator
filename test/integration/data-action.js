@@ -3,18 +3,14 @@ var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
 describe.skip('reacterminator', function () {
-
-  // ----------------------------------------
   it('should destruct props', function () {
-    var content =
-`\
+    var content = `\
 <div data-component-name="ComponentA"
   data-component-action-on-click="{this.props.onClick}"
   data-component-action-on-keyup="{this.props.onKeyup}">
-</div>
-`
-    var ComponentA =
-`\
+</div>`
+
+    var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
     return (
@@ -23,15 +19,11 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;
-`
+export default ComponentA;`
 
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'],
       ComponentA
     )
   })
-
 })
-
-

@@ -11,7 +11,7 @@ describe('jsx-to-declaration', function () {
 
     assert.deepEqual(
       addDeclaration(component).declarationSnippet,
-`\
+      `\
 var ComponentA = React.createClass({
   render: function () {
     return <div></div>;

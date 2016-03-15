@@ -3,18 +3,13 @@ var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
 describe.skip('reacterminator', function () {
-
-  // ----------------------------------------
   it('should generate two nested components', function () {
-    var content =
-`\
+    var content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB">
   </div>
-</div>
-`
-    var ComponentA =
-`\
+</div>`
+    var ComponentA = `\
 import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
@@ -27,10 +22,8 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;
-`
-    var ComponentB =
-`\
+export default ComponentA;`
+    var ComponentB = `\
 class ComponentB extends React.Component {
   render() {
     return (
@@ -39,28 +32,22 @@ class ComponentB extends React.Component {
   }
 }
 
-export default ComponentB;
-`
+export default ComponentB;`
     assert.deepEqual(
       reacterminator({type: 'string', content: content}),
       {ComponentA: ComponentA, ComponentB: ComponentB}
     )
   })
 
-  // ----------------------------------------
   it('should generate three nested components', function () {
-
-    var content =
-`\
+    var content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB">
     <div data-component-name="ComponentC">
     </div>
   </div>
-</div>
-`
-    var ComponentA =
-`\
+</div>`
+    var ComponentA = `\
 import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
@@ -73,11 +60,9 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;
-`
+export default ComponentA;`
 
-    var ComponentB =
-`\
+    var ComponentB = `\
 import ComponentC from './ComponentC';
 
 class ComponentB extends React.Component {
@@ -90,11 +75,9 @@ class ComponentB extends React.Component {
   }
 }
 
-export default ComponentB;
-`
+export default ComponentB;`
 
-    var ComponentC =
-`\
+    var ComponentC = `\
 class ComponentC extends React.Component {
   render() {
     return (
@@ -103,12 +86,11 @@ class ComponentC extends React.Component {
   }
 }
 
-export default ComponentC;
-`
+export default ComponentC;`
 
     assert.deepEqual(
       reacterminator({type: 'string', content: content}),
-      {ComponentA: ComponentA, ComponentB: ComponentB}
+      {ComponentA: ComponentA, ComponentB: ComponentB, ComponentC: ComponentC}
     )
   })
 })

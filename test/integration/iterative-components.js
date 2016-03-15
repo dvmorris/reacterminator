@@ -3,22 +3,17 @@ var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
 describe.skip('reacterminator', function () {
-
-  // ----------------------------------------
   it('should generate iterative components', function () {
-    var content =
-`\
+    var content = `\
 <div data-component-name="ComponentA"
     data-component-list-item="ComponentB"
     data-component-list-prop="users">
   <div><span>1</span></div>
   <div><span>2</span></div>
   <div><span>3</span></div>
-</div>
-`
+</div>`
 
-    var ComponentA =
-`\
+    var ComponentA = `\
 import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
@@ -35,11 +30,9 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;
-`
+export default ComponentA;`
 
-    var ComponentB =
-`
+    var ComponentB = `
 class ComponentB extends React.Component {
   render() {
     return (
@@ -48,13 +41,11 @@ class ComponentB extends React.Component {
   }
 }
 
-export default ComponentB;
-`
+export default ComponentB;`
 
     assert.deepEqual(
       reacterminator({type: 'string', content: content}),
       {ComponentA: ComponentA, ComponentB: ComponentB}
     )
   })
-
 })
