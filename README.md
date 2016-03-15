@@ -26,6 +26,7 @@
 - install correct node version
 ```shell
 nvm install # .nvmrc is used to specify node version
+nvm use
 ```
 - make sure you can run this command:
 ```
