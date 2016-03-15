@@ -9,10 +9,8 @@ describe.skip('reacterminator', function () {
 </div>`
     var ComponentA = `\
 class ComponentA extends React.Component {
-
-  const {firstName, lastName} = this.state;
-
   render() {
+    const {firstName, lastName} = this.state;
     return (
       <div></div>
     );

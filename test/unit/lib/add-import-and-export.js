@@ -8,11 +8,11 @@ describe('add-import-and-export', function () {
       name: 'ComponentA',
       dependencies: ['ComponentB'],
       declarationSnippet: `\
-var ComponentA = React.createClass({
-  render: function () {
+class ComponentA extends React.Component {
+  render() {
     return <ComponentB></ComponentB>
   }
-})`
+}`
     }
 
     assert.deepEqual(
@@ -20,11 +20,11 @@ var ComponentA = React.createClass({
       `\
 import ComponentB from './components/ComponentB.jsx';
 
-var ComponentA = React.createClass({
-  render: function () {
+class ComponentA extends React.Component {
+  render() {
     return <ComponentB></ComponentB>
   }
-})
+}
 
 export default ComponentA;`
     )
@@ -35,11 +35,11 @@ export default ComponentA;`
       name: 'ComponentA',
       dependencies: ['ComponentB'],
       declarationSnippet: `\
-var ComponentA = React.createClass({
-render: function () {
-  return <ComponentB></ComponentB>
-}
-})`
+class ComponentA extends React.Component {
+  render() {
+    return <ComponentB></ComponentB>
+  }
+}`
     }
 
     assert.deepEqual(
@@ -47,11 +47,11 @@ render: function () {
       `\
 import ComponentB from './components/ComponentB.jsx';
 
-var ComponentA = React.createClass({
-render: function () {
-  return <ComponentB></ComponentB>
+class ComponentA extends React.Component {
+  render() {
+    return <ComponentB></ComponentB>
+  }
 }
-})
 
 export default ComponentA;`
     )

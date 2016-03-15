@@ -12,11 +12,11 @@ describe('jsx-to-declaration', function () {
     assert.deepEqual(
       addDeclaration(component).declarationSnippet,
       `\
-var ComponentA = React.createClass({
-  render: function () {
+class ComponentA extends React.Component {
+  render() {
     return <div></div>;
   }
-});`
+};`
     )
   })
 })
