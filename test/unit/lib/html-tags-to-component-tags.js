@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var htmlTagsToComponentTags = require('../../../lib/html-tags-to-component-tags')
 
-describe('html-to-html-snippets', function () {
+describe('html-tags-to-component-tags', function () {
   it('should convert annotated tags to component', function () {
     var component = {
       name: 'ComponentA',
@@ -35,7 +35,7 @@ describe('html-to-html-snippets', function () {
     )
   })
 
-  it('should only add the outermost components to dependencies', function () {
+  it('should leave non-componets tag unchanged', function () {
     var component = {
       name: 'ComponentA',
       htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> <div data-component-name=\"ComponentC\"> </div> </div> <div> not a component </div> </div>'

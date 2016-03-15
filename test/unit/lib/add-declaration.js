@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 var assert = require('chai').assert
-var htmlSnippetToJsxSnippet = require('../../../lib/jsx-to-declaration')
+var addDeclaration = require('../../../lib/add-declaration')
 
 describe('jsx-to-declaration', function () {
   it('should convert html snippet to jsx ast', function () {
@@ -10,7 +10,7 @@ describe('jsx-to-declaration', function () {
     }
 
     assert.deepEqual(
-      htmlSnippetToJsxSnippet(component).declarationSnippet,
+      addDeclaration(component).declarationSnippet,
 `\
 var ComponentA = React.createClass({
   render: function () {
