@@ -26,7 +26,7 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;`
+export default ComponentA;\n`
     )
   })
 
@@ -53,7 +53,7 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;`
+export default ComponentA;\n`
     )
   })
 })

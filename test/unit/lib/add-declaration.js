@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var addDeclaration = require('../../../lib/add-declaration')
 
-describe('jsx-to-declaration', function () {
+describe('add-declaration', function () {
   it('should convert html snippet to jsx ast', function () {
     var component = {
       name: 'ComponentA',

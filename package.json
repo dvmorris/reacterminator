@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Convert html to react components",
   "main": "lib/index.js",
+  "bin": "bin/reacterminator.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
     "test:watch": "watch 'standard && mocha' .",
@@ -44,6 +45,8 @@
   "dependencies": {
     "babel-generator": "^6.7.2",
     "babylon": "^6.7.0",
-    "cheerio": "^0.20.0"
+    "chalk": "^1.1.1",
+    "cheerio": "^0.20.0",
+    "commander": "^2.9.0"
   }
 }
