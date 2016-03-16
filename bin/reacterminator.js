@@ -1,8 +1,6 @@
 #! /usr/bin/env node
 
 var _ = require('lodash')
-var fs = require('fs')
-var glob = require('glob')
 var chalk = require('chalk')
 var program = require('commander')
 var reacterminator = require('../lib/index')
@@ -16,7 +14,7 @@ program
     if (inputPath) {
       inputPath = process.cwd() + '/' + inputPath
     } else {
-      logError('Argument <inputPath> is required')
+      console.log(chalk.bold.red('ERROR: Argument <inputPath> is required'))
       process.exit(1)
     }
   })
@@ -44,31 +42,9 @@ if (!process.argv.slice(2).length) {
 
 // prepare options
 var rawOptions = _.extend(
-  { generateFiles: true },
+  {generateFiles: true},
   _.pick(program, ['outputPath', 'recursive', 'overrideFiles'])
 )
 
 var options = _.omitBy(rawOptions, _.isUndefined)
-
-// check if inputPath is a directory or a file
-var pathStat = fs.statSync(inputPath)
-if (pathStat.isDirectory()) {
-  var globPattern = options.recursive ? '/**/*.html' : '/*.html'
-  var htmlFiles = glob.sync(inputPath.replace(/\/$/, '') + globPattern)
-  htmlFiles.forEach(function (filePath) {
-    reacterminator(
-      {type: 'file', content: filePath},
-      options
-    )
-  })
-} else if (pathStat.isFile()) {
-  reacterminator(
-    {type: 'file', content: inputPath},
-    options
-  )
-}
-
-// helpers
-function logError (message) {
-  console.log(chalk.bold.red('ERROR: ' + message))
-}
+reacterminator({type: 'path', content: inputPath}, options)
