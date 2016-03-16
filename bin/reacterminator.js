@@ -2,6 +2,7 @@
 
 var _ = require('lodash')
 var fs = require('fs')
+var glob = require('glob')
 var chalk = require('chalk')
 var program = require('commander')
 var reacterminator = require('../lib/index')
@@ -19,7 +20,11 @@ program
       process.exit(1)
     }
   })
-  .option('-p, --output-path [./component]', 'Specify output path')
+  .option(
+    '-p, --output-path [./component]',
+    'Specify output path, can be a file or a folder'
+  )
+  .option('-r, --recursive', 'Find files in the folder recursivly')
   .option('-o, --override-files', 'Override existing files in the output path')
 
 program.on('--help', function () {
@@ -38,21 +43,24 @@ if (!process.argv.slice(2).length) {
 }
 
 // prepare options
-var options = {
-  generateFiles: true,
-  overrideFiles: program.overrideFiles
-}
-if (program.outputPath) {
-  options.outputPath = program.outputPath
-}
+var rawOptions = _.extend(
+  { generateFiles: true },
+  _.pick(program, ['outputPath', 'recursive', 'overrideFiles'])
+)
+
+var options = _.omitBy(rawOptions, _.isUndefined)
 
 // check if inputPath is a directory or a file
 var pathStat = fs.statSync(inputPath)
 if (pathStat.isDirectory()) {
-  // TODO: move this feature to index.js, cli should only be an interface
-  // TODO: get all html files in this folder,
-  // we should be able to get it recursivly
-  // var htmlFiles = []
+  var globPattern = options.recursive ? '/**/*.html' : '/*.html'
+  var htmlFiles = glob.sync(inputPath.replace(/\/$/, '') + globPattern)
+  htmlFiles.forEach(function (filePath) {
+    reacterminator(
+      {type: 'file', content: filePath},
+      options
+    )
+  })
 } else if (pathStat.isFile()) {
   reacterminator(
     {type: 'file', content: inputPath},
