@@ -34,4 +34,43 @@ export default ComponentA;`
       fileSnippet
     )
   })
+
+  it('should skip a file', function () {
+    var fileSnippet = `\
+class ComponentA extends React.Component {
+  render() {
+    return <div></div>
+  }
+}`
+
+    generateFiles(
+      {
+        ComponentA: {
+          name: 'ComponentA',
+          fileSnippet: fileSnippet
+        }
+      },
+      {outputPath: path.resolve('./components'), overrideFiles: true}
+    )
+
+    assert.deepEqual(
+      fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
+      fileSnippet
+    )
+
+    generateFiles(
+      {
+        ComponentA: {
+          name: 'ComponentA',
+          fileSnippet: ''
+        }
+      },
+      {outputPath: path.resolve('./components'), overrideFiles: false}
+    )
+
+    assert.deepEqual(
+      fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
+      fileSnippet
+    )
+  })
 })
