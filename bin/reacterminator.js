@@ -11,8 +11,7 @@ program
   .action(function (inputPathArgument) {
     inputPath = _.trim(inputPathArgument)
     if (!inputPath) {
-      console.log('ERROR: Argument <inputPath> is required')
-      process.exit(1)
+      throw new Error('Argument <inputPath> is required')
     }
   })
   .option('-p, --output-path [./component]', 'specify output path')
