@@ -10,6 +10,29 @@
 [coverall-image]: https://img.shields.io/coveralls/poetic/reacterminator.svg
 [coverall-url]:   https://coveralls.io/github/poetic/reacterminator
 
+## CLI usage
+```
+npm i -g reacterminator
+```
+
+```
+  Usage: reacterminator [options] <inputPath>
+
+  Convert annotated htmls to react component files
+
+  Options:
+
+    -h, --help                       output usage information
+    -p, --output-path [./component]  Specify output path, can be a file or a folder
+    -r, --recursive                  Find files in the folder recursivly
+    -o, --override-files             Override existing files in the output path
+
+  Examples:
+
+    $ reacterminator design.html
+    $ reacterminator design/
+```
+
 ## [Documents](http://poetic.github.io/reacterminator/doc)
 
 ## Development
