@@ -1,5 +1,6 @@
 /* eslint-env mocha */
 var fs = require('fs')
+var path = require('path')
 var assert = require('chai').assert
 var generateFiles = require('../../../lib/generate-files.js')
 
@@ -25,7 +26,7 @@ export default ComponentA;`
 
     generateFiles(
       components,
-      {outputPath: './components', overrideFiles: true}
+      {outputPath: path.resolve('./components'), overrideFiles: true}
     )
 
     assert.deepEqual(
