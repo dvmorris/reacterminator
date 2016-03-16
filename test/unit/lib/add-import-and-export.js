@@ -44,7 +44,7 @@ class ComponentA extends React.Component {
     assert.deepEqual(
       addImportAndExport(component, {outputPath: './components'}).fileSnippet,
       `\
-import ComponentB from './components/ComponentB.jsx';
+import ComponentB from './components/ComponentB';
 
 class ComponentA extends React.Component {
   render() {
@@ -71,8 +71,8 @@ class ComponentA extends React.Component {
     assert.deepEqual(
       addImportAndExport(component, {outputPath: './components'}).fileSnippet,
       `\
-import ComponentB from './components/ComponentB.jsx';
-import ComponentC from './components/ComponentC.jsx';
+import ComponentB from './components/ComponentB';
+import ComponentC from './components/ComponentC';
 
 class ComponentA extends React.Component {
   render() {

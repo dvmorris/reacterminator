@@ -2,41 +2,38 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-describe.skip('reacterminator', function () {
+describe('reacterminator', function () {
   it('should generate two nested components', function () {
     var content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB">
   </div>
 </div>`
+
     var ComponentA = `\
-import ComponentB from './ComponentB';
+import ComponentB from './components/ComponentB';
 
 class ComponentA extends React.Component {
   render() {
-    return (
-      <div>
-        <ComponentB></ComponentB>
-      </div>
-    );
+    return <div> <ComponentB></ComponentB> </div>;
   }
-}
+};
 
-export default ComponentA;`
+export default ComponentA;\n`
+
     var ComponentB = `\
 class ComponentB extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div> </div>;
   }
-}
+};
 
-export default ComponentB;`
-    assert.deepEqual(
-      reacterminator({type: 'string', content: content}),
-      {ComponentA: ComponentA, ComponentB: ComponentB}
-    )
+export default ComponentB;\n`
+
+    var components = reacterminator({type: 'string', content: content})
+
+    assert.deepEqual(components.ComponentA.fileSnippet, ComponentA)
+    assert.deepEqual(components.ComponentB.fileSnippet, ComponentB)
   })
 
   it('should generate three nested components', function () {
@@ -47,50 +44,42 @@ export default ComponentB;`
     </div>
   </div>
 </div>`
+
     var ComponentA = `\
-import ComponentB from './ComponentB';
+import ComponentB from './components/ComponentB';
 
 class ComponentA extends React.Component {
   render() {
-    return (
-      <div>
-        <ComponentB></ComponentB>
-      </div>
-    );
+    return <div> <ComponentB></ComponentB> </div>;
   }
-}
+};
 
-export default ComponentA;`
+export default ComponentA;\n`
 
     var ComponentB = `\
-import ComponentC from './ComponentC';
+import ComponentC from './components/ComponentC';
 
 class ComponentB extends React.Component {
   render() {
-    return (
-      <div>
-        <ComponentC></ComponentC>
-      </div>
-    );
+    return <div> <ComponentC></ComponentC> </div>;
   }
-}
+};
 
-export default ComponentB;`
+export default ComponentB;\n`
 
     var ComponentC = `\
 class ComponentC extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div> </div>;
   }
-}
+};
 
-export default ComponentC;`
+export default ComponentC;\n`
 
-    assert.deepEqual(
-      reacterminator({type: 'string', content: content}),
-      {ComponentA: ComponentA, ComponentB: ComponentB, ComponentC: ComponentC}
-    )
+    var components = reacterminator({type: 'string', content: content})
+
+    assert.deepEqual(components.ComponentA.fileSnippet, ComponentA)
+    assert.deepEqual(components.ComponentB.fileSnippet, ComponentB)
+    assert.deepEqual(components.ComponentC.fileSnippet, ComponentC)
   })
 })

@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-describe.skip('reacterminator', function () {
+describe('reacterminator', function () {
   it('should generate one component from one div', function () {
     var content = `\
 <div data-component-name="ComponentA">
@@ -10,15 +10,13 @@ describe.skip('reacterminator', function () {
     var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div> </div>;
   }
-}
+};
 
-export default ComponentA;`
+export default ComponentA;\n`
     assert.deepEqual(
-      reacterminator({type: 'string', content: content})['ComponentA'],
+      reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
       ComponentA
     )
   })
@@ -33,7 +31,7 @@ export default ComponentA;`
     <title></title>
   </head>
   <body>
-    <div data-component-name="ComponentA"'>
+    <div data-component-name="ComponentA">
     </div>
   </body>
 </html>`
@@ -41,15 +39,13 @@ export default ComponentA;`
     var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div> </div>;
   }
-}
+};
 
-export default ComponentA;`
+export default ComponentA;\n`
     assert.deepEqual(
-      reacterminator({type: 'string', content: content})['ComponentA'],
+      reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
       ComponentA
     )
   })
