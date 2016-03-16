@@ -23,9 +23,9 @@ Convert annotated htmls to react component files
 Options:
 
   -h, --help                       output usage information
-  -p, --output-path [./component]  Specify output path, can be a file or a folder
-  -r, --recursive                  Find files in the folder recursivly
-  -o, --override-files             Override existing files in the output path
+  -p, --output-path [./component]  specify output path
+  -r, --recursive                  find files in the folder recursivly
+  -o, --override-files             override existing files in the output path
 
 Examples:
 

@@ -15,12 +15,9 @@ program
       process.exit(1)
     }
   })
-  .option(
-    '-p, --output-path [./component]',
-    'Specify output path, can be a file or a folder'
-  )
-  .option('-r, --recursive', 'Find files in the folder recursivly')
-  .option('-o, --override-files', 'Override existing files in the output path')
+  .option('-p, --output-path [./component]', 'specify output path')
+  .option('-r, --recursive', 'find files in the folder recursivly')
+  .option('-o, --override-files', 'override existing files in the output path')
 
 program.on('--help', function () {
   console.log('  Examples:')
