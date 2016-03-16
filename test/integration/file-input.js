@@ -101,4 +101,15 @@ export default ComponentA;\n`
     assert(fs.statSync('./components/SubFolder.jsx').isFile())
     assert(fs.statSync('./components/ComponentA.jsx').isFile())
   })
+
+  it('should throw an error when the input file is not a file or directory', function () {
+    assert.throws(function () {
+      reacterminator(
+        {
+          type: 'path',
+          content: '/dev/null'
+        }
+      )
+    }, /is not a file or directory/)
+  })
 })

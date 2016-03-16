@@ -8,6 +8,7 @@
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
     "test:watch": "watch 'standard && mocha' .",
     "test:watch:mocha": "mocha --watch",
+    "test:report": "standard && istanbul cover _mocha",
     "doc": "jsdoc lib -d doc"
   },
   "repository": {
