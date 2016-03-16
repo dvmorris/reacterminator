@@ -39,7 +39,7 @@ Examples:
 
 ### Workflow
 - write tests ( use tests as specs )
-- implementation ( please practic TDD by `npm run test:watch:moch` )
+- implementation ( please practic TDD by `npm run test:watch:mocha` )
 - ensure the following before you do a PR ( `npm test` )
   - linting pass
   - tests pass

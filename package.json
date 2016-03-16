@@ -1,7 +1,7 @@
 {
   "name": "reacterminator",
   "version": "0.0.1",
-  "description": "Convert html to react components",
+  "description": "Convert html files to react components",
   "main": "lib/index.js",
   "bin": "bin/reacterminator.js",
   "scripts": {
@@ -19,7 +19,8 @@
     "react",
     "html",
     "converter",
-    "generator"
+    "generator",
+    "html to react"
   ],
   "author": "Chun-Yang <yang2007chun@gmail.com>",
   "license": "MIT",
