@@ -62,4 +62,48 @@ describe('html-to-html-snippets', function () {
       }
     )
   })
+
+  it('should throw an error when the name is empty', function () {
+    var html = `\
+<div data-component-name="">
+</div>`
+
+    assert.throws(
+      function () {
+        htmlToHtmlSnippets(html)
+      },
+      /this component does not have a name/
+    )
+  })
+
+  it('should throw an error when the name is not upper camelcase', function () {
+    assert.throws(
+      function () {
+        htmlToHtmlSnippets('<div data-component-name="abcdef"></div>')
+      },
+      /is not upper camel case/
+    )
+    assert.throws(
+      function () {
+        htmlToHtmlSnippets('<div data-component-name="Abc-def"></div>')
+      },
+      /is not upper camel case/
+    )
+  })
+
+  it('should not override an existing component', function () {
+    var html = `\
+<div data-component-name="ComponentA">first</div>
+<div data-component-name="ComponentA">second</div>`
+
+    assert.deepEqual(
+      htmlToHtmlSnippets(html),
+      {
+        ComponentA: {
+          name: 'ComponentA',
+          htmlSnippet: '<div>first</div>'
+        }
+      }
+    )
+  })
 })
