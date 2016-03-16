@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Mar 11 2016 20:58:09 GMT+0000 (UTC) -->
+<html data-wf-site="5677ffc873b48a431a04399b" data-wf-page="56a0018f81b81a826b0a1b7d">
+<head>
+  <meta charset="utf-8">
+  <title>Add Campaign</title>
+  <meta property="og:title" content="Add Campaign">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/blendata.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Open Sans Condensed:300,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+  <style>
+    select.select {
+     -webkit-appearance: none;
+     border-radius: 0px;
+    }
+    body {
+        min-width: 1024px;
+    }
+  </style>
+</head>
+<body data-component-name="Body">
+  <div data-component-name="CampaignDropdown" data-delay="0" class="w-dropdown campaign-dropdown settings">
+    <div class="w-dropdown-toggle w-clearfix dropdown-toggle campaign-settings">
+      <div class="h1">Add a Campaign</div>
+      <div class="w-icon-dropdown-toggle dropdown-icon"></div>
+    </div>
+    <nav data-component-name="Nav" class="w-dropdown-list dropdown-list">
+      <div class="menu-label transparent">
+        <h3 class="light">YOUR CAMPAIGNS</h3>
+      </div><a href="#" class="w-dropdown-link campaigndropdown-link">Underwood for Mayor</a><a href="#" class="w-dropdown-link campaigndropdown-link">Kanye 2020</a><a href="#" class="w-dropdown-link campaigndropdown-link add-campaign"><span class="link">ADD CAMPAIGN</span></a><a href="#" class="w-dropdown-link campaigndropdown-link settings"><span class="link">SETTINGS</span></a>
+    </nav>
+  </div>
+  <div data-component-name="Title" class="w-clearfix section-title">
+    <div class="my-account">
+      <a href="#" class="w-inline-block"><img src="images/my account.svg">
+      </a>
+    </div>
+  </div>
+  <div data-component-name="Tab" class="w-section tab-content">
+    <div class="w-container plan-options"><a href="#" class="w-button button back auto">BACK</a>
+      <div class="centered-text above-section">
+        <h1 class="centered bold">We offer plans for any sized campaign.</h1>
+        <div class="paragraph">Unlimited users, and unlimited channel integrations.</div>
+      </div>
+      <div class="w-row plan-cards">
+        <div class="w-col w-col-4 column-nopadding">
+          <div class="card-bg auto-height">
+            <div class="card-title-div">
+              <h3 class="small-title">STARTER&nbsp; <span class="secondary">PRICED PER CAMPAIGN</span></h3>
+            </div>
+            <div class="div-centered">
+              <div class="number price">$100</div>
+              <div class="small-title float">/MO</div>
+              <div class="plan-voters">UP TO 5,000 VOTERS</div>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-4 column-nopadding">
+          <div class="card-bg auto-height">
+            <div class="card-title-div">
+              <h3 class="small-title">MID-SIZE &nbsp;<span class="secondary">PRICED PER CAMPAIGN</span></h3>
+            </div>
+            <div class="div-centered">
+              <div class="number price">$200</div>
+              <div class="small-title float">/MO</div>
+              <div class="plan-voters">UP TO 750,000 VOTERS</div>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-4 column-nopadding">
+          <div class="card-bg auto-height">
+            <div class="card-title-div">
+              <h3 class="small-title">ENTERPRISE &nbsp;<span class="secondary">PRICED PER CAMPAIGN</span></h3>
+            </div>
+            <div class="div-centered">
+              <div class="number price">$500</div>
+              <div class="small-title float">/MO</div>
+              <div class="plan-voters">750,000+ VOTERS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-container">
+      <div class="plan-calculator-div">
+        <h1 class="centered">Use our plan calculator to determine which plan is right for you.</h1>
+        <div class="plan-form-div">
+          <div data-ix="hide" class="plan-suggestion card-bg plan">
+            <div class="plan-suggestion-content"><img src="images/check.svg">
+              <div class="plan-content">There are <strong data-new-link="true">24,383</strong> voters in your district. Sign up for the Mid-size Plan</div><a href="#" data-ix="hide-calculated-plan">RECALCULATE</a>
+            </div><a href="plan-payment.html" class="w-button form-submit full-width bottom">CREATE KANYE 2020 CAMPAIGN</a>
+          </div>
+          <div class="w-form form-wrapper">
+            <form id="email-form" name="email-form" data-name="Email Form" class="form-plan">
+              <input id="Campaign-Name-3" type="text" placeholder="Campaign Name" name="Campaign-Name" data-name="Campaign Name" autofocus="autofocus" required="required" class="w-input text-field modal-field">
+              <select id="State-6" name="State" data-name="State" class="w-select select">
+                <option value="">Select a State</option>
+                <option value="First">First Choice</option>
+                <option value="Second">Second Choice</option>
+                <option value="Third">Third Choice</option>
+              </select>
+              <select id="District-Type" name="District-Type" data-name="District Type" class="w-select select">
+                <option value="">Select District Type</option>
+                <option value="First">First Choice</option>
+                <option value="Second">Second Choice</option>
+                <option value="Third">Third Choice</option>
+              </select>
+              <input id="District-s" type="text" placeholder="Your District(s)" name="District-s" data-name="District(s)" class="w-input text-field">
+              <input type="submit" value="CALCULATE" data-wait="PLEASE WAIT..." wait="PLEASE WAIT..." data-ix="show-calculated-plan" class="w-button form-submit full-width">
+            </form>
+            <div class="w-form-done">
+              <p>Thank you! Your submission has been received!</p>
+            </div>
+            <div class="w-form-fail error-message">
+              <p class="message-text">Oops! Something went wrong while submitting the form. Check your email and password, and try again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="submit-centered"><img src="images/logo-settings.svg">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>
