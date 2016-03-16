@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 
 var _ = require('lodash')
-var chalk = require('chalk')
 var program = require('commander')
 var reacterminator = require('../lib/index')
 var inputPath
@@ -11,10 +10,8 @@ program
   .arguments('<inputPath>')
   .action(function (inputPathArgument) {
     inputPath = _.trim(inputPathArgument)
-    if (inputPath) {
-      inputPath = process.cwd() + '/' + inputPath
-    } else {
-      console.log(chalk.bold.red('ERROR: Argument <inputPath> is required'))
+    if (!inputPath) {
+      console.log('ERROR: Argument <inputPath> is required')
       process.exit(1)
     }
   })
@@ -41,10 +38,14 @@ if (!process.argv.slice(2).length) {
 }
 
 // prepare options
-var rawOptions = _.extend(
+var options = _.extend(
   {generateFiles: true},
   _.pick(program, ['outputPath', 'recursive', 'overrideFiles'])
 )
 
-var options = _.omitBy(rawOptions, _.isUndefined)
-reacterminator({type: 'path', content: inputPath}, options)
+var cleanedOptions = _.omitBy(options, _.isUndefined)
+
+reacterminator(
+  {type: 'path', content: inputPath},
+  cleanedOptions
+)

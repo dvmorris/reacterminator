@@ -11,7 +11,7 @@ describe('reacterminator', function () {
 </div>`
 
     var ComponentA = `\
-import ComponentB from './components/ComponentB';
+import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
   render() {
@@ -46,7 +46,7 @@ export default ComponentB;\n`
 </div>`
 
     var ComponentA = `\
-import ComponentB from './components/ComponentB';
+import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
   render() {
@@ -57,7 +57,7 @@ class ComponentA extends React.Component {
 export default ComponentA;\n`
 
     var ComponentB = `\
-import ComponentC from './components/ComponentC';
+import ComponentC from './ComponentC';
 
 class ComponentB extends React.Component {
   render() {
