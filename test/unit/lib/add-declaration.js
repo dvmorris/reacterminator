@@ -6,7 +6,7 @@ describe('add-declaration', function () {
   it('should add declaration', function () {
     var component = {
       name: 'ComponentA',
-      jsxSnippet: '<div></div>'
+      jsxSnippet: '<div></div>;'
     }
 
     assert.deepEqual(
