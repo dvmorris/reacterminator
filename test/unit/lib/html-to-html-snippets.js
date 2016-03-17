@@ -106,4 +106,28 @@ describe('html-to-html-snippets', function () {
       }
     )
   })
+
+  it('should remove commented nodes', function () {
+    var html = `\
+<div data-component-name="ComponentA">
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</div>`
+
+    assert.equal(
+      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      '<div>  </div>'
+    )
+  })
+
+  it('should remove script tags', function () {
+    var html = `\
+<div data-component-name="ComponentA">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
+</div>`
+
+    assert.equal(
+      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      '<div>  </div>'
+    )
+  })
 })
