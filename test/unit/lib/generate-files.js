@@ -20,7 +20,9 @@ export default ComponentA;`
     var components = {
       ComponentA: {
         name: 'ComponentA',
-        formattedFileSnippet: formattedFileSnippet
+        formattedFileSnippet: formattedFileSnippet,
+        removedComments: [],
+        removedScriptTags: []
       }
     }
 
@@ -47,7 +49,9 @@ class ComponentA extends React.Component {
       {
         ComponentA: {
           name: 'ComponentA',
-          formattedFileSnippet: formattedFileSnippet
+          formattedFileSnippet: formattedFileSnippet,
+          removedComments: [],
+          removedScriptTags: []
         }
       },
       {outputPath: path.resolve('./components'), overrideFiles: true}
@@ -62,10 +66,38 @@ class ComponentA extends React.Component {
       {
         ComponentA: {
           name: 'ComponentA',
-          formattedFileSnippet: ''
+          formattedFileSnippet: '',
+          removedComments: [],
+          removedScriptTags: []
         }
       },
       {outputPath: path.resolve('./components'), overrideFiles: false}
+    )
+
+    assert.deepEqual(
+      fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
+      formattedFileSnippet
+    )
+  })
+
+  it('should report removed codes', function () {
+    var formattedFileSnippet = `\
+class ComponentA extends React.Component {
+  render() {
+    return <div></div>
+  }
+}`
+
+    generateFiles(
+      {
+        ComponentA: {
+          name: 'ComponentA',
+          formattedFileSnippet: formattedFileSnippet,
+          removedComments: ['<!-- -->'],
+          removedScriptTags: ['<script></script>']
+        }
+      },
+      {outputPath: path.resolve('./components'), overrideFiles: true}
     )
 
     assert.deepEqual(

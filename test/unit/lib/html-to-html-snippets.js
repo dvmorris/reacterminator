@@ -12,14 +12,9 @@ describe('html-to-html-snippets', function () {
 <div data-component-name="ComponentA">
 </div>`
 
-    assert.deepEqual(
-      htmlToHtmlSnippets(html),
-      {
-        ComponentA: {
-          htmlSnippet: '<div> </div>',
-          name: 'ComponentA'
-        }
-      }
+    assert.equal(
+      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      '<div> </div>'
     )
   })
 
@@ -30,18 +25,13 @@ describe('html-to-html-snippets', function () {
   </div>
 </div>`
 
-    assert.deepEqual(
-      htmlToHtmlSnippets(html),
-      {
-        ComponentA: {
-          name: 'ComponentA',
-          htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> </div> </div>'
-        },
-        ComponentB: {
-          name: 'ComponentB',
-          htmlSnippet: '<div> </div>'
-        }
-      }
+    assert.equal(
+      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      '<div> <div data-component-name=\"ComponentB\"> </div> </div>'
+    )
+    assert.equal(
+      htmlToHtmlSnippets(html).ComponentB.htmlSnippet,
+      '<div> </div>'
     )
   })
 
@@ -57,7 +47,9 @@ describe('html-to-html-snippets', function () {
           name: 'ComponentA',
           listItem: 'ComponentB',
           listProp: 'users',
-          htmlSnippet: '<div> </div>'
+          htmlSnippet: '<div> </div>',
+          removedComments: [],
+          removedScriptTags: []
         }
       }
     )
@@ -97,13 +89,8 @@ describe('html-to-html-snippets', function () {
 <div data-component-name="ComponentA">second</div>`
 
     assert.deepEqual(
-      htmlToHtmlSnippets(html),
-      {
-        ComponentA: {
-          name: 'ComponentA',
-          htmlSnippet: '<div>first</div>'
-        }
-      }
+      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      '<div>first</div>'
     )
   })
 
@@ -113,10 +100,10 @@ describe('html-to-html-snippets', function () {
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </div>`
 
-    assert.equal(
-      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
-      '<div>  </div>'
-    )
+    var outputComponent = htmlToHtmlSnippets(html).ComponentA
+
+    assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
+    assert.deepEqual(outputComponent.removedComments, ['<!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->'])
   })
 
   it('should remove script tags', function () {
@@ -125,9 +112,9 @@ describe('html-to-html-snippets', function () {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
 </div>`
 
-    assert.equal(
-      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
-      '<div>  </div>'
-    )
+    var outputComponent = htmlToHtmlSnippets(html).ComponentA
+
+    assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
+    assert.deepEqual(outputComponent.removedScriptTags, ['<script src=\"https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js\"/>'])
   })
 })
