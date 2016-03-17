@@ -9,7 +9,9 @@ describe('format-file-snippet', function () {
       fileSnippet: `\
 class ComponentA extends React.Component {
   render() {
-    return <ul><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
+    return (
+      <ul><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
+    );
   }
 }
 
@@ -21,23 +23,25 @@ export default ComponentA;\n`
       `\
 class ComponentA extends React.Component {
   render() {
-    return <ul>
-             <li>
-               Item 1
-             </li>
-             <li>
-               Item 2
-             </li>
-             <li>
-               Item 3
-             </li>
-             <li>
-               Item 4
-             </li>
-             <li>
-               Item 5
-             </li>
-           </ul>
+    return (
+      <ul>
+        <li>
+          Item 1
+        </li>
+        <li>
+          Item 2
+        </li>
+        <li>
+          Item 3
+        </li>
+        <li>
+          Item 4
+        </li>
+        <li>
+          Item 5
+        </li>
+      </ul>
+      );
   }
 }
 

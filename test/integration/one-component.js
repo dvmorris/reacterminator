@@ -7,14 +7,18 @@ describe('reacterminator', function () {
     var content = `\
 <div data-component-name="ComponentA">
 </div>`
+
     var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
-    return <div> </div>;
+    return (
+      <div> </div>
+      );
   }
 };
 
 export default ComponentA;\n`
+
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
       ComponentA
@@ -39,11 +43,14 @@ export default ComponentA;\n`
     var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
-    return <div> </div>;
+    return (
+      <div> </div>
+      );
   }
 };
 
 export default ComponentA;\n`
+
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
       ComponentA

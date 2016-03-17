@@ -13,11 +13,12 @@ describe('reacterminator with file input', function () {
     var ComponentA = `\
 class ComponentA extends React.Component {
   render() {
-    return <div>
-           </div>;
+    return (
+      <div>
+      </div>
+      );
   }
 }
-;
 
 export default ComponentA;\n`
 

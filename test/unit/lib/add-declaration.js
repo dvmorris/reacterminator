@@ -6,7 +6,7 @@ describe('add-declaration', function () {
   it('should add declaration', function () {
     var component = {
       name: 'ComponentA',
-      jsxSnippet: '<div></div>;'
+      jsxSnippet: '<div></div>'
     }
 
     assert.deepEqual(
@@ -14,7 +14,9 @@ describe('add-declaration', function () {
       `\
 class ComponentA extends React.Component {
   render() {
-    return <div></div>;
+    return (
+      <div></div>
+      );
   }
 };\n`
     )

@@ -15,7 +15,9 @@ import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
   render() {
-    return <div> <ComponentB /> </div>;
+    return (
+      <div> <ComponentB/> </div>
+      );
   }
 };
 
@@ -24,7 +26,9 @@ export default ComponentA;\n`
     var ComponentB = `\
 class ComponentB extends React.Component {
   render() {
-    return <div> </div>;
+    return (
+      <div> </div>
+      );
   }
 };
 
@@ -50,7 +54,9 @@ import ComponentB from './ComponentB';
 
 class ComponentA extends React.Component {
   render() {
-    return <div> <ComponentB /> </div>;
+    return (
+      <div> <ComponentB/> </div>
+      );
   }
 };
 
@@ -61,7 +67,9 @@ import ComponentC from './ComponentC';
 
 class ComponentB extends React.Component {
   render() {
-    return <div> <ComponentC /> </div>;
+    return (
+      <div> <ComponentC/> </div>
+      );
   }
 };
 
@@ -70,7 +78,9 @@ export default ComponentB;\n`
     var ComponentC = `\
 class ComponentC extends React.Component {
   render() {
-    return <div> </div>;
+    return (
+      <div> </div>
+      );
   }
 };
 
