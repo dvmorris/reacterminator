@@ -10,6 +10,8 @@
 [coverall-image]: https://img.shields.io/coveralls/poetic/reacterminator.svg
 [coverall-url]:   https://coveralls.io/github/poetic/reacterminator
 
+## [Trello](https://trello.com/b/n7iRAJ7M/reacterminator)
+
 ## CLI
 ```
 npm i -g reacterminator
