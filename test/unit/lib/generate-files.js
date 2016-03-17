@@ -6,7 +6,7 @@ var generateFiles = require('../../../lib/generate-files.js')
 
 describe('generate-files', function () {
   it('should generate a file', function () {
-    var fileSnippet = `\
+    var formattedFileSnippet = `\
 import ComponentB from './components/ComponentB.jsx';
 
 class ComponentA extends React.Component {
@@ -20,7 +20,7 @@ export default ComponentA;`
     var components = {
       ComponentA: {
         name: 'ComponentA',
-        fileSnippet: fileSnippet
+        formattedFileSnippet: formattedFileSnippet
       }
     }
 
@@ -31,12 +31,12 @@ export default ComponentA;`
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
-      fileSnippet
+      formattedFileSnippet
     )
   })
 
   it('should skip a file', function () {
-    var fileSnippet = `\
+    var formattedFileSnippet = `\
 class ComponentA extends React.Component {
   render() {
     return <div></div>
@@ -47,7 +47,7 @@ class ComponentA extends React.Component {
       {
         ComponentA: {
           name: 'ComponentA',
-          fileSnippet: fileSnippet
+          formattedFileSnippet: formattedFileSnippet
         }
       },
       {outputPath: path.resolve('./components'), overrideFiles: true}
@@ -55,14 +55,14 @@ class ComponentA extends React.Component {
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
-      fileSnippet
+      formattedFileSnippet
     )
 
     generateFiles(
       {
         ComponentA: {
           name: 'ComponentA',
-          fileSnippet: ''
+          formattedFileSnippet: ''
         }
       },
       {outputPath: path.resolve('./components'), overrideFiles: false}
@@ -70,7 +70,7 @@ class ComponentA extends React.Component {
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
-      fileSnippet
+      formattedFileSnippet
     )
   })
 })

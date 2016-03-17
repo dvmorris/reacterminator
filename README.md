@@ -64,3 +64,8 @@ npm run test
 ### Resouces
 - [cheerio](https://github.com/cheeriojs/cheerio)
 - [babel](https://github.com/babel/babel)
+
+### Todo
+- beautify code
+- change style attribute into react object
+- plan next
