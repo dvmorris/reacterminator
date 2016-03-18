@@ -25,7 +25,6 @@ export default ComponentA;\n`
         .ComponentA
         .formattedFileSnippet
 
-    console.log(reacterminator({type: 'string', content: content}).ComponentA.formattedFileSnippet)
     assert.deepEqual(actual, expected)
   })
 
@@ -66,15 +65,13 @@ class ComponentB extends React.Component {
 
 export default ComponentB;`
 
-    console.log(reacterminator({type: 'string', content: content}).ComponentA.formattedFileSnippet)
-
     var actual1 = reacterminator({type: 'string', content: content})
-        .ComponentA
-        .formattedFileSnippet
+      .ComponentA
+      .formattedFileSnippet
 
     var actual2 = reacterminator({type: 'string', content: content})
-        .ComponentB
-        .formattedFileSnippet
+      .ComponentB
+      .formattedFileSnippet
 
     assert.deepEqual(actual1, ComponentA)
     assert.deepEqual(actual2, ComponentB)

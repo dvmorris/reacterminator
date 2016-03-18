@@ -22,10 +22,9 @@ class ComponentA extends React.Component {
 export default ComponentA;\n`
 
     var actual = reacterminator({type: 'string', content: content})
-    .ComponentA
-    .formattedFileSnippet
+      .ComponentA
+      .formattedFileSnippet
 
-    console.log(reacterminator({type: 'string', content: content}).ComponentA.formattedFileSnippet)
     assert.deepEqual(actual, expected)
   })
 })
