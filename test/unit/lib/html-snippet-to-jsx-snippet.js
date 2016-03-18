@@ -14,7 +14,7 @@ describe('html-snippet-to-jsx-snippet', function () {
       {
         name: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> </div> </div>',
-        jsxSnippet: '<div> <ComponentB/> </div>',
+        jsxSnippet: '<div> <ComponentB /> </div>',
         dependencies: ['ComponentB']
       }
     )
@@ -31,7 +31,7 @@ describe('html-snippet-to-jsx-snippet', function () {
       {
         name: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> <div data-component-name=\"ComponentC\"> </div> </div> </div>',
-        jsxSnippet: '<div> <ComponentB/> </div>',
+        jsxSnippet: '<div> <ComponentB /> </div>',
         dependencies: ['ComponentB']
       }
     )
@@ -48,7 +48,7 @@ describe('html-snippet-to-jsx-snippet', function () {
       {
         name: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> <div data-component-name=\"ComponentC\"> </div> </div> <div> not a component </div> </div>',
-        jsxSnippet: '<div> <ComponentB/> <div> not a component </div> </div>',
+        jsxSnippet: '<div> <ComponentB /> <div> not a component </div> </div>',
         dependencies: ['ComponentB']
       }
     )
@@ -62,7 +62,7 @@ describe('html-snippet-to-jsx-snippet', function () {
 
     assert.deepEqual(
       htmlSnippetToJsxSnippet(component).jsxSnippet,
-      '<div className="class-a" htmlFor="input-a"/>'
+      '<div className="class-a" htmlFor="input-a" />'
     )
   })
 
@@ -74,7 +74,31 @@ describe('html-snippet-to-jsx-snippet', function () {
 
     assert.deepEqual(
       htmlSnippetToJsxSnippet(component).jsxSnippet,
-      '<div className="class-a" htmlFor="input-a"><div className="class-b"/></div>'
+      '<div className="class-a" htmlFor="input-a"><div className="class-b" /></div>'
+    )
+  })
+
+  it('should use object for style', function () {
+    var component = {
+      name: 'ComponentA',
+      htmlSnippet: '<div style="padding-right: 100px; -webket-flex-box: flex;"></div>'
+    }
+
+    assert.deepEqual(
+      htmlSnippetToJsxSnippet(component).jsxSnippet,
+      '<div style={{ paddingRight: \'100px\', WebketFlexBox: \'flex\' }} />'
+    )
+  })
+
+  it('should work if style is empty', function () {
+    var component = {
+      name: 'ComponentA',
+      htmlSnippet: '<div style=""></div>'
+    }
+
+    assert.deepEqual(
+      htmlSnippetToJsxSnippet(component).jsxSnippet,
+      '<div style={{}} />'
     )
   })
 })

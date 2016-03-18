@@ -16,7 +16,7 @@ import ComponentB from './ComponentB';
 class ComponentA extends React.Component {
   render() {
     return (
-      <div> <ComponentB/> </div>
+      <div> <ComponentB /> </div>
       );
   }
 };
@@ -55,7 +55,7 @@ import ComponentB from './ComponentB';
 class ComponentA extends React.Component {
   render() {
     return (
-      <div> <ComponentB/> </div>
+      <div> <ComponentB /> </div>
       );
   }
 };
@@ -68,7 +68,7 @@ import ComponentC from './ComponentC';
 class ComponentB extends React.Component {
   render() {
     return (
-      <div> <ComponentC/> </div>
+      <div> <ComponentC /> </div>
       );
   }
 };
