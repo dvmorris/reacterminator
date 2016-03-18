@@ -2,38 +2,40 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-describe.skip('reacterminator', function () {
+describe('reacterminator', function () {
   it('should destruct props', function () {
     var content = `\
 <div data-component-name="ComponentA" data-component-props="firstName, lastName">
 </div>`
-    var ComponentA = `\
+    var expected = `\
 class ComponentA extends React.Component {
-
-  const {firstName, lastName} = this.props;
-
   render() {
+    const {firstName, lastName} = this.props;
+
     return (
-      <div></div>
-    );
+      <div>
+      </div>
+      );
   }
 }
 
-export default ComponentA;`
+export default ComponentA;\n`
 
-    assert.deepEqual(
-      reacterminator({type: 'string', content: content})['ComponentA'],
-      ComponentA
-    )
+    var actual = reacterminator({type: 'string', content: content})
+        .ComponentA
+        .formattedFileSnippet
+
+    assert.deepEqual(actual, expected)
   })
 
-  it('should pass props down to inner components', function () {
+  it.skip('should pass props down to inner components', function () {
     var content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB" data-component-props="firstName">
     <span data-value="firstName">Chun</span>
   </div>
 </div>`
+
     var ComponentA = `\
 import ComponentB from './ComponentB';
 
@@ -45,7 +47,7 @@ class ComponentA extends React.Component {
   }
 }
 
-export default ComponentA;`
+export default ComponentA;\n`
 
     var ComponentB = `\
 class ComponentB extends React.Component {
@@ -63,9 +65,15 @@ class ComponentB extends React.Component {
 
 export default ComponentB;`
 
-    assert.deepEqual(
-      reacterminator({type: 'string', content: content}),
-      {ComponentA: ComponentA, ComponentB: ComponentB}
-    )
+    var actual1 = reacterminator({type: 'string', content: content})
+      .ComponentA
+      .formattedFileSnippet
+
+    var actual2 = reacterminator({type: 'string', content: content})
+      .ComponentB
+      .formattedFileSnippet
+
+    assert.deepEqual(actual1, ComponentA)
+    assert.deepEqual(actual2, ComponentB)
   })
 })
