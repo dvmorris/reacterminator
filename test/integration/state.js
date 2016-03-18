@@ -3,7 +3,7 @@ var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
 describe('reacterminator', function () {
-  it.only('should destruct state', function () {
+  it('should destruct state', function () {
     var content = `\
 <div data-component-name="ComponentA" data-component-state="firstName, lastName">
 </div>`
@@ -21,7 +21,7 @@ class ComponentA extends React.Component {
 
 export default ComponentA;\n`
 
-var actual = reacterminator({type: 'string', content: content})
+    var actual = reacterminator({type: 'string', content: content})
     .ComponentA
     .formattedFileSnippet
 

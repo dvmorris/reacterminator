@@ -30,7 +30,6 @@ export default ComponentA;\n`
   })
 
   it.skip('should pass props down to inner components', function () {
-
     var content = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB" data-component-props="firstName">
@@ -73,14 +72,11 @@ export default ComponentB;`
         .ComponentA
         .formattedFileSnippet
 
-
     var actual2 = reacterminator({type: 'string', content: content})
         .ComponentB
         .formattedFileSnippet
 
-
     assert.deepEqual(actual1, ComponentA)
     assert.deepEqual(actual2, ComponentB)
-
   })
 })
