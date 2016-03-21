@@ -16,19 +16,19 @@
 ## Usage
 
 ### How to use reacterminator?
-***reacterminator*** convert htmls into react components.
+reacterminator converts htmls into react components.
 
 You need to annoate the html tags with several simple
-[data attributes](#data-attributes) that ***reacterminator*** recognize.
+[data attributes](#data-attributes) that reacterminator recognize.
 
 For example, you can add a `data-component-name` attribute to let
-***reacterminator*** know that it is a react component:
+reacterminator know that it is a react component:
 ```
 // file: example.html
 <div data-component-name="Unicorn"></div>
 ```
 
-Then let ***reacterminator*** do the chores:
+Then let reacterminator do the chores:
 ```
 $ reacterminator example.html
 ```
@@ -48,7 +48,7 @@ export default class Unicorn extends React.Component {
 ```
 
 Please check the [kitchen sink test](test/integration/kitchen-sink.js)
-for a comprehensive example of what ***reacterminator*** is capable of.
+for a comprehensive example of what reacterminator is capable of.
 
 ### Data Attributes
 - data-component-name
