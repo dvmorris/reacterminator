@@ -8,6 +8,8 @@ describe('reacterminator', function () {
 <div data-component-name="ComponentA" data-component-state="firstName, lastName">
 </div>`
     var expected = `\
+import React from 'react';
+
 class ComponentA extends React.Component {
   render() {
     const {firstName, lastName} = this.state;

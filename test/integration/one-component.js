@@ -9,6 +9,8 @@ describe('reacterminator', function () {
 </div>`
 
     var ComponentA = `\
+import React from 'react';
+
 class ComponentA extends React.Component {
   render() {
     return (
@@ -41,6 +43,8 @@ export default ComponentA;\n`
 </html>`
 
     var ComponentA = `\
+import React from 'react';
+
 class ComponentA extends React.Component {
   render() {
     return (

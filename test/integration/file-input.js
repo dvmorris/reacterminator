@@ -11,6 +11,8 @@ describe('reacterminator with file input', function () {
 
   it('should generate one file with one component', function () {
     var ComponentA = `\
+import React from 'react';
+
 class ComponentA extends React.Component {
   render() {
     return (
