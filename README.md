@@ -52,15 +52,20 @@ for a comprehensive example of what reacterminator is capable of.
 
 ### Data Attributes
 - data-component-name
+
   This attribute tells reacterminator that the html is a react component.
+
 - data-component-props
+
   This attribute tells reacterminator the props of the react component.
   For example:
   `<div data-component-props="firstName, lastName"/>`
   will let reacterminator add
   `const {firstName, lastName} = this.props`
   into the component file.
+
 - data-component-state
+
   This attribute tells reacterminator the state of the react component.
   For example:
   `<div data-component-state="firstName, lastName"/>`
