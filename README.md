@@ -67,6 +67,7 @@ for a comprehensive example of what reacterminator is capable of.
   will let reacterminator add
   `const {firstName, lastName} = this.state`
   into the component file.
+
 ### CLI
 ```
 npm i -g reacterminator
