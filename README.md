@@ -68,9 +68,9 @@ for a comprehensive example of what reacterminator is capable of.
 
   This attribute tells reacterminator the state of the react component.
   For example:
-  `<div data-component-state="firstName, lastName"/>`
+  ```<div data-component-state="firstName, lastName"/>```
   will let reacterminator add
-  `const {firstName, lastName} = this.state`
+  ```const {firstName, lastName} = this.state```
   into the component file.
 
 ### CLI
