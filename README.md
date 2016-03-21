@@ -167,7 +167,8 @@ console.log(components.Unicorn.formattedFileSnippet)
 ### [Source Documents](http://poetic.github.io/reacterminator/doc)
 
 ### Workflow
-- write tests ( use tests as specs )
+- write spec in read me
+- write tests
 - implementation ( please practic TDD by `npm run test:watch:mocha` )
 - ensure the following before you do a PR ( `npm test` )
   - linting pass
