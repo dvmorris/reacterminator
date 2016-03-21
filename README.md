@@ -159,7 +159,7 @@ console.log(components.Unicorn.formattedFileSnippet)
 
 ## Development
 
-### [Documents](http://poetic.github.io/reacterminator/doc)
+### [Source Documents](http://poetic.github.io/reacterminator/doc)
 
 ### Workflow
 - write tests ( use tests as specs )
