@@ -18,19 +18,16 @@ describe('kitchen-sinck', function () {
     data-component-props="firstName, lastName"
     data-component-state="isSelected, isAuthorized"
     style="font-size: 18">
-    <ul class="list" data-component-name="Nav">
-      <li class="list-item" data-component-name="ListItem"></li>
-      <li class="list-item" data-component-name="ListItem"></li>
-    </ul>
+    <div class="list-item" data-component-name="ListItem"></div>
+    <div class="list-item" data-component-name="ListItem"></div>
+    <script type="text/javascript" src="js/webflow.js"></script>
   </header>
-
-  <script type="text/javascript" src="js/webflow.js"></script>
 </body>
 `
 
-    var Header = `\
+    var expectedHeader = `\
 import React from 'react';
-import Nav from './Nav';
+import ListItem from './ListItem';
 
 export default class Header extends React.Component {
   render() {
@@ -39,14 +36,31 @@ export default class Header extends React.Component {
 
     return (
       <header style={{  fontSize: '18'}} className="header">
-        <Nav className="list" />
+        <ListItem className="list-item" />
+        <ListItem className="list-item" />
       </header>
+      );
+  }
+}\n`
+
+    var expectedListItem = `\
+import React from 'react';
+
+export default class ListItem extends React.Component {
+  render() {
+    return (
+      <div className="list-item" />
       );
   }
 }\n`
 
     var components = reacterminator({type: 'string', content: content})
 
-    assert.deepEqual(components.Header.formattedFileSnippet, Header)
+    assert.deepEqual(components.Header.formattedFileSnippet, expectedHeader)
+    assert.deepEqual(components.ListItem.formattedFileSnippet, expectedListItem)
+
+    assert.deepEqual(components.Header.removedScriptTags, [
+      '<script type="text/javascript" src="js/webflow.js"/>'
+    ])
   })
 })
