@@ -19,7 +19,7 @@
 *reacterminator* convert htmls into react components.
 
 You need to annoate the html tags with several simple
-[data attributes](#Data Attributes) that *reacterminator* recognize.
+[data attributes](#data-attributes) that *reacterminator* recognize.
 
 For example, you can add a `data-component-name` attribute to let
 *reacterminator* know that it is a react component:
