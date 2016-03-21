@@ -68,6 +68,5 @@ npm run test
 - [babel](https://github.com/babel/babel)
 
 ### Todo
-- beautify code
-- change style attribute into react object
-- plan next
+- test: make test pass for export default
+- kitchen sink

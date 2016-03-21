@@ -101,4 +101,16 @@ describe('html-snippet-to-jsx-snippet', function () {
       '<div style={{}} />'
     )
   })
+
+  it('should change both class and style', function () {
+    var component = {
+      name: 'ComponentA',
+      htmlSnippet: '<div class="class-a" style="font-size: 10px"></div>'
+    }
+
+    assert.deepEqual(
+      htmlSnippetToJsxSnippet(component).jsxSnippet,
+      '<div style={{ fontSize: \'10px\' }} className="class-a" />'
+    )
+  })
 })
