@@ -52,9 +52,17 @@ for a comprehensive example of what reacterminator is capable of.
 
 ### Data Attributes
 - data-component-name
+  This attribute tells reacterminator that the html is a react component.
 - data-component-props
+  This attribute tells reacterminator the props of the react component.
+  For example: `<div data-component-props="firstName, lastName"/>` will
+  let reacterminator add `const {firstName, lastName} = this.props`
+  into the component file.
 - data-component-state
-
+  This attribute tells reacterminator the state of the react component.
+  For example: `<div data-component-state="firstName, lastName"/>` will
+  let reacterminator add `const {firstName, lastName} = this.state`
+  into the component file.
 ### CLI
 ```
 npm i -g reacterminator
@@ -86,21 +94,45 @@ Examples:
  * @param {Object} input
  * {('path'|'string')} input.type
  * {string} input.content
+ *          When input.type is 'string', input.content is the html content.
+ *          When input.type is 'path', input.content specify the path.
+ *          The path can be a directory or a file.
  *
  * @param {Object} options
  * {boolean} [options.generateFiles=false]
  * {string}  [options.outputPath='./components']
  * {boolean} [options.recursive=false]
+ *           When it is true, reacterminator will find .html files recursivly
+ *           and convert all to them into react components.
+ *           When it is false, reacterminator will only find the .html files
+ *           in the current directory.
  * {boolean} [options.overrideFiles=false]
+ *           When it is true reacterminator will override files it there
+ *           is already a file in the output directory.
  */
 var reacterminator = require('reacterminator');
 
-// Example
 var components = reacterminator(
   {
-    type: 'string'
+    type: 'string',
+    content: '<div data-component-name="Unicorn""></div>'
+  },
+  {
+    generatefiles: false,
   }
 );
+
+console.log(components.Unicorn.formattedFileSnippet)
+
+// import React from 'react';
+//
+// export default class Unicorn extends React.Component {
+//   render() {
+//     return (
+//       <div/>
+//       );
+//   }
+// }
 ```
 
 ## Alternatives
