@@ -10,7 +10,7 @@ describe('reacterminator', function () {
     var expected = `\
 import React from 'react';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     const {firstName, lastName} = this.props;
 
@@ -19,9 +19,7 @@ class ComponentA extends React.Component {
       </div>
       );
   }
-}
-
-export default ComponentA;\n`
+}\n`
 
     var actual = reacterminator({type: 'string', content: content})
         .ComponentA
@@ -41,18 +39,16 @@ export default ComponentA;\n`
     var ComponentA = `\
 import ComponentB from './ComponentB';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return (
       <ComponentB firstName={firstName}></ComponentB>
     );
   }
-}
-
-export default ComponentA;\n`
+}\n`
 
     var ComponentB = `\
-class ComponentB extends React.Component {
+export default class ComponentB extends React.Component {
   render() {
 
     const {firstName} = this.props;
@@ -63,9 +59,7 @@ class ComponentB extends React.Component {
       </div>
     );
   }
-}
-
-export default ComponentB;`
+}\n`
 
     var actual1 = reacterminator({type: 'string', content: content})
       .ComponentA

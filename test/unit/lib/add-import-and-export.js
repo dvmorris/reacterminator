@@ -20,13 +20,11 @@ class ComponentA extends React.Component {
       `\
 import React from 'react';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return <div></div>
   }
-}
-
-export default ComponentA;\n`
+}\n`
     )
   })
 
@@ -49,13 +47,11 @@ class ComponentA extends React.Component {
 import React from 'react';
 import ComponentB from './ComponentB';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return <ComponentB></ComponentB>
   }
-}
-
-export default ComponentA;\n`
+}\n`
     )
   })
 
@@ -78,13 +74,11 @@ import React from 'react';
 import ComponentB from './ComponentB';
 import ComponentC from './ComponentC';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
       return <div><ComponentB></ComponentB><ComponentC></ComponentC></div>
   }
-}
-
-export default ComponentA;\n`
+}\n`
     )
   })
 })

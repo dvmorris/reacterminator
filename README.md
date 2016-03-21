@@ -70,3 +70,5 @@ npm run test
 ### Todo
 - test: make test pass for export default
 - kitchen sink
+- enable user to remove semicolons (in the beautify stage)
+- close tags correctly (input without / will generate a <input></input> tag)

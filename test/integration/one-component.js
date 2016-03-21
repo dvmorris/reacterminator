@@ -11,15 +11,13 @@ describe('reacterminator', function () {
     var ComponentA = `\
 import React from 'react';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return (
       <div> </div>
       );
   }
-};
-
-export default ComponentA;\n`
+};\n`
 
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,
@@ -45,15 +43,13 @@ export default ComponentA;\n`
     var ComponentA = `\
 import React from 'react';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return (
       <div> </div>
       );
   }
-};
-
-export default ComponentA;\n`
+};\n`
 
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'].fileSnippet,

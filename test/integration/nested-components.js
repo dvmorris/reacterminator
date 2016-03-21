@@ -14,28 +14,24 @@ describe('reacterminator', function () {
 import React from 'react';
 import ComponentB from './ComponentB';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return (
       <div> <ComponentB /> </div>
       );
   }
-};
-
-export default ComponentA;\n`
+};\n`
 
     var ComponentB = `\
 import React from 'react';
 
-class ComponentB extends React.Component {
+export default class ComponentB extends React.Component {
   render() {
     return (
       <div> </div>
       );
   }
-};
-
-export default ComponentB;\n`
+};\n`
 
     var components = reacterminator({type: 'string', content: content})
 
@@ -56,42 +52,36 @@ export default ComponentB;\n`
 import React from 'react';
 import ComponentB from './ComponentB';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return (
       <div> <ComponentB /> </div>
       );
   }
-};
-
-export default ComponentA;\n`
+};\n`
 
     var ComponentB = `\
 import React from 'react';
 import ComponentC from './ComponentC';
 
-class ComponentB extends React.Component {
+export default class ComponentB extends React.Component {
   render() {
     return (
       <div> <ComponentC /> </div>
       );
   }
-};
-
-export default ComponentB;\n`
+};\n`
 
     var ComponentC = `\
 import React from 'react';
 
-class ComponentC extends React.Component {
+export default class ComponentC extends React.Component {
   render() {
     return (
       <div> </div>
       );
   }
-};
-
-export default ComponentC;\n`
+};\n`
 
     var components = reacterminator({type: 'string', content: content})
 

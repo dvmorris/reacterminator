@@ -10,7 +10,7 @@ describe('reacterminator', function () {
     var expected = `\
 import React from 'react';
 
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     const {firstName, lastName} = this.state;
 
@@ -19,9 +19,7 @@ class ComponentA extends React.Component {
       </div>
       );
   }
-}
-
-export default ComponentA;\n`
+}\n`
 
     var actual = reacterminator({type: 'string', content: content})
       .ComponentA
