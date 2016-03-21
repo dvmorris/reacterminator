@@ -16,19 +16,19 @@
 ## Usage
 
 ### How to use reacterminator?
-`reacterminator` convert htmls into react components.
+***reacterminator*** convert htmls into react components.
 
 You need to annoate the html tags with several simple
-[data attributes](#data-attributes) that `reacterminator` recognize.
+[data attributes](#data-attributes) that ***reacterminator*** recognize.
 
 For example, you can add a `data-component-name` attribute to let
-`reacterminator` know that it is a react component:
+***reacterminator*** know that it is a react component:
 ```
 // file: example.html
 <div data-component-name="Unicorn"></div>
 ```
 
-Then let `reacterminator` do the chores:
+Then let ***reacterminator*** do the chores:
 ```
 $ reacterminator example.html
 ```
@@ -46,6 +46,9 @@ export default class Unicorn extends React.Component {
   }
 }
 ```
+
+Please check the [kitchen sink test](test/integration/kitchen-sink.js)
+for a comprehensive example of what ***reacterminator*** is capable of.
 
 ### Data Attributes
 - data-component-name
@@ -101,14 +104,12 @@ var components = reacterminator(
 ```
 
 ## Alternatives
-[htmltojsx](https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md)
-[html2react](https://github.com/roman01la/html-to-react-components)
+- [htmltojsx](https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md)
+- [html2react](https://github.com/roman01la/html-to-react-components)
 
 ## Development
 
 ### [Documents](http://poetic.github.io/reacterminator/doc)
-
-### [Trello](https://trello.com/b/n7iRAJ7M/reacterminator)
 
 ### Workflow
 - write tests ( use tests as specs )
@@ -139,3 +140,5 @@ npm run test
 - kitchen sink
 - enable user to remove semicolons (in the beautify stage)
 - close tags correctly (input without / will generate a <input></input> tag)
+
+### [Trello](https://trello.com/b/n7iRAJ7M/reacterminator)
