@@ -68,7 +68,6 @@ npm run test
 - [babel](https://github.com/babel/babel)
 
 ### Todo
-- test: make test pass for export default
 - kitchen sink
 - enable user to remove semicolons (in the beautify stage)
 - close tags correctly (input without / will generate a <input></input> tag)
