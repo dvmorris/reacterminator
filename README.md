@@ -64,7 +64,7 @@ for a comprehensive example of what reacterminator is capable of.
 
   will let reacterminator add
 
-  `const {firstName, lastName} = this.props`
+  `const {firstName, lastName} = this.props;`
 
   into the component file.
 
@@ -77,7 +77,7 @@ for a comprehensive example of what reacterminator is capable of.
 
   will let reacterminator add
 
-  `const {firstName, lastName} = this.state`
+  `const {firstName, lastName} = this.state;`
 
   into the component file.
 
