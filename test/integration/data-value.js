@@ -6,25 +6,28 @@ describe.skip('reacterminator', function () {
   it('should replace inner html with data-component-value', function () {
     var content = `\
 <div data-component-name="ComponentA">
-  <span data-component-value={this.props.firstName}>Chun</span>
-  <span data-component-value={this.props.lastName}>Yang</span>
+  <span data-component-value="{this.props.firstName}">Chun</span>
+  <span data-component-value="{this.props.lastName}">Yang</span>
 </div>`
-    var ComponentA = `\
-class ComponentA extends React.Component {
+
+    var expectedComponentA = `\
+import React from 'react';
+
+export default class ComponentA extends React.Component {
   render() {
     return (
       <div>
         <span>{this.props.firstName}</span>
         <span>{this.props.lastName}</span>
       </div>
-    );
+      );
   }
-}
+}\n`
 
-export default ComponentA;`
-    assert.deepEqual(
-      reacterminator({type: 'string', content: content})['ComponentA'],
-      ComponentA
-    )
+    var realComponentA = reacterminator({type: 'string', content: content})
+      .ComponentA
+      .formattedFileSnippet
+
+    assert.deepEqual(realComponentA, expectedComponentA)
   })
 })
