@@ -57,9 +57,6 @@ for a comprehensive example of what reacterminator is capable of.
 
 - data-component-props
 
-  This attribute tells reacterminator the props of the react component.
-  For example:
-
   `<div data-component-props="firstName, lastName"/>`
 
   will let reacterminator add
@@ -70,9 +67,6 @@ for a comprehensive example of what reacterminator is capable of.
 
 - data-component-state
 
-  This attribute tells reacterminator the state of the react component.
-  For example:
-
   `<div data-component-state="firstName, lastName"/>`
 
   will let reacterminator add
@@ -80,6 +74,17 @@ for a comprehensive example of what reacterminator is capable of.
   `const {firstName, lastName} = this.state;`
 
   into the component file.
+
+- data-component-primary
+
+  ```
+  <div data-component-name="Unicorn""/>
+  <div data-component-name="Unicorn"" data-component-primary="true" class="primary" />
+  ```
+
+  will let reacterminator generate this snippet
+
+  `<div className="primary" />`
 
 ### CLI
 ```

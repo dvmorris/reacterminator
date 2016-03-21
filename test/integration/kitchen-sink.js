@@ -18,8 +18,12 @@ describe('kitchen-sinck', function () {
     data-component-props="firstName, lastName"
     data-component-state="isSelected, isAuthorized"
     style="font-size: 18">
-    <div class="list-item" data-component-name="ListItem"></div>
-    <div class="list-item" data-component-name="ListItem"></div>
+    <div class="list-item" data-component-name="ListItem">Not Primary</div>
+    <div class="list-item"
+      data-component-name="ListItem"
+      data-component-primary="true">
+      Primary
+    </div>
     <script type="text/javascript" src="js/webflow.js"></script>
   </header>
 </body>
@@ -49,7 +53,9 @@ import React from 'react';
 export default class ListItem extends React.Component {
   render() {
     return (
-      <div className="list-item" />
+      <div className="list-item">
+        Primary
+      </div>
       );
   }
 }\n`

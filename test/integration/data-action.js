@@ -11,15 +11,13 @@ describe.skip('reacterminator', function () {
 </div>`
 
     var ComponentA = `\
-class ComponentA extends React.Component {
+export default class ComponentA extends React.Component {
   render() {
     return (
       <div onClick={this.props.onClick} onKeyup={this.props.onKeyup}></div>
-    );
+      );
   }
-}
-
-export default ComponentA;`
+}\n`
 
     assert.deepEqual(
       reacterminator({type: 'string', content: content})['ComponentA'],
