@@ -6,7 +6,7 @@ var reacterminator = require('../lib/index')
 
 program
   .description('Convert annotated htmls to react component files')
-  .option('-i, --input-path', 'specify input path (REQUIRED)')
+  .option('-i, --input-path', '(REQUIRED) specify input path, it can be a file or a folder')
   .option('-p, --output-path [./component]', 'specify output path')
   .option('-r, --recursive', 'find files in the folder recursivly')
   .option('-o, --override-files', 'override existing files in the output path')
