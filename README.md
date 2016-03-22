@@ -101,7 +101,7 @@ Options:
   -h, --help                       output usage information
   -i, --input-path                 (REQUIRED) specify input path, it can be a file or a folder
   -p, --output-path [./component]  specify output path
-  -r, --recursive                  find files in the folder recursivly
+  -r, --recursive                  find files in the input folder recursivly
   -o, --override-files             override existing files in the output path
 
 Examples:

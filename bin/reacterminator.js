@@ -8,7 +8,7 @@ program
   .description('Convert annotated htmls to react component files')
   .option('-i, --input-path', '(REQUIRED) specify input path, it can be a file or a folder')
   .option('-p, --output-path [./component]', 'specify output path')
-  .option('-r, --recursive', 'find files in the folder recursivly')
+  .option('-r, --recursive', 'find files in the input folder recursivly')
   .option('-o, --override-files', 'override existing files in the output path')
 
 program.on('--help', function () {
