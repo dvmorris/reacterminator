@@ -92,21 +92,22 @@ npm i -g reacterminator
 ```
 
 ```
-Usage: reacterminator [options] <inputPath>
+Usage: reacterminator [options]
 
 Convert annotated htmls to react component files
 
 Options:
 
   -h, --help                       output usage information
+  -i, --input-path                 specify input path (REQUIRED)
   -p, --output-path [./component]  specify output path
   -r, --recursive                  find files in the folder recursivly
   -o, --override-files             override existing files in the output path
 
 Examples:
 
-  $ reacterminator design.html
-  $ reacterminator design/
+  $ reacterminator -i design.html
+  $ reacterminator -i design/
 ```
 
 ### NODE
