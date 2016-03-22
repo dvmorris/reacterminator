@@ -49,7 +49,7 @@ export default class ComponentA extends React.Component {
           }
         )
       },
-      /the input.type should be file or string/
+      /the input.type should be "path" or "string", not "non-exist"/
     )
   })
 
