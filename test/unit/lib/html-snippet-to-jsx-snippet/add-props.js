@@ -6,7 +6,6 @@ var addProps = require('../../../../lib/html-snippet-to-jsx-snippet/add-props')
 
 describe('add props', function () {
   it('should add props', function () {
-
     var content = `\
 <div data-componet-props="isBoolean">
   <div data-component-props="firstName={'Poetic'}"></div>
