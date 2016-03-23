@@ -6,22 +6,22 @@ var changeWrapperName = require('../../../../lib/html-snippet-to-jsx-snippet/cha
 
 describe('change wrapper name', function () {
   it('should change wrapper name', function () {
-    var ast = parse('<div data-component-wrapper="ComponentA"/>')
-    changeWrapperName(ast)
+    var ast = parse('<div/>')
+    changeWrapperName({ast: ast, wrapper: 'ComponentA'})
 
-    assert.equal(
+    assert.deepEqual(
       generate(ast, {}, '').code,
-      '<ComponentA  />;'
+      '<ComponentA />;'
     )
   })
 
   it('should change wrapper name for a component with inner content', function () {
-    var ast = parse('<div data-component-wrapper="ComponentA">text</div>')
-    changeWrapperName(ast)
+    var ast = parse('<div >text</div>')
+    changeWrapperName({ast: ast, wrapper: 'ComponentA'})
 
-    assert.equal(
+    assert.deepEqual(
       generate(ast, {}, '').code,
-      '<ComponentA >text</ComponentA>;'
+      '<ComponentA>text</ComponentA>;'
     )
   })
 })

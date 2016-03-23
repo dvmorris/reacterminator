@@ -62,13 +62,16 @@ for a comprehensive example of what reacterminator is capable of.
 
 - data-component-props
 
-  `<div data-component-props="firstName, lastName"/>`
+  `<div data-component-name="ComponentA" data-component-props="isBoolean lastName={'Poetic'}"/>`
 
-  will let reacterminator add
+  will let reacterminator generate
 
-  `const {firstName, lastName} = this.props;`
-
-  into the component file.
+  ```
+  // where ComponentA is used
+  <ComponentA isBoolean lastName={'Poetic'}/>
+  // where ComponentA is defined
+  const {firstName, lastName} = this.props;
+  ```
 
 - data-component-state
 

@@ -7,7 +7,7 @@ var tagsToComponentNames = require('../../../../lib/html-snippet-to-jsx-snippet/
 describe('change tags to component names', function () {
   it('should change tags to component names', function () {
     var ast = parse('<div><div data-component-name="ComponentA"/></div>')
-    tagsToComponentNames(ast)
+    tagsToComponentNames({ast: ast})
 
     assert.deepEqual(
       generate(ast, {}, '').code,
