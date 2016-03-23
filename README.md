@@ -1,4 +1,7 @@
 # reacterminator
+
+![Alt text](reacterminator.jpg?raw=true "reacterminator")
+
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![coverall][coverall-image]][coverall-url]
@@ -78,13 +81,23 @@ for a comprehensive example of what reacterminator is capable of.
 - data-component-primary
 
   ```
-  <div data-component-name="Unicorn""/>
-  <div data-component-name="Unicorn"" data-component-primary="true" class="primary" />
+  <div data-component-name="Unicorn"/>
+  <div data-component-name="Unicorn" data-component-primary="true" class="primary" />
   ```
 
   will let reacterminator generate this snippet
 
   `<div className="primary" />`
+
+- data-component-wrapper
+
+  ```
+  <div data-component-wrapper="ComponentA"/>
+  ```
+
+  will let reacterminator generate this snippet
+
+  `<ComonentA/>`
 
 ### CLI
 ```
