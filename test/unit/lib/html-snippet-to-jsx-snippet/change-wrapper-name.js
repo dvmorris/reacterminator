@@ -11,7 +11,7 @@ describe('change wrapper name', function () {
 
     assert.equal(
       generate(ast, {}, '').code,
-      '<ComponentA data-component-wrapper="ComponentA" />;'
+      '<ComponentA  />;'
     )
   })
 
@@ -21,7 +21,7 @@ describe('change wrapper name', function () {
 
     assert.equal(
       generate(ast, {}, '').code,
-      '<ComponentA data-component-wrapper="ComponentA">text</ComponentA>;'
+      '<ComponentA >text</ComponentA>;'
     )
   })
 })

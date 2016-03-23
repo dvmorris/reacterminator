@@ -24,6 +24,13 @@ describe('kitchen-sinck', function () {
       data-component-primary="true">
       Primary
     </div>
+    <div
+      data-component-name="CustomRoute"
+      data-component-imports="import {Route} from 'react-router'"
+      data-component-wrapper="Route">
+      I am a route
+    </div>
+    <div data-component-value="{firstName}">Poetic</div>
     <script type="text/javascript" src="js/webflow.js"></script>
   </header>
 </body>
@@ -32,6 +39,7 @@ describe('kitchen-sinck', function () {
     var expectedHeader = `\
 import React from 'react';
 import ListItem from './ListItem';
+import CustomRoute from './CustomRoute';
 
 export default class Header extends React.Component {
   render() {
@@ -42,6 +50,10 @@ export default class Header extends React.Component {
       <header style={{  fontSize: '18'}} className="header">
         <ListItem></ListItem>
         <ListItem></ListItem>
+        <CustomRoute></CustomRoute>
+        <div>
+          {firstName}
+        </div>
       </header>
       );
   }
@@ -60,10 +72,25 @@ export default class ListItem extends React.Component {
   }
 }\n`
 
+    var expectedCustomRoute = `\
+import React from 'react';
+import { Route } from 'react-router';
+
+export default class CustomRoute extends React.Component {
+  render() {
+    return (
+      <Route>
+        I am a route
+      </Route>
+      );
+  }
+}\n`
+
     var components = reacterminator({type: 'string', content: content})
 
     assert.deepEqual(components.Header.formattedFileSnippet, expectedHeader)
     assert.deepEqual(components.ListItem.formattedFileSnippet, expectedListItem)
+    assert.deepEqual(components.CustomRoute.formattedFileSnippet, expectedCustomRoute)
 
     assert.deepEqual(components.Header.removedScriptTags, [
       '<script type="text/javascript" src="js/webflow.js"/>'

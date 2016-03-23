@@ -114,6 +114,18 @@ for a comprehensive example of what reacterminator is capable of.
   import _ from 'lodash';
   ```
 
+- data-component-value
+
+  ```
+  <div data-component-value="{firstName}">Poetic</div>
+  ```
+
+  will let reacterminator generate this snippet
+
+  ```
+  <div>{firstName}</div>
+  ```
+
 ### CLI
 ```
 npm i -g reacterminator
