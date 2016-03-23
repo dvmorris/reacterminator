@@ -14,7 +14,7 @@ describe('html-snippet-to-jsx-snippet', function () {
       {
         name: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> </div> </div>',
-        jsxSnippet: '<div> <ComponentB /> </div>',
+        jsxSnippet: '<div> <ComponentB></ComponentB> </div>',
         dependencies: ['ComponentB']
       }
     )
@@ -31,7 +31,7 @@ describe('html-snippet-to-jsx-snippet', function () {
       {
         name: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> <div data-component-name=\"ComponentC\"> </div> </div> </div>',
-        jsxSnippet: '<div> <ComponentB /> </div>',
+        jsxSnippet: '<div> <ComponentB></ComponentB> </div>',
         dependencies: ['ComponentB']
       }
     )
@@ -48,7 +48,7 @@ describe('html-snippet-to-jsx-snippet', function () {
       {
         name: 'ComponentA',
         htmlSnippet: '<div> <div data-component-name=\"ComponentB\"> <div data-component-name=\"ComponentC\"> </div> </div> <div> not a component </div> </div>',
-        jsxSnippet: '<div> <ComponentB /> <div> not a component </div> </div>',
+        jsxSnippet: '<div> <ComponentB></ComponentB> <div> not a component </div> </div>',
         dependencies: ['ComponentB']
       }
     )
@@ -74,7 +74,7 @@ describe('html-snippet-to-jsx-snippet', function () {
 
     assert.deepEqual(
       htmlSnippetToJsxSnippet(component).jsxSnippet,
-      '<div className="class-a" htmlFor="input-a"><div className="class-b" /></div>'
+      '<div className="class-a" htmlFor="input-a"><div /></div>'
     )
   })
 
@@ -111,6 +111,22 @@ describe('html-snippet-to-jsx-snippet', function () {
     assert.deepEqual(
       htmlSnippetToJsxSnippet(component).jsxSnippet,
       '<div style={{ fontSize: \'10px\' }} className="class-a" />'
+    )
+  })
+
+  it('should delete attributes for all inner components', function () {
+    var component = {
+      name: 'ComponentA',
+      htmlSnippet: `\
+<div id="component-a">
+  <div data-component-name="ComponentB" id="component-b">
+  </div>
+</div>`
+    }
+
+    assert.deepEqual(
+      htmlSnippetToJsxSnippet(component).jsxSnippet,
+      '<div id="component-a"> <ComponentB></ComponentB> </div>'
     )
   })
 })

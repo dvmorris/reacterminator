@@ -40,8 +40,8 @@ export default class Header extends React.Component {
 
     return (
       <header style={{  fontSize: '18'}} className="header">
-        <ListItem className="list-item" />
-        <ListItem className="list-item" />
+        <ListItem></ListItem>
+        <ListItem></ListItem>
       </header>
       );
   }
