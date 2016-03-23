@@ -81,4 +81,22 @@ export default class ComponentA extends React.Component {
 }\n`
     )
   })
+
+  it('should add code from imports', function () {
+    var component = {
+      dependencies: [],
+      declarationSnippet: '',
+      imports: 'import {Router} from \'react-router\'; import _ from \'lodash\';'
+    }
+
+    assert.deepEqual(
+      addImportAndExport(component).fileSnippet,
+      `\
+import React from 'react';
+import {Router} from 'react-router';
+import _ from 'lodash';
+
+export default `
+    )
+  })
 })

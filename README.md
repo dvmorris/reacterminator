@@ -101,6 +101,19 @@ for a comprehensive example of what reacterminator is capable of.
 
   `<ComonentA/>`
 
+- data-component-imports
+
+  ```
+  <div data-component-imports="import {Router} from 'react-router'; import _ from 'lodash';"/>
+  ```
+
+  will let reacterminator generate this snippet
+
+  ```
+  import {Router} from 'react-router';
+  import _ from 'lodash';
+  ```
+
 ### CLI
 ```
 npm i -g reacterminator
