@@ -54,7 +54,7 @@ export default ComponentA;\n`
       function () {
         formatFileSnippet({name: 'ComponentA', fileSnippet: 'div></div>'})
       },
-      /syntax/i
+      /Unexpected token/i
     )
   })
 })
