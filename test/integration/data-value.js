@@ -17,8 +17,7 @@ export default class ComponentA extends React.Component {
   render() {
     return (
       <div>
-        <span>{this.props.firstName}</span>
-        <span>{this.props.lastName}</span>
+        <span>{this.props.firstName;}</span> <span>{this.props.lastName;}</span>
       </div>
       );
   }
