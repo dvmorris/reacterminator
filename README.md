@@ -35,7 +35,7 @@ reacterminator know that it is a react component:
 
 Then let reacterminator do the chores:
 ```
-$ reacterminator example.html
+$ reacterminator -i example.html
 ```
 
 A file named 'Unicorn.jsx' will be generated at './components/Unicorn.jsx'
