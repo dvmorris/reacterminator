@@ -1,7 +1,7 @@
 # reacterminator
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/poetic/reacterminator/develop/reacterminator.jpg" width="100px"/>
+  <img src="https://raw.githubusercontent.com/poetic/reacterminator/develop/reacterminator.jpg" width="300px"/>
 </p>
 
 [![travis][travis-image]][travis-url]
