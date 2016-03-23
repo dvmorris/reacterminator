@@ -1,6 +1,8 @@
 # reacterminator
 
-![Alt text](reacterminator.jpg?raw=true "reacterminator")
+<p align="center">
+  <img src="https://raw.githubusercontent.com/poetic/reacterminator/develop/reacterminator.jpg" width="100px"/>
+</p>
 
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
