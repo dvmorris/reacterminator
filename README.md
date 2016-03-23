@@ -67,10 +67,7 @@ for a comprehensive example of what reacterminator is capable of.
   will let reacterminator generate
 
   ```
-  // where ComponentA is used
   <ComponentA isBoolean lastName={'Poetic'}/>
-  // where ComponentA is defined
-  const {firstName, lastName} = this.props;
   ```
 
 - data-component-state

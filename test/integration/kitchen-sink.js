@@ -15,7 +15,6 @@ describe('kitchen-sinck', function () {
   <header
     class="header"
     data-component-name="Header"
-    data-component-props="firstName, lastName"
     data-component-state="isSelected, isAuthorized"
     style="font-size: 18">
     <div class="list-item" data-component-name="ListItem">Not Primary</div>
@@ -25,6 +24,7 @@ describe('kitchen-sinck', function () {
       Primary
     </div>
     <div
+      data-component-props="isBoolean firstName={'Poetic'}"
       data-component-name="CustomRoute"
       data-component-imports="import {Route} from 'react-router'"
       data-component-wrapper="Route">
@@ -43,14 +43,13 @@ import CustomRoute from './CustomRoute';
 
 export default class Header extends React.Component {
   render() {
-    const {firstName, lastName} = this.props;
     const {isSelected, isAuthorized} = this.state;
 
     return (
       <header style={{  fontSize: '18'}} className="header">
         <ListItem></ListItem>
         <ListItem></ListItem>
-        <CustomRoute></CustomRoute>
+        <CustomRoute isBoolean firstName={'Poetic'}></CustomRoute>
         <div>
           {firstName}
         </div>
