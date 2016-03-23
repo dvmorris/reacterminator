@@ -6,7 +6,7 @@ var reacterminator = require('../lib/index')
 
 program
   .description('Convert annotated htmls to react component files')
-  .option('-i, --input-path', '(REQUIRED) specify input path, it can be a file or a folder')
+  .option('-i, --input-path <inputPath>', '(REQUIRED) specify input path, it can be a file or a folder')
   .option('-p, --output-path [./component]', 'specify output path')
   .option('-r, --recursive', 'find files in the input folder recursivly')
   .option('-o, --override-files', 'override existing files in the output path')
@@ -19,12 +19,12 @@ program.on('--help', function () {
   console.log('')
 })
 
-program.parse(process.argv)
-
 if (!process.argv.slice(2).length) {
   program.outputHelp()
   process.exit(1)
 }
+
+program.parse(process.argv)
 
 if (!program.inputPath) {
   throw new Error('<inputPath> is required, use -i to specify it')
