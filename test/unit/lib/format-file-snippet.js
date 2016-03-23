@@ -48,4 +48,13 @@ class ComponentA extends React.Component {
 export default ComponentA;\n`
     )
   })
+
+  it('shouls throw an error when syntax is invalid', function () {
+    assert.throw(
+      function () {
+        formatFileSnippet({name: 'ComponentA', fileSnippet: 'div></div>'})
+      },
+      /syntax/i
+    )
+  })
 })
