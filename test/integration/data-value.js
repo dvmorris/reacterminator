@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-describe.only('data-value', function () {
+describe('data-value', function () {
   it('should replace inner html with data-component-value', function () {
     var content = `\
 <div data-component-name="ComponentA">
