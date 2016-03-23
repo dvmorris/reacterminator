@@ -37,7 +37,7 @@ describe('html-to-html-snippets', function () {
 
   it('should extract all data-component attributes', function () {
     var html = `\
-<div data-component-name="ComponentA" data-component-list-item="ComponentB" data-component-list-prop="users">
+<div data-component-name="ComponentA" >
 </div>`
 
     assert.deepEqual(
@@ -45,8 +45,6 @@ describe('html-to-html-snippets', function () {
       {
         ComponentA: {
           name: 'ComponentA',
-          listItem: 'ComponentB',
-          listProp: 'users',
           htmlSnippet: '<div> </div>',
           removedComments: [],
           removedScriptTags: []

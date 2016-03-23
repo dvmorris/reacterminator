@@ -70,16 +70,6 @@ for a comprehensive example of what reacterminator is capable of.
   <ComponentA isBoolean lastName={'Poetic'}/>
   ```
 
-- data-component-state
-
-  `<div data-component-state="firstName, lastName"/>`
-
-  will let reacterminator add
-
-  `const {firstName, lastName} = this.state;`
-
-  into the component file.
-
 - data-component-primary
 
   ```

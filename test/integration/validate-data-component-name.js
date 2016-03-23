@@ -2,7 +2,7 @@
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
 
-describe.skip('reacterminator', function () {
+describe.only('reacterminator', function () {
   it('should throw an error if the data-component-name value is invalid', function () {
     assert.throws(
      function () {
@@ -11,7 +11,7 @@ describe.skip('reacterminator', function () {
          content: '<div data-component-name="first-name"></div>'
        })
      },
-     /first-name is not a valida data-component value, use camelcase instead/
+     /is not upper camel case/
     )
 
     assert.throws(
@@ -21,7 +21,7 @@ describe.skip('reacterminator', function () {
          content: '<div data-component-name="first_name"></div>'
        })
      },
-     /first_name is not a valida data-component value, use camelcase instead/
+     /is not upper camel case/
     )
 
     assert.throws(
@@ -31,7 +31,7 @@ describe.skip('reacterminator', function () {
          content: '<div data-component-name="first_name"></div>'
        })
      },
-     /first_name is not a valida data-component value, use camelcase instead/
+     /is not upper camel case/
     )
 
     assert.throws(
@@ -41,7 +41,7 @@ describe.skip('reacterminator', function () {
          content: '<div data-component-name=""></div>'
        })
      },
-     /value of data-component can not be blank/
+     /does not have a name/
     )
   })
 
@@ -53,7 +53,7 @@ describe.skip('reacterminator', function () {
          content: '<div></div>'
        })
      },
-     /there is not data-component specified/
+     /No components are detected/
     )
   })
 })

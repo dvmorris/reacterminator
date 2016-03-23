@@ -15,7 +15,6 @@ describe('kitchen-sinck', function () {
   <header
     class="header"
     data-component-name="Header"
-    data-component-state="isSelected, isAuthorized"
     style="font-size: 18">
     <div class="list-item" data-component-name="ListItem">Not Primary</div>
     <div class="list-item"
@@ -43,8 +42,6 @@ import CustomRoute from './CustomRoute';
 
 export default class Header extends React.Component {
   render() {
-    const {isSelected, isAuthorized} = this.state;
-
     return (
       <header style={{  fontSize: '18'}} className="header">
         <ListItem></ListItem>
