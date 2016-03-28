@@ -35,24 +35,6 @@ describe('html-to-html-snippets', function () {
     )
   })
 
-  it('should extract all data-component attributes', function () {
-    var html = `\
-<div data-component-name="ComponentA" >
-</div>`
-
-    assert.deepEqual(
-      htmlToHtmlSnippets(html),
-      {
-        ComponentA: {
-          name: 'ComponentA',
-          htmlSnippet: '<div> </div>',
-          removedComments: [],
-          removedScriptTags: []
-        }
-      }
-    )
-  })
-
   it('should throw an error when the name is empty', function () {
     var html = `\
 <div data-component-name="">
@@ -114,5 +96,17 @@ describe('html-to-html-snippets', function () {
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedScriptTags, ['<script src=\"https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js\"/>'])
+  })
+
+  it('should remove style tags', function () {
+    var html = `\
+<div data-component-name="ComponentA">
+<style> .directory-info { vertical-align: middle; } </style>
+</div>`
+
+    var outputComponent = htmlToHtmlSnippets(html).ComponentA
+
+    assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
+    assert.deepEqual(outputComponent.removedStyleTags, ['<style> .directory-info { vertical-align: middle; } </style>'])
   })
 })
