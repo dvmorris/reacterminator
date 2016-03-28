@@ -74,7 +74,7 @@ describe('html-snippet-to-jsx-snippet', function () {
 
     assert.deepEqual(
       htmlSnippetToJsxSnippet(component).jsxSnippet,
-      '<div className="class-a" htmlFor="input-a"><div /></div>'
+      '<div className="class-a" htmlFor="input-a"><div className="class-b" /></div>'
     )
   })
 
@@ -127,6 +127,22 @@ describe('html-snippet-to-jsx-snippet', function () {
     assert.deepEqual(
       htmlSnippetToJsxSnippet(component).jsxSnippet,
       '<div id="component-a"> <ComponentB></ComponentB> </div>'
+    )
+  })
+
+  it('should not delete attributes for non component tags', function () {
+    var component = {
+      name: 'ComponentA',
+      htmlSnippet: `\
+<div id="component-a">
+  <div id="component-b">
+  </div>
+</div>`
+    }
+
+    assert.deepEqual(
+      htmlSnippetToJsxSnippet(component).jsxSnippet,
+      '<div id="component-a"> <div id="component-b"> </div> </div>'
     )
   })
 })
