@@ -94,7 +94,8 @@ class ComponentA extends React.Component {
           name: 'ComponentA',
           formattedFileSnippet: formattedFileSnippet,
           removedComments: ['<!-- -->'],
-          removedScriptTags: ['<script></script>']
+          removedScriptTags: ['<script></script>'],
+          removedStyleTags: ['<style></style>']
         }
       },
       {outputPath: path.resolve('./components'), overrideFiles: true}
