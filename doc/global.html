@@ -101,14 +101,1018 @@
 
     
 
-    <h4 class="name" id="reacterminator"><span class="type-signature"></span>reacterminator<span class="signature">(input, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addDeclaration"><span class="type-signature"></span>addDeclaration<span class="signature">(component)</span><span class="type-signature"> &rarr; {<a href="global.html#Component">Component</a>}</span></h4>
 
     
 
 
 
 <div class="description">
-    convert html to react components
+    add declaration block to a jsx snippet
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>component</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="add-declaration.js.html">add-declaration.js</a>, <a href="add-declaration.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// from:
+&lt;div>&lt;/div>
+// to:
+var ComponentA = React.createClass({
+  render: function () {
+    return &lt;div>&lt;/div>
+  }
+})</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="addImportAndExport"><span class="type-signature"></span>addImportAndExport<span class="signature">(component)</span><span class="type-signature"> &rarr; {<a href="global.html#Component">Component</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    add import and export
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>component</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="add-import-and-export.js.html">add-import-and-export.js</a>, <a href="add-import-and-export.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// from:
+var ComponentA = React.createClass({
+  render: function () {
+    return &lt;div>&lt;/div>
+  }
+})
+// to:
+import ComponentB from './ComponentB.jsx';
+
+var ComponentA = React.createClass({
+  render: function () {
+    return &lt;ComponentB>&lt;/ComponentB>
+  }
+})
+
+export default ComponentA;</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="formatFileSnippet"><span class="type-signature"></span>formatFileSnippet<span class="signature">(component)</span><span class="type-signature"> &rarr; {<a href="global.html#Component">Component</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    format component snippet
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>component</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="format-file-snippet.js.html">format-file-snippet.js</a>, <a href="format-file-snippet.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// from:
+var ComponentA = React.createClass({
+  render: function () {
+    return &lt;ul>&lt;li>Item 1&lt;/li>&lt;li>Item 2&lt;/li>&lt;li>Item 3&lt;/li>&lt;li>Item 4&lt;/li>&lt;li>Item 5&lt;/li>&lt;/ul>
+  }
+})
+export default ComponentA;`
+to:
+var ComponentA = React.createClass({
+  render: function () {
+    return (
+    &lt;ul>
+      &lt;li>Item 1&lt;/li>
+      &lt;li>Item 2&lt;/li>
+      &lt;li>Item 3&lt;/li>
+      &lt;li>Item 4&lt;/li>
+      &lt;li>Item 5&lt;/li>
+    &lt;/ul>
+    )
+  }
+})
+export default ComponentA;`</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="htmlSnippetToJsxSnippet"><span class="type-signature"></span>htmlSnippetToJsxSnippet<span class="signature">(component)</span><span class="type-signature"> &rarr; {<a href="global.html#Component">Component</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    convert html snippet to jsx snippet
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>component</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="html-snippet-to-jsx-snippet.js.html">html-snippet-to-jsx-snippet.js</a>, <a href="html-snippet-to-jsx-snippet.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#Component">Component</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// from:
+&lt;div class="a" for="a" style="font-size: 1px">&lt;/div>
+// to:
+&lt;div className="a" htmlFor="a" style={{fontSize: '1px'}}>&lt;/div></code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="htmlToHtmlSnippets"><span class="type-signature"></span>htmlToHtmlSnippets<span class="signature">(html)</span><span class="type-signature"> &rarr; {Object.&lt;string, <a href="global.html#Component">Component</a>>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    convert one html string to several html snippets
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>html</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="html-to-html-snippets.js.html">html-to-html-snippets.js</a>, <a href="html-to-html-snippets.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object.&lt;string, <a href="global.html#Component">Component</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// from:
+&lt;div data-component-name="ComponentA">
+  &lt;div data-component-name="ComponentB">
+  &lt;/div>
+&lt;/div>
+// to:
+&lt;div>&lt;div data-component-name="ComponentB">&lt;/div>&lt;/div>
+&lt;div data-component-name="ComponentB">&lt;/div></code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="htmlToReact"><span class="type-signature"></span>htmlToReact<span class="signature">(htmlString, options)</span><span class="type-signature"> &rarr; {Object.&lt;string, <a href="global.html#Component">Component</a>>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Convert html to multiple react components.
+This function accepts one html string.
+This function use the following pipes to process string snippets
+<a href="global.html#htmlToHtmlSnippets">htmlToHtmlSnippets</a>
+<a href="global.html#htmlSnippetToJsxSnippet">htmlSnippetToJsxSnippet</a>
+<a href="global.html#addDeclaration">addDeclaration</a>
+<a href="global.html#addImportAndExport">addImportAndExport</a>
+<a href="global.html#formatFileSnippet">formatFileSnippet</a>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>htmlString</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">same options as reacterminator</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line110">line 110</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object.&lt;string, <a href="global.html#Component">Component</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="reacterminator"><span class="type-signature"></span>reacterminator<span class="signature">(input, options)</span><span class="type-signature"> &rarr; {Object.&lt;string, <a href="global.html#Component">Component</a>>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Convert html to react components.
+This function accepts multiple or single html file.
+This function use <a href="global.html#htmlToReact">htmlToReact</a>
 </div>
 
 
@@ -160,8 +1164,84 @@
 
             
 
-            <td class="description last">{string} input.type
-{('file'|'string')} input.content</td>
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">'path'</span>
+|
+
+<span class="param-type">'string'</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">When input.type is 'string', input.content is the html content.
+  When input.type is 'path', input.content specify the path.
+  The path can be a directory or a file.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -184,7 +1264,197 @@
 
             
 
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>generateFiles</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
             <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outputPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    './components'
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recursive</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">When it is true, reacterminator will find .html files recursivly
+  and convert all to them into react components.
+  When it is false, reacterminator will only find the .html files
+  in the current directory.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>overrideFiles</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">When it is true reacterminator will override files it there
+  is already a file in the output directory.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -225,7 +1495,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line10">line 10</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -248,12 +1518,227 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object.&lt;string, <a href="global.html#Component">Component</a>></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
         
     
 
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="Component">Component</h4>
+
+
+
+
+<div class="description">
+    component object passed through the transform pipline
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the component</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>primary</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">is primary if there are duplications</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>imports</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">custom imports</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">wrapper component name</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
     
 
     
@@ -267,13 +1752,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#reacterminator">reacterminator</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addDeclaration">addDeclaration</a></li><li><a href="global.html#addImportAndExport">addImportAndExport</a></li><li><a href="global.html#formatFileSnippet">formatFileSnippet</a></li><li><a href="global.html#htmlSnippetToJsxSnippet">htmlSnippetToJsxSnippet</a></li><li><a href="global.html#htmlToHtmlSnippets">htmlToHtmlSnippets</a></li><li><a href="global.html#htmlToReact">htmlToReact</a></li><li><a href="global.html#reacterminator">reacterminator</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Mar 06 2016 12:27:08 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Mar 28 2016 17:04:26 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>

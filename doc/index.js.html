@@ -28,15 +28,168 @@
         <article>
             <pre class="prettyprint source linenums"><code>module.exports = reacterminator
 
+var _ = require('lodash')
+var fs = require('fs')
+var path = require('path')
+var glob = require('glob')
+var htmlToHtmlSnippets = require('./html-to-html-snippets')
+var htmlSnippetToJsxSnippet = require('./html-snippet-to-jsx-snippet')
+var addDeclaration = require('./add-declaration')
+var addImportAndExport = require('./add-import-and-export')
+var formatFileSnippet = require('./format-file-snippet')
+var generateFiles = require('./generate-files')
+
 /**
- * convert html to react components
+ * component object passed through the transform pipline
+ * @typedef {Object} Component
+ * @property {String} name the name of the component
+ * @property {Boolean} primary is primary if there are duplications
+ * @property {String} imports custom imports
+ * @property {String} wrapper wrapper component name
+ */
+
+/**
+ * Convert html to react components.
+ * This function accepts multiple or single html file.
+ * This function use {@link htmlToReact}
+ *
  * @param {Object} input
- * {string} input.type
- * {('file'|'string')} input.content
+ * @param {('path'|'string')} input.type
+ * @param {string} input.content
+ *   When input.type is 'string', input.content is the html content.
+ *   When input.type is 'path', input.content specify the path.
+ *   The path can be a directory or a file.
+ *
  * @param {Object} options
+ * @param {boolean} [options.generateFiles=false]
+ * @param {string}  [options.outputPath='./components']
+ * @param {boolean} [options.recursive=false]
+ *   When it is true, reacterminator will find .html files recursivly
+ *   and convert all to them into react components.
+ *   When it is false, reacterminator will only find the .html files
+ *   in the current directory.
+ * @param {boolean} [options.overrideFiles=false]
+ *   When it is true reacterminator will override files it there
+ *   is already a file in the output directory.
+ * @return {Object.&lt;string, Component>}
+ *
  */
 function reacterminator (input, options) {
+  // prepare options
+  options = _.extend({outputPath: './components'}, options)
+  options.outputPath = path.resolve(options.outputPath)
 
+  // unify different input types
+  var htmlStrings = []
+  if (input.type === 'path') {
+    // unify different path types
+    var htmlFiles = []
+    var absoluteInputPath = path.resolve(input.content)
+
+    var pathStat = fs.statSync(absoluteInputPath)
+    if (pathStat.isFile()) {
+      htmlFiles = [input.content]
+    } else if (pathStat.isDirectory()) {
+      var globPattern = options.recursive ? '/**/*.html' : '/*.html'
+      htmlFiles = glob.sync(absoluteInputPath + globPattern)
+    } else {
+      throw new Error(input.content + 'is not a file or directory')
+    }
+
+    htmlStrings = htmlFiles.map(function (htmlFile) {
+      return fs.readFileSync(htmlFile, 'utf8')
+    })
+  } else if (input.type === 'string') {
+    htmlStrings = [input.content]
+  } else {
+    throw new Error('the input.type should be "path" or "string", not "' + input.type + '"')
+  }
+
+  var mergedFileSnippets = htmlStrings
+    .reduce(function (fileSnippets, htmlString) {
+      return _.extend(htmlToReact(htmlString, options), fileSnippets)
+    }, {})
+
+  if (_.isEmpty(mergedFileSnippets)) {
+    throw new Error('No components are detected, please specify data-component-name on the tags you want as a component')
+  }
+
+  if (options.generateFiles) {
+    generateFiles(mergedFileSnippets, options)
+  }
+
+  return mergedFileSnippets
+}
+
+/**
+ * Convert html to multiple react components.
+ * This function accepts one html string.
+ * This function use the following pipes to process string snippets
+ * {@link htmlToHtmlSnippets}
+ * {@link htmlSnippetToJsxSnippet}
+ * {@link addDeclaration}
+ * {@link addImportAndExport}
+ * {@link formatFileSnippet}
+ *
+ * @param {String} htmlString
+ * @param {Object} options same options as reacterminator
+ * @return {Object.&lt;string, Component>}
+ */
+function htmlToReact (htmlString, options) {
+  // from: &lt;div data-component-name="ComponentA">&lt;div data-component-name="ComponentB">&lt;/div>&lt;/div>
+  // to:   &lt;div>&lt;div data-component-name="ComponentB">&lt;/div>&lt;/div> and
+  //       &lt;div data-component-name="ComponentB">&lt;/div>
+  var snippets = htmlToHtmlSnippets(htmlString)
+
+  // from: &lt;div class="a" for="a" style="font-size: 1px">&lt;/div>
+  // to:   &lt;div className="a" htmlFor="a" style={{fontSize: '1px'}}>&lt;/div>
+  var jsxSnippets = _.mapValues(snippets, htmlSnippetToJsxSnippet)
+
+  // from: &lt;div>&lt;/div>
+  // to:   var ComponentA = React.createClass({
+  //         render: function () {
+  //           return &lt;div>&lt;/div>
+  //         }
+  //       })
+  var declarationSnippets = _.mapValues(jsxSnippets, addDeclaration)
+
+  // from: var ComponentA = React.createClass({
+  //         render: function () {
+  //           return &lt;div>&lt;/div>
+  //         }
+  //       })
+  // to:   import ComponentB from './ComponentB.jsx';
+  //       var ComponentA = React.createClass({
+  //         render: function () {
+  //           return &lt;ComponentB>&lt;/ComponentB>
+  //         }
+  //       })
+  //       export default ComponentA;`
+  var fileSnippets = _.mapValues(declarationSnippets, addImportAndExport)
+
+  // from: var ComponentA = React.createClass({
+  //         render: function () {
+  //           return &lt;ul>&lt;li>Item 1&lt;/li>&lt;li>Item 2&lt;/li>&lt;li>Item 3&lt;/li>&lt;li>Item 4&lt;/li>&lt;li>Item 5&lt;/li>&lt;/ul>
+  //         }
+  //       })
+  //       export default ComponentA;`
+  // to:   var ComponentA = React.createClass({
+  //         render: function () {
+  //           return (
+  //           &lt;ul>
+  //             &lt;li>Item 1&lt;/li>
+  //             &lt;li>Item 2&lt;/li>
+  //             &lt;li>Item 3&lt;/li>
+  //             &lt;li>Item 4&lt;/li>
+  //             &lt;li>Item 5&lt;/li>
+  //           &lt;/ul>
+  //           )
+  //         }
+  //       })
+  //       export default ComponentA;`
+  var formattedFileSnippets = _.mapValues(fileSnippets, formatFileSnippet)
+
+  return formattedFileSnippets
 }
 </code></pre>
         </article>
@@ -48,13 +201,13 @@ function reacterminator (input, options) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#reacterminator">reacterminator</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addDeclaration">addDeclaration</a></li><li><a href="global.html#addImportAndExport">addImportAndExport</a></li><li><a href="global.html#formatFileSnippet">formatFileSnippet</a></li><li><a href="global.html#htmlSnippetToJsxSnippet">htmlSnippetToJsxSnippet</a></li><li><a href="global.html#htmlToHtmlSnippets">htmlToHtmlSnippets</a></li><li><a href="global.html#htmlToReact">htmlToReact</a></li><li><a href="global.html#reacterminator">reacterminator</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Mar 06 2016 12:27:08 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Mar 28 2016 17:04:26 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>
