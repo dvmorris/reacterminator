@@ -29,6 +29,7 @@ describe('kitchen-sinck', function () {
       data-component-wrapper="Route">
       I am a route
     </div>
+    <img src="logo.jpg">
     <div data-component-value="{firstName}">Poetic</div>
     <script type="text/javascript" src="js/webflow.js"></script>
   </header>
@@ -46,7 +47,7 @@ export default class Header extends React.Component {
       <header style={{  fontSize: '18'}} className="header">
         <ListItem></ListItem>
         <ListItem></ListItem>
-        <CustomRoute isBoolean firstName={'Poetic'}></CustomRoute>
+        <CustomRoute isBoolean firstName={'Poetic'}></CustomRoute> <img src="logo.jpg" />
         <div>
           {firstName}
         </div>
@@ -89,7 +90,7 @@ export default class CustomRoute extends React.Component {
     assert.deepEqual(components.CustomRoute.formattedFileSnippet, expectedCustomRoute)
 
     assert.deepEqual(components.Header.removedScriptTags, [
-      '<script type="text/javascript" src="js/webflow.js"/>'
+      '<script type="text/javascript" src="js/webflow.js"></script>'
     ])
   })
 })
