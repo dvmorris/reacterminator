@@ -116,6 +116,34 @@ for a comprehensive example of what reacterminator is capable of.
   <div>{firstName}</div>
   ```
 
+- data-component-route-path
+
+  ```
+  <div
+    data-component-name="Login"
+    data-component-route-path="login">
+  </div>
+  ```
+
+  will let reacterminator generate this snippet
+
+  ```
+  import {Router, Route, browserHistory} from 'react-router'
+  import Login from './Login'
+
+  export default Routes extends React.Component {
+    render () {
+      return (
+        <Router history={history}>
+          <Route path='/' component={App}>
+            <Route path='login' component={Login}/>
+          </Route>
+        </Router>
+      )
+    }
+  }
+  ```
+
 ### CLI
 ```
 npm i -g reacterminator
