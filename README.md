@@ -125,16 +125,17 @@ for a comprehensive example of what reacterminator is capable of.
   </div>
   ```
 
-  will let reacterminator generate this snippet
+  will let reacterminator generate Routes and App components
 
   ```
   import {Router, Route, browserHistory} from 'react-router'
+  import App from './App'
   import Login from './Login'
 
   export default Routes extends React.Component {
     render () {
       return (
-        <Router history={history}>
+        <Router history={browserHistory}>
           <Route path='/' component={App}>
             <Route path='login' component={Login}/>
           </Route>
