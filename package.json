@@ -1,6 +1,6 @@
 {
   "name": "reacterminator",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Convert html files to react components",
   "main": "lib/index.js",
   "bin": "bin/reacterminator.js",
