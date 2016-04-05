@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 var assert = require('chai').assert
 var reacterminator = require('../../lib/index')
+var _ = require('lodash')
 
 describe('data-primary', function () {
   it('should use the primary component', function () {
@@ -8,7 +9,7 @@ describe('data-primary', function () {
 <div data-component-name="ComponentA">Not Primary</div>
 <div data-component-name="ComponentA" data-component-primary="true">Primary</div>`
 
-    var expectedComponentA = `\
+    var ComponentAExpected = `\
 import React from 'react';
 
 export default class ComponentA extends React.Component {
@@ -21,10 +22,10 @@ export default class ComponentA extends React.Component {
   }
 }\n`
 
-    var ComponentA = reacterminator({type: 'string', content: content})
-      .ComponentA
+    var components = reacterminator({type: 'string', content: content})
+    var ComponentAActual = _.find(components, {name: 'ComponentA'})
       .formattedFileSnippet
 
-    assert.deepEqual(ComponentA, expectedComponentA)
+    assert.deepEqual(ComponentAActual, ComponentAExpected)
   })
 })

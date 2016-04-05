@@ -11,7 +11,7 @@ describe('kitchen-sinck', function () {
   <meta charset="UTF-8">
   <title>Document</title>
 </head>
-<body data-component-name="KitchenSink" data-component-route-path="kitchen-sink">
+<body data-component-name="KitchenSink">
   <header
     class="header"
     data-component-name="Header"
@@ -83,29 +83,11 @@ export default class CustomRoute extends React.Component {
   }
 }\n`
 
-    var expectedRoutes = `\
-import React from 'react';
-import App from './App';
-import KitchenSink from './KitchenSink';
-
-export default class Routes extends React.Component {
-  render() {
-    return (
-      <Router>
-        <Route path='/' component={App}>
-          <Route path='kitchen-sink' component={KitchenSink} />
-        </Route>
-      </Router>
-      );
-  }
-}\n`
-
     var components = reacterminator({type: 'string', content: content})
 
     assert.deepEqual(components.Header.formattedFileSnippet, expectedHeader)
     assert.deepEqual(components.ListItem.formattedFileSnippet, expectedListItem)
     assert.deepEqual(components.CustomRoute.formattedFileSnippet, expectedCustomRoute)
-    assert.deepEqual(components.Routes.formattedFileSnippet, expectedRoutes)
 
     assert.deepEqual(components.Header.removedScriptTags, [
       '<script type="text/javascript" src="js/webflow.js"></script>'

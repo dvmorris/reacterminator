@@ -116,33 +116,54 @@ for a comprehensive example of what reacterminator is capable of.
   <div>{firstName}</div>
   ```
 
-- data-component-route-path
+### Data Attributes internally used by Poetic
+- data-component-path
 
   ```
   <div
     data-component-name="Login"
-    data-component-route-path="login">
+    data-component-path="login">
   </div>
   ```
 
-  will let reacterminator generate Routes and App components
+  a Routes.jsx file and a container LoginContainer.jsx file will be generated.
 
   ```
-  import {Router, Route, browserHistory} from 'react-router'
-  import App from './App'
-  import Login from './Login'
+  // Routes.jsx
+  import React from 'react';
+  import LoginContainer from './LoginContainer';
 
-  export default Routes extends React.Component {
+  export default class Routes extends React.Component {
     render () {
       return (
-        <Router history={browserHistory}>
-          <Route path='/' component={App}>
-            <Route path='login' component={Login}/>
-          </Route>
-        </Router>
+        <div>
+          <LoginContainer/>
+        </div>
       )
     }
   }
+
+  // LoginContainer.jsx
+  import React from 'react';
+  import {connect} from 'param-store';
+  import Login from './Login';
+
+  class LoginContainer extends React.Component {
+    render () {
+      const style = {position: 'absolute'};
+      if (this.props.currentParams.path !== 'login') {
+        return null;
+      }
+
+      return (
+        <div style={style}>
+          <Login {...this.props}/>
+        </div>
+      );
+    }
+  }
+
+  export default connect(LoginContainer, 'path');
   ```
 
 ### CLI
