@@ -1,6 +1,6 @@
 {
   "name": "reacterminator",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "dependencies": {
     "abab": {
       "version": "1.0.3",
