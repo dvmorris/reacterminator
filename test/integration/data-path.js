@@ -32,11 +32,11 @@ class LoginContainer extends React.Component {
 
 export default connect(LoginContainer, 'path');`
 
-    var RoutesExpected = `\
+    var AppExpected = `\
 import React from 'react';
 import LoginContainer from './LoginContainer';
 
-export default class Routes extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <div>
@@ -48,9 +48,9 @@ export default class Routes extends React.Component {
 
     var components = reacterminator({type: 'string', content: content})
     var LoginContainerActual = components.LoginContainer.formattedFileSnippet
-    var RoutesActual = components.Routes.formattedFileSnippet
+    var AppActual = components.App.formattedFileSnippet
 
     assert.deepEqual(LoginContainerActual, LoginContainerExpected)
-    assert.deepEqual(RoutesActual, RoutesExpected)
+    assert.deepEqual(AppActual, AppExpected)
   })
 })
