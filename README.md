@@ -126,14 +126,14 @@ for a comprehensive example of what reacterminator is capable of.
   </div>
   ```
 
-  a Routes.jsx file and a container LoginContainer.jsx file will be generated.
+  a App.jsx file and a container LoginContainer.jsx file will be generated.
 
   ```
-  // Routes.jsx
+  // App.jsx
   import React from 'react';
   import LoginContainer from './LoginContainer';
 
-  export default class Routes extends React.Component {
+  export default class App extends React.Component {
     render () {
       return (
         <div>
