@@ -30,7 +30,7 @@ class LoginContainer extends React.Component {
   }
 }
 
-export default connect(LoginContainer, 'path');`
+export default connect(LoginContainer, 'path');\n`
 
     var AppExpected = `\
 import React from 'react';
@@ -44,7 +44,7 @@ export default class App extends React.Component {
       </div>
       );
   }
-}`
+}\n`
 
     var components = reacterminator({type: 'string', content: content})
     var LoginContainerActual = components.LoginContainer.formattedFileSnippet

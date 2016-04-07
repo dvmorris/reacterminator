@@ -601,6 +601,11 @@
         }
       }
     },
+    "esformatter-eol-last": {
+      "version": "1.0.0",
+      "from": "esformatter-eol-last@latest",
+      "resolved": "https://registry.npmjs.org/esformatter-eol-last/-/esformatter-eol-last-1.0.0.tgz"
+    },
     "esformatter-ignore": {
       "version": "0.1.3",
       "from": "esformatter-ignore@>=0.1.3 <0.2.0",
@@ -1638,6 +1643,11 @@
       "version": "1.0.1",
       "from": "string-width@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/string-width/-/string-width-1.0.1.tgz"
+    },
+    "string.prototype.endswith": {
+      "version": "0.2.0",
+      "from": "string.prototype.endswith@>=0.2.0 <0.3.0",
+      "resolved": "https://registry.npmjs.org/string.prototype.endswith/-/string.prototype.endswith-0.2.0.tgz"
     },
     "stringstream": {
       "version": "0.0.5",
