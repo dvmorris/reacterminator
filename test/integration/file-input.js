@@ -20,7 +20,7 @@ export default class ComponentA extends React.Component {
       </div>
       );
   }
-}\n`
+}\n;\n`
 
     reacterminator(
       {

@@ -54,7 +54,7 @@ export default class Header extends React.Component {
       </header>
       );
   }
-}\n`
+}\n;\n`
 
     var expectedListItem = `\
 import React from 'react';
@@ -67,7 +67,7 @@ export default class ListItem extends React.Component {
       </div>
       );
   }
-}\n`
+}\n;\n`
 
     var expectedCustomRoute = `\
 import React from 'react';
@@ -81,7 +81,7 @@ export default class CustomRoute extends React.Component {
       </Route>
       );
   }
-}\n`
+}\n;\n`
 
     var components = reacterminator({type: 'string', content: content})
 

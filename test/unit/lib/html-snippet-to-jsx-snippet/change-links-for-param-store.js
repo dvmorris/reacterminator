@@ -11,8 +11,8 @@ describe('change links for param store', function () {
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<a href="directory.html" onClick={() => {\n' +
-      '  ParamStore.set({ path: \'directory\' });\n' +
+      '<a href="directory.html" onClick={e => {\n' +
+      '  ParamStore.set({ path: \'directory\' });e.preventDefault();\n' +
       '}} />;'
     )
   })

@@ -20,7 +20,7 @@ export default class ComponentA extends React.Component {
       </div>
       );
   }
-}\n`
+}\n;\n`
 
     var components = reacterminator({type: 'string', content: content})
     var ComponentAActual = _.find(components, {name: 'ComponentA'})
