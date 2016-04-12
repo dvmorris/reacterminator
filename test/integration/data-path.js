@@ -46,7 +46,10 @@ export default class App extends React.Component {
   }
 }\n`
 
-    var components = reacterminator({type: 'string', content: content})
+    var components = reacterminator(
+      {type: 'string', content: content},
+      {changeLinksForParamStore: true}
+    )
     var LoginContainerActual = components.LoginContainer.formattedFileSnippet
     var AppActual = components.App.formattedFileSnippet
 
