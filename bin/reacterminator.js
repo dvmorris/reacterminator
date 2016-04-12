@@ -10,6 +10,7 @@ program
   .option('-p, --output-path [./component]', 'specify output path')
   .option('-r, --recursive', 'find files in the input folder recursivly')
   .option('-o, --override-files', 'override existing files in the output path')
+  .option('-f, --file-to-component', 'create one component for each file, replace body with div tag')
 
 program.on('--help', function () {
   console.log('  Examples:')
@@ -33,7 +34,7 @@ if (!program.inputPath) {
 // prepare options
 var options = _.extend(
   {generateFiles: true},
-  _.pick(program, ['outputPath', 'recursive', 'overrideFiles'])
+  _.pick(program, ['outputPath', 'recursive', 'overrideFiles', 'fileToComponent'])
 )
 
 var cleanedOptions = _.omitBy(options, _.isUndefined)

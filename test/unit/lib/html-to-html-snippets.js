@@ -106,7 +106,22 @@ describe('html-to-html-snippets', function () {
 
     var outputComponent = htmlToHtmlSnippets(html).ComponentA
 
-    assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
+    assert.deepEqual(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedStyleTags, ['<style> .directory-info { vertical-align: middle; } </style>'])
+  })
+
+  it('should output file component based on filename', function () {
+    var html = '<body></body>'
+
+    var usersComponent = htmlToHtmlSnippets(
+      html,
+      {
+        fileToComponent: true,
+        fileName: 'users.html'
+      }
+    ).Users
+
+    assert.deepEqual(usersComponent.htmlSnippet, '<body></body>')
+    assert.deepEqual(usersComponent.wrapper, 'div')
   })
 })
