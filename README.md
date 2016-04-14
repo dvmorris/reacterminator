@@ -139,6 +139,10 @@ Examples:
 
   $ reacterminator -i design.html
   $ reacterminator -i design/
+
+Notes:
+
+  If the input is a folder, the files ends with ignore.html will be ignored.
 ```
 
 ### NODE

@@ -18,6 +18,10 @@ program.on('--help', function () {
   console.log('    $ reacterminator -i design.html')
   console.log('    $ reacterminator -i design/')
   console.log('')
+  console.log('  Notes:')
+  console.log('')
+  console.log('    If the input is a folder, the files ends with -ignore.html will be ignored.')
+  console.log('')
 })
 
 if (!process.argv.slice(2).length) {
