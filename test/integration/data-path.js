@@ -15,18 +15,12 @@ import Login from './Login';
 
 class LoginContainer extends React.Component {
   render() {
-    const style = {
-      position: 'absolute'
-    };
-    if (this.props.currentParams.path !== 'login') {
+    const {path} = this.props.currentParams;
+    if (path !== 'login') {
       return null;
     }
 
-    return (
-      <div style={style}>
-        <Login {...this.props}/>
-      </div>
-      );
+    return <Login {...this.props}/>;
   }
 }
 

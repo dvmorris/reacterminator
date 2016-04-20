@@ -10,4 +10,20 @@ describe('add containers', function () {
   it('empty options', function () {
     assert.deepEqual(addContainers({}, {changeLinksForParamStore: true}), {})
   })
+
+  it('treat index file differently', function () {
+    var components = {
+      Index: {
+        name: 'Index',
+        path: 'index'
+      }
+    }
+
+    var indexContainerFileSnippet = addContainers(
+      components,
+      {changeLinksForParamStore: true}
+    ).IndexContainer.fileSnippet
+
+    assert.include(indexContainerFileSnippet, 'path !== \'\'')
+  })
 })
