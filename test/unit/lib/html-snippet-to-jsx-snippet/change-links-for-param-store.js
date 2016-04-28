@@ -6,14 +6,12 @@ var changeLinksForParamStore = require('../../../../lib/html-snippet-to-jsx-snip
 
 describe('change links for param store', function () {
   it('should change anchor tag', function () {
-    var ast = parse('<a href="directory.html"/>')
+    var ast = parse('<a href="directory.html">This is a link</a>')
     changeLinksForParamStore({ast: ast}, {changeLinksForParamStore: true})
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<a href="directory.html" onClick={e => {\n' +
-      '  ParamStore.set({ path: \'directory\' });e.preventDefault();\n' +
-      '}} />;'
+      '<Link href="directory.html" params={{ path: directory }}>This is a link</Link>;'
     )
   })
 
@@ -92,7 +90,7 @@ describe('change links for param store', function () {
 
     assert.deepEqual(
       component.imports,
-      'import ParamStore from \'param-store\';'
+      'import {Link} from \'param-store\';'
     )
   })
 })
