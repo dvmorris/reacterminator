@@ -11,7 +11,7 @@ describe('change links for param store', function () {
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<Link href="directory.html" params={{ path: directory }}>This is a link</Link>;'
+      '<Link href="directory.html" params={{ path: \'directory\' }}>This is a link</Link>;'
     )
   })
 
