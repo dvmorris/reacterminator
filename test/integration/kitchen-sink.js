@@ -41,7 +41,7 @@ import React from 'react';
 import ListItem from './ListItem';
 import CustomRoute from './CustomRoute';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   render() {
     return (
       <header style={{  fontSize: '18'}} className="header">
@@ -54,12 +54,14 @@ export default class Header extends React.Component {
       </header>
       );
   }
-}\n;\n`
+}\n;
+
+export default Header;\n`
 
     var expectedListItem = `\
 import React from 'react';
 
-export default class ListItem extends React.Component {
+class ListItem extends React.Component {
   render() {
     return (
       <div className="list-item">
@@ -67,13 +69,15 @@ export default class ListItem extends React.Component {
       </div>
       );
   }
-}\n;\n`
+}\n;
+
+export default ListItem;\n`
 
     var expectedCustomRoute = `\
 import React from 'react';
 import { Route } from 'react-router';
 
-export default class CustomRoute extends React.Component {
+class CustomRoute extends React.Component {
   render() {
     return (
       <Route>
@@ -81,7 +85,9 @@ export default class CustomRoute extends React.Component {
       </Route>
       );
   }
-}\n;\n`
+}\n;
+
+export default CustomRoute;\n`
 
     var components = reacterminator({type: 'string', content: content})
 

@@ -20,11 +20,13 @@ class ComponentA extends React.Component {
       `\
 import React from 'react';
 
-export default class ComponentA extends React.Component {
+class ComponentA extends React.Component {
   render() {
     return <div></div>
   }
-}\n`
+}
+
+export default ComponentA;\n`
     )
   })
 
@@ -47,11 +49,13 @@ class ComponentA extends React.Component {
 import React from 'react';
 import ComponentB from './ComponentB';
 
-export default class ComponentA extends React.Component {
+class ComponentA extends React.Component {
   render() {
     return <ComponentB></ComponentB>
   }
-}\n`
+}
+
+export default ComponentA;\n`
     )
   })
 
@@ -74,16 +78,19 @@ import React from 'react';
 import ComponentB from './ComponentB';
 import ComponentC from './ComponentC';
 
-export default class ComponentA extends React.Component {
+class ComponentA extends React.Component {
   render() {
       return <div><ComponentB></ComponentB><ComponentC></ComponentC></div>
   }
-}\n`
+}
+
+export default ComponentA;\n`
     )
   })
 
   it('should add code from imports', function () {
     var component = {
+      name: 'ComponentA',
       dependencies: [],
       declarationSnippet: '',
       imports: 'import {Router} from \'react-router\'; import _ from \'lodash\';'
@@ -96,7 +103,8 @@ import React from 'react';
 import {Router} from 'react-router';
 import _ from 'lodash';
 
-export default `
+
+export default ComponentA;\n`
     )
   })
 })

@@ -116,6 +116,51 @@ for a comprehensive example of what reacterminator is capable of.
   <div>{firstName}</div>
   ```
 
+- data-component-redux-state
+  FROM:
+  ```
+  <div data-component-name="Unicorn" data-component-redux-state="login.password,login.username" />
+  ```
+
+  TO:
+  ```
+  class Unicorn extends React.Component {
+    ...
+  }
+
+  export default connect(
+    (state) => (
+      {
+        'state.login.password': state.login.password
+        'state.login.username': state.login.username
+      }
+    )
+  )(Unicorn)
+  ```
+
+- data-component-redux-action
+  FROM:
+  ```
+  <div data-component-name="Unicorn" data-component-redux-action="login.loginWithPassword,login.forgetPassword" />
+  ```
+
+  TO:
+  ```
+  import actionCreators from '../action-creators/index'
+
+  class Unicorn extends React.Component {
+    ...
+  }
+
+  export default connect(
+    null,
+    {
+      'action.login.loginWithPassword': actionCreators.login.loginWithPassword
+      'action.login.forgetPassword': actionCreators.login.forgetPassword
+    }
+  )(Unicorn)
+  ```
+
 ### CLI
 ```
 npm i -g reacterminator
@@ -134,6 +179,7 @@ Options:
   -r, --recursive                  find files in the input folder recursivly
   -o, --override-files             override existing files in the output path
   -f, --file-to-component          create one component for each file, replace body with div tag
+  -R, --redux                      add redux support in the generator
 
 Examples:
 
@@ -168,7 +214,8 @@ Notes:
  * {boolean} [options.overrideFiles=false]
  *           When it is true reacterminator will override files it there
  *           is already a file in the output directory.
- */
+ **/
+
 var reacterminator = require('reacterminator');
 
 var components = reacterminator(

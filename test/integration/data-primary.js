@@ -12,7 +12,7 @@ describe('data-primary', function () {
     var ComponentAExpected = `\
 import React from 'react';
 
-export default class ComponentA extends React.Component {
+class ComponentA extends React.Component {
   render() {
     return (
       <div>
@@ -20,7 +20,9 @@ export default class ComponentA extends React.Component {
       </div>
       );
   }
-}\n;\n`
+}\n;
+
+export default ComponentA;\n`
 
     var components = reacterminator({type: 'string', content: content})
     var ComponentAActual = _.find(components, {name: 'ComponentA'})

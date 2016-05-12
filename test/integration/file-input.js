@@ -13,14 +13,16 @@ describe('reacterminator with file input', function () {
     var ComponentA = `\
 import React from 'react';
 
-export default class ComponentA extends React.Component {
+class ComponentA extends React.Component {
   render() {
     return (
       <div>
       </div>
       );
   }
-}\n;\n`
+}\n;
+
+export default ComponentA;\n`
 
     reacterminator(
       {

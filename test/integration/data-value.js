@@ -13,7 +13,7 @@ describe('data-value', function () {
     var expectedComponentA = `\
 import React from 'react';
 
-export default class ComponentA extends React.Component {
+class ComponentA extends React.Component {
   render() {
     return (
       <div>
@@ -21,7 +21,9 @@ export default class ComponentA extends React.Component {
       </div>
       );
   }
-}\n;\n`
+}\n;
+
+export default ComponentA;\n`
 
     var realComponentA = reacterminator({type: 'string', content: content})
       .ComponentA
