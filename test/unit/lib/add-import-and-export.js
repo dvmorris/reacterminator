@@ -101,8 +101,7 @@ export default ComponentA;\n`
       `\
 import React from 'react';
 import {Router} from 'react-router';
-import _ from 'lodash';
-
+import _ from 'lodash';\n
 
 export default ComponentA;\n`
     )
