@@ -128,14 +128,16 @@ for a comprehensive example of what reacterminator is capable of.
     ...
   }
 
-  export default connect(
+  const UnicornWithRedux = connect(
     (state) => (
       {
         'state.login.password': state.login.password
         'state.login.username': state.login.username
       }
     )
-  )(Unicorn)
+  )(Unicorn);
+
+  export default UnicornWithRedux;
   ```
 
 - data-component-redux-action
@@ -152,13 +154,15 @@ for a comprehensive example of what reacterminator is capable of.
     ...
   }
 
-  export default connect(
+  const UnicornWithRedux = connect(
     null,
     {
       'action.login.loginWithPassword': actionCreators.login.loginWithPassword
       'action.login.forgetPassword': actionCreators.login.forgetPassword
     }
-  )(Unicorn)
+  )(Unicorn);
+
+  export default UnicornWithRedux;
   ```
 
 ### CLI
