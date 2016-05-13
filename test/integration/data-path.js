@@ -2,7 +2,7 @@
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe('data-path', function () {
+describe.only('data-path', function () {
   it('should create containers and routes', function () {
     const content = `\
 <div data-component-name="Login" data-component-path="login">
@@ -10,11 +10,19 @@ describe('data-path', function () {
 
     const AppExpected = `\
 import React from 'react';
+import Login from './Login';
+import { Stack } from 'super-components';
+import { Provider } from 'react-redux';
+import store from '../store';
 
 class App extends React.Component {
   render() {
     return (
-      <div />
+      <Provider store={store}>
+        <Stack index='path'>
+          <Login index='login'/>
+        </Stack>
+      </Provider>
       );
   }
 }
