@@ -1,10 +1,10 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var addImport = require('../../../../../lib/plugins/redux/add-import')
+const assert = require('chai').assert
+const processImport = require('../../../../../lib/plugins/redux/process-import')
 
 describe('lib/plugins/redux/add-import', function () {
   it('should import reduxConnect if there is state', function () {
-    var importResult = addImport({
+    const importResult = processImport({
       component: {plugins: {redux: {state: ['stateA']}}},
       importSnippet: ''
     })
@@ -16,7 +16,7 @@ describe('lib/plugins/redux/add-import', function () {
   })
 
   it('should import reduxConnect if there is action', function () {
-    var importResult = addImport({
+    const importResult = processImport({
       component: {plugins: {redux: {action: ['actionA']}}},
       importSnippet: ''
     })
@@ -28,7 +28,7 @@ describe('lib/plugins/redux/add-import', function () {
   })
 
   it('should not import reduxConnect if there is no state or action', function () {
-    var importResult = addImport({
+    const importResult = processImport({
       component: {plugins: {redux: {}}},
       importSnippet: ''
     })

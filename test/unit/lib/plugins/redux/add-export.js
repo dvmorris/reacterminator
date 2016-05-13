@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 var assert = require('chai').assert
-var addExport = require('../../../../../lib/plugins/redux/add-export')
+var addExport = require('../../../../../lib/plugins/redux/process-export')
 
-describe('lib/plugins/redux/add-export', function () {
+describe('lib/plugins/redux/process-export', function () {
   it('should wrap component if there is state', function () {
     var exportResult = addExport({
       component: {plugins: {redux: {state: ['stateA']}}},
