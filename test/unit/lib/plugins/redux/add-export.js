@@ -12,12 +12,10 @@ describe('lib/plugins/redux/add-export', function () {
 
     assert.deepEqual(
       exportResult.exportSnippet,
-`const ComponentAWithRedux = connect(
-  (state) => (
-    {
-      'state.stateA': state.stateA
-    }
-  ),
+`const ComponentAWithRedux = reduxConnect(
+  (state) => ({
+    'state.stateA': state.stateA
+  }),
   {}
 )(ComponentA);\n`
     )
@@ -37,7 +35,7 @@ describe('lib/plugins/redux/add-export', function () {
     assert.deepEqual(
       exportResult.exportSnippet,
 
-`const ComponentAWithRedux = connect(
+`const ComponentAWithRedux = reduxConnect(
   null,
   {
     'action.actionA': action.actionA
@@ -59,12 +57,10 @@ describe('lib/plugins/redux/add-export', function () {
 
     assert.deepEqual(
       exportResult.exportSnippet,
-`const ComponentAWithRedux = connect(
-  (state) => (
-    {
-      'state.stateA': state.stateA
-    }
-  ),
+`const ComponentAWithRedux = reduxConnect(
+  (state) => ({
+    'state.stateA': state.stateA
+  }),
   {
     'action.actionA': action.actionA
   }
