@@ -2,7 +2,7 @@
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe.only('data-path', function () {
+describe('data-path', function () {
   it('should create containers and routes', function () {
     const content = `\
 <div data-component-name="Login" data-component-path="login">
@@ -19,8 +19,8 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Stack index='path'>
-          <Login index='login'/>
+        <Stack index="path">
+          <Login index="login" />
         </Stack>
       </Provider>
       );

@@ -27,7 +27,7 @@ describe('html-to-html-snippets', function () {
 
     assert.equal(
       htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
-      '<div> <div data-component-name=\"ComponentB\"> </div> </div>'
+      '<div> <div data-component-name="ComponentB"> </div> </div>'
     )
     assert.equal(
       htmlToHtmlSnippets(html).ComponentB.htmlSnippet,
@@ -95,7 +95,7 @@ describe('html-to-html-snippets', function () {
     var outputComponent = htmlToHtmlSnippets(html).ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
-    assert.deepEqual(outputComponent.removedScriptTags, ['<script src=\"https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js\"></script>'])
+    assert.deepEqual(outputComponent.removedScriptTags, ['<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>'])
   })
 
   it('should remove style tags', function () {
