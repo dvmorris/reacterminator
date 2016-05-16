@@ -11,7 +11,7 @@ describe('lib/plugins/redux/add-import', function () {
 
     assert.deepEqual(
       importResult.importSnippet,
-      `import { connect as reduxConnect } from 'redux';\n`
+      `import { connect as reduxConnect } from 'react-redux';\n`
     )
   })
 
@@ -23,7 +23,7 @@ describe('lib/plugins/redux/add-import', function () {
 
     assert.deepEqual(
       importResult.importSnippet,
-      `import { connect as reduxConnect } from 'redux';\n`
+      `import { connect as reduxConnect } from 'react-redux';\n`
     )
   })
 

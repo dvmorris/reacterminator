@@ -11,7 +11,7 @@ describe('data-path', function () {
     const AppExpected = `\
 import React from 'react';
 import Login from './Login';
-import { Stack } from 'super-components';
+import { Stack } from 'react-super-components';
 import { Provider } from 'react-redux';
 import store from '../store';
 
