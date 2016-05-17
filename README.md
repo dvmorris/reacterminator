@@ -65,7 +65,9 @@ for a comprehensive example of what reacterminator is capable of.
 - data-component-props
 
   FROM:
-  `<div data-component-name="ComponentA" data-component-props="isBoolean lastName={'Poetic'}"/>`
+  ```
+  <div data-component-name="ComponentA" data-component-props="isBoolean lastName={'Poetic'}"/>
+  ```
 
   TO:
   ```
@@ -81,7 +83,9 @@ for a comprehensive example of what reacterminator is capable of.
   ```
 
   TO:
-  `<div className="primary" />`
+  ```
+  <div className="primary" />
+  ```
 
 - data-component-wrapper
 
