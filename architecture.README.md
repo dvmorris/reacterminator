@@ -35,7 +35,7 @@ to apply to the data.
 - htmlSnippets
   ```javascript
   {
-    htmlSnippets: {
+    components: {
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
@@ -50,7 +50,7 @@ to apply to the data.
 - jsxSnippets
   ```javascript
   {
-    jsxSnippets: {
+    components: {
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
@@ -66,7 +66,7 @@ to apply to the data.
 - declarationSnippets
   ```javascript
   {
-    declarationSnippets: {
+    components: {
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
@@ -83,7 +83,7 @@ to apply to the data.
 - withImportSnippets
   ```javascript
   {
-    withImportSnippets: {
+    components: {
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
@@ -101,7 +101,7 @@ to apply to the data.
 - withExportSnippets
   ```javascript
   {
-    withExportSnippets: {
+    components: {
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
@@ -120,7 +120,7 @@ to apply to the data.
 - formattedSnippets
   ```javascript
   {
-    formattedSnippets: {
+    components: {
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
@@ -131,6 +131,28 @@ to apply to the data.
         withImportSnippet: [withImportSnippet],
         withExportSnippet: [withExportSnippet],
         formatedsnippet: [formatedsnippet]
+      }
+    },
+    options: { }
+  }
+  ```
+
+- fileSnippets
+  ```javascript
+  {
+    components: {
+      [componentName]: {
+        fromPath: [fromPath],
+        isPath: [isPath],
+        name: [name],
+        htmlSnippet: [htmlSnippet],
+        jsxSnippet: [jsxSnippet],
+        declarationSnippet: [declarationSnippet],
+        withImportSnippet: [withImportSnippet],
+        withExportSnippet: [withExportSnippet],
+        formatedsnippet: [formatedsnippet],
+        fileSnippet: [fileSnippet],
+        relativeFilePath: [relativeFilePath]
       }
     },
     options: { }

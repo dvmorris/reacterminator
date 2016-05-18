@@ -2,9 +2,9 @@
 var fs = require('fs')
 var path = require('path')
 var assert = require('chai').assert
-var generateFiles = require('../../../lib/generate-files.js')
+var processFormattedSnippets = require('../../../lib/plugins/main/process-formatted-snippets.js')
 
-describe('generate-files', function () {
+describe('lib/plugins/main/process-formatted-snippets', function () {
   it('should generate a file', function () {
     var formattedFileSnippet = `\
 import ComponentB from './components/ComponentB.jsx';
@@ -26,10 +26,10 @@ export default ComponentA;`
       }
     }
 
-    generateFiles(
+    processFormattedSnippets({
       components,
-      {outputPath: path.resolve('./components'), overrideFiles: true}
-    )
+      options: {outputPath: path.resolve('./components'), overrideFiles: true}
+    })
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
@@ -45,8 +45,8 @@ class ComponentA extends React.Component {
   }
 }`
 
-    generateFiles(
-      {
+    processFormattedSnippets({
+      components: {
         ComponentA: {
           name: 'ComponentA',
           formattedFileSnippet: formattedFileSnippet,
@@ -54,16 +54,16 @@ class ComponentA extends React.Component {
           removedScriptTags: []
         }
       },
-      {outputPath: path.resolve('./components'), overrideFiles: true}
-    )
+      options: {outputPath: path.resolve('./components'), overrideFiles: true}
+    })
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
       formattedFileSnippet
     )
 
-    generateFiles(
-      {
+    processFormattedSnippets({
+      components: {
         ComponentA: {
           name: 'ComponentA',
           formattedFileSnippet: '',
@@ -71,8 +71,8 @@ class ComponentA extends React.Component {
           removedScriptTags: []
         }
       },
-      {outputPath: path.resolve('./components'), overrideFiles: false}
-    )
+      options: {outputPath: path.resolve('./components'), overrideFiles: false}
+    })
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),
@@ -88,8 +88,8 @@ class ComponentA extends React.Component {
   }
 }`
 
-    generateFiles(
-      {
+    processFormattedSnippets({
+      components: {
         ComponentA: {
           name: 'ComponentA',
           formattedFileSnippet: formattedFileSnippet,
@@ -98,8 +98,8 @@ class ComponentA extends React.Component {
           removedStyleTags: ['<style></style>']
         }
       },
-      {outputPath: path.resolve('./components'), overrideFiles: true}
-    )
+      options: {outputPath: path.resolve('./components'), overrideFiles: true}
+    })
 
     assert.deepEqual(
       fs.readFileSync(process.cwd() + '/components/ComponentA.jsx', 'utf-8'),

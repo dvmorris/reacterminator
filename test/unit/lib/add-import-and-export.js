@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
 const addImportAndExport = require('../../../lib/add-import-and-export')
-const addPlugins = require('../../../lib/add-plugins')
+const options = require('../../../lib/create-plugins-and-pipline')()
 
 describe('add-import-and-export', function () {
   it('should not add import when there is no dependencies', function () {
@@ -15,8 +15,6 @@ class ComponentA extends React.Component {
   }
 }\n`
     }
-
-    const options = addPlugins({})
 
     assert.deepEqual(
       addImportAndExport(component, options).fileSnippet,
@@ -46,8 +44,6 @@ class ComponentA extends React.Component {
 }\n`
     }
 
-    const options = addPlugins({})
-
     assert.deepEqual(
       addImportAndExport(component, options).fileSnippet,
       `\
@@ -76,8 +72,6 @@ class ComponentA extends React.Component {
 }\n`
     }
 
-    const options = addPlugins({})
-
     assert.deepEqual(
       addImportAndExport(component, options).fileSnippet,
       `\
@@ -102,8 +96,6 @@ export default ComponentA;\n`
       declarationSnippet: '',
       imports: 'import {Router} from \'react-router\'; import _ from \'lodash\';'
     }
-
-    const options = addPlugins({})
 
     assert.deepEqual(
       addImportAndExport(component, options).fileSnippet,
