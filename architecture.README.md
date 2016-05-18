@@ -23,8 +23,8 @@ to apply to the data.
   {
     htmlFiles: {
       [filePath]: {
-        path: [path],
         name: [name],
+        path: [path],
         htmlFile: [htmlFile]
       }
     },
