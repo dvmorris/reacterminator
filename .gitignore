@@ -3,4 +3,5 @@ coverage
 npm-debug.log
 doc
 components
+reacterminator
 .coveralls.yml

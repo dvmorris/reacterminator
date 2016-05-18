@@ -38,7 +38,7 @@ if (!program.inputPath) {
 // prepare options
 var options = _.extend(
   {generateFiles: true},
-  _.pick(program, ['outputPath', 'recursive', 'overrideFiles', 'fileToComponent'])
+  _.pick(program, ['outputPath', 'recursive', 'fileToComponent'])
 )
 
 var cleanedOptions = _.omitBy(options, _.isUndefined)

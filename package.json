@@ -36,7 +36,6 @@
     "istanbul": "^0.4.2",
     "jsdoc": "^3.4.0",
     "mocha": "^2.4.5",
-    "rimraf": "^2.5.2",
     "standard": "^6.0.7",
     "watch": "^0.17.1"
   },
@@ -58,6 +57,7 @@
     "esformatter-quotes": "^1.0.3",
     "esformatter-semicolons": "^1.1.2",
     "glob": "^7.0.3",
-    "lodash": "^4.6.1"
+    "lodash": "^4.6.1",
+    "shelljs": "^0.7.0"
   }
 }

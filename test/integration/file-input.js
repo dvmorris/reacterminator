@@ -1,12 +1,12 @@
 /* eslint-env mocha */
-var fs = require('fs')
-var rimraf = require('rimraf')
-var assert = require('chai').assert
-var reacterminator = require('../../lib/index')
+const fs = require('fs')
+const shell = require('shelljs')
+const assert = require('chai').assert
+const reacterminator = require('../../lib/index')
 
 describe('reacterminator with file input', function () {
   beforeEach(function () {
-    rimraf.sync('./components')
+    shell.exec('rm -rf ./reacterminator')
   })
 
   it('should generate one file with one component', function () {
@@ -30,13 +30,12 @@ export default ComponentA;\n`
         content: './examples/test/component-a.html'
       },
       {
-        generateFiles: true,
-        overrideFiles: true
+        generateFiles: true
       }
     )
 
     assert.deepEqual(
-      fs.readFileSync('./components/ComponentA.jsx', 'utf8'),
+      fs.readFileSync('./reacterminator/readonly-components/ComponentA.jsx', 'utf8'),
       ComponentA
     )
   })
@@ -70,7 +69,7 @@ export default ComponentA;\n`
   })
 
   it('should generate files for all the files in a folder non-recursivly', function () {
-    assert.throws(function () { fs.statSync('./components/ComponentA.jsx') })
+    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/ComponentA.jsx') })
 
     reacterminator(
       {
@@ -78,18 +77,17 @@ export default ComponentA;\n`
         content: './examples/test/'
       },
       {
-        generateFiles: true,
-        overrideFiles: true
+        generateFiles: true
       }
     )
 
-    assert(fs.statSync('./components/ComponentA.jsx').isFile())
-    assert.throws(function () { fs.statSync('./components/SubFolder.jsx') })
+    assert(fs.statSync('./reacterminator/readonly-components/ComponentA.jsx').isFile())
+    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/SubFolder.jsx') })
   })
 
   it('should generate files for all the files in a folder recursivly', function () {
-    assert.throws(function () { fs.statSync('./components/SubFolder.jsx') })
-    assert.throws(function () { fs.statSync('./components/ComponentA.jsx') })
+    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/SubFolder.jsx') })
+    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/ComponentA.jsx') })
 
     reacterminator(
       {
@@ -98,13 +96,12 @@ export default ComponentA;\n`
       },
       {
         generateFiles: true,
-        overrideFiles: true,
         recursive: true
       }
     )
 
-    assert(fs.statSync('./components/SubFolder.jsx').isFile())
-    assert(fs.statSync('./components/ComponentA.jsx').isFile())
+    assert(fs.statSync('./reacterminator/readonly-components/SubFolder.jsx').isFile())
+    assert(fs.statSync('./reacterminator/readonly-components/ComponentA.jsx').isFile())
   })
 
   it('should throw an error when the input file is not a file or directory', function () {

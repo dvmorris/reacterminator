@@ -201,9 +201,6 @@ Notes:
  *           and convert all to them into react components.
  *           When it is false, reacterminator will only find the .html files
  *           in the current directory.
- * {boolean} [options.overrideFiles=false]
- *           When it is true reacterminator will override files it there
- *           is already a file in the output directory.
  **/
 
 var reacterminator = require('reacterminator');
