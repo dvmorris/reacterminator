@@ -149,56 +149,7 @@ for a comprehensive example of what reacterminator is capable of.
   }
   ```
 
-- data-component-redux-state
-
-  FROM:
-  ```
-  <div data-component-name="Unicorn" data-component-redux-state="login.password,login.username" />
-  ```
-
-  TO:
-  ```
-  class Unicorn extends React.Component {
-    ...
-  }
-
-  const UnicornWithRedux = connect(
-    (state) => (
-      {
-        'state.login.password': state.login.password
-        'state.login.username': state.login.username
-      }
-    )
-  )(Unicorn);
-
-  export default UnicornWithRedux;
-  ```
-
-- data-component-redux-action
-
-  FROM:
-  ```
-  <div data-component-name="Unicorn" data-component-redux-action="login.loginWithPassword,login.forgetPassword" />
-  ```
-
-  TO:
-  ```
-  import actionCreators from '../action-creators/index'
-
-  class Unicorn extends React.Component {
-    ...
-  }
-
-  const UnicornWithRedux = connect(
-    null,
-    {
-      'action.login.loginWithPassword': actionCreators.login.loginWithPassword
-      'action.login.forgetPassword': actionCreators.login.forgetPassword
-    }
-  )(Unicorn);
-
-  export default UnicornWithRedux;
-  ```
+### [REDUX INTEGRATION](redux.README.md)
 
 ### CLI
 ```

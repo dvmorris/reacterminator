@@ -23,7 +23,10 @@ describe('lib/plugins/redux/add-import', function () {
 
     assert.deepEqual(
       importResult.importSnippet,
-      `import { connect as reduxConnect } from 'react-redux';\n`
+`\
+import { connect as reduxConnect } from 'react-redux';
+import { default as action } from '../action-creators/index';
+`
     )
   })
 
