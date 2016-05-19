@@ -149,6 +149,20 @@ for a comprehensive example of what reacterminator is capable of.
   }
   ```
 
+- data-component-custom
+
+  FROM:
+  ```
+  <div data-component-name="Unicorn" data-component-custom="true">
+  </div>
+  ```
+
+  TO:
+  ```
+  // file: custom-components/Unicorn.jsx
+  <div/>
+  ```
+
 ### [REDUX INTEGRATION](redux.README.md)
 
 ### CLI

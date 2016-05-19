@@ -117,7 +117,7 @@ describe('html-to-html-snippets', function () {
       html,
       {
         fileToComponent: true,
-        fileName: 'users.html'
+        name: 'users.html'
       }
     ).Users
 
