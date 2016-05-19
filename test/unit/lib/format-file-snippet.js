@@ -19,7 +19,7 @@ export default ComponentA;\n`
     }
 
     assert.deepEqual(
-      formatFileSnippet(component).formattedFileSnippet,
+      formatFileSnippet({component}).formattedFileSnippet,
       `\
 class ComponentA extends React.Component {
   render() {
@@ -52,7 +52,9 @@ export default ComponentA;\n`
   it('shouls throw an error when syntax is invalid', function () {
     assert.throw(
       function () {
-        formatFileSnippet({name: 'ComponentA', fileSnippet: 'div></div>'})
+        formatFileSnippet({
+          component: {name: 'ComponentA', fileSnippet: 'div></div>'}
+        })
       },
       /Unexpected token/i
     )

@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var htmlToHtmlSnippets = require('../../../lib/html-to-html-snippets')
+const assert = require('chai').assert
+const htmlToHtmlSnippets = require('../../../lib/html-to-html-snippets')
 
 describe('html-to-html-snippets', function () {
   it('should export a function', function () {
@@ -8,41 +8,41 @@ describe('html-to-html-snippets', function () {
   })
 
   it('should output one component', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="ComponentA">
 </div>`
 
     assert.equal(
-      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
       '<div> </div>'
     )
   })
 
   it('should output two nested components', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="ComponentA">
   <div data-component-name="ComponentB">
   </div>
 </div>`
 
     assert.equal(
-      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
       '<div> <div data-component-name="ComponentB"> </div> </div>'
     )
     assert.equal(
-      htmlToHtmlSnippets(html).ComponentB.htmlSnippet,
+      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentB.htmlSnippet,
       '<div> </div>'
     )
   })
 
   it('should throw an error when the name is empty', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="">
 </div>`
 
     assert.throws(
       function () {
-        htmlToHtmlSnippets(html)
+        htmlToHtmlSnippets({htmlFile: {fileContent}})
       },
       /this component does not have a name/
     )
@@ -51,75 +51,80 @@ describe('html-to-html-snippets', function () {
   it('should throw an error when the name is not upper camelcase', function () {
     assert.throws(
       function () {
-        htmlToHtmlSnippets('<div data-component-name="abcdef"></div>')
+        htmlToHtmlSnippets({
+          htmlFile: {
+            fileContent: '<div data-component-name="abcdef"></div>'
+          }
+        })
       },
       /is not upper camel case/
     )
     assert.throws(
       function () {
-        htmlToHtmlSnippets('<div data-component-name="Abc-def"></div>')
+        htmlToHtmlSnippets({
+          htmlFile: {
+            fileContent: '<div data-component-name="Abc-def"></div>'
+          }
+        })
       },
       /is not upper camel case/
     )
   })
 
   it('should not override an existing component', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="ComponentA">first</div>
 <div data-component-name="ComponentA">second</div>`
 
     assert.deepEqual(
-      htmlToHtmlSnippets(html).ComponentA.htmlSnippet,
+      htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA.htmlSnippet,
       '<div>first</div>'
     )
   })
 
   it('should remove commented nodes', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="ComponentA">
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </div>`
 
-    var outputComponent = htmlToHtmlSnippets(html).ComponentA
+    const outputComponent = htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedComments, ['<!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->'])
   })
 
   it('should remove script tags', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="ComponentA">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
 </div>`
 
-    var outputComponent = htmlToHtmlSnippets(html).ComponentA
+    const outputComponent = htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
 
     assert.equal(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedScriptTags, ['<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>'])
   })
 
   it('should remove style tags', function () {
-    var html = `\
+    const fileContent = `\
 <div data-component-name="ComponentA">
 <style> .directory-info { vertical-align: middle; } </style>
 </div>`
 
-    var outputComponent = htmlToHtmlSnippets(html).ComponentA
+    const outputComponent = htmlToHtmlSnippets({htmlFile: {fileContent}}).ComponentA
 
     assert.deepEqual(outputComponent.htmlSnippet, '<div>  </div>')
     assert.deepEqual(outputComponent.removedStyleTags, ['<style> .directory-info { vertical-align: middle; } </style>'])
   })
 
   it('should output file component based on filename', function () {
-    var html = '<body></body>'
+    const fileContent = '<body></body>'
 
-    var usersComponent = htmlToHtmlSnippets(
-      html,
-      {
-        fileToComponent: true,
-        name: 'users.html'
-      }
-    ).Users
+    const usersComponent = htmlToHtmlSnippets({
+      htmlFile: {fileContent, fileName: 'users'},
+      options: {fileToComponent: true}
+    }).Users
 
     assert.deepEqual(usersComponent.htmlSnippet, '<body></body>')
     assert.deepEqual(usersComponent.wrapper, 'div')

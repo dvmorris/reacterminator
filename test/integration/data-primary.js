@@ -25,7 +25,7 @@ class ComponentA extends React.Component {
 export default ComponentA;\n`
 
     var components = reacterminator({type: 'string', content: content})
-    var ComponentAActual = _.find(components, {name: 'ComponentA'})
+    var ComponentAActual = _.find(components, {componentName: 'ComponentA'})
       .formattedFileSnippet
 
     assert.deepEqual(ComponentAActual, ComponentAExpected)

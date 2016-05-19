@@ -6,7 +6,7 @@ const options = require('../../../lib/create-plugins-and-pipline')()
 describe('add-import-and-export', function () {
   it('should not add import when there is no dependencies', function () {
     const component = {
-      name: 'ComponentA',
+      componentName: 'ComponentA',
       dependencies: [],
       declarationSnippet: `\
 class ComponentA extends React.Component {
@@ -17,7 +17,7 @@ class ComponentA extends React.Component {
     }
 
     assert.deepEqual(
-      addImportAndExport(component, options).fileSnippet,
+      addImportAndExport({component, options}).fileSnippet,
       `\
 import React from 'react';
 
@@ -34,7 +34,7 @@ export default ComponentA;\n`
 
   it('should add import and export', function () {
     const component = {
-      name: 'ComponentA',
+      componentName: 'ComponentA',
       dependencies: ['ComponentB'],
       declarationSnippet: `\
 class ComponentA extends React.Component {
@@ -45,7 +45,7 @@ class ComponentA extends React.Component {
     }
 
     assert.deepEqual(
-      addImportAndExport(component, options).fileSnippet,
+      addImportAndExport({component, components: {}, options}).fileSnippet,
       `\
 import React from 'react';
 import ComponentB from './ComponentB';
@@ -62,7 +62,7 @@ export default ComponentA;\n`
 
   it('should import multiple components', function () {
     const component = {
-      name: 'ComponentA',
+      componentName: 'ComponentA',
       dependencies: ['ComponentB', 'ComponentC'],
       declarationSnippet: `\
 class ComponentA extends React.Component {
@@ -73,7 +73,7 @@ class ComponentA extends React.Component {
     }
 
     assert.deepEqual(
-      addImportAndExport(component, options).fileSnippet,
+      addImportAndExport({component, components: {}, options}).fileSnippet,
       `\
 import React from 'react';
 import ComponentB from './ComponentB';
@@ -91,14 +91,14 @@ export default ComponentA;\n`
 
   it('should add code from imports', function () {
     const component = {
-      name: 'ComponentA',
+      componentName: 'ComponentA',
       dependencies: [],
       declarationSnippet: '',
       imports: 'import {Router} from \'react-router\'; import _ from \'lodash\';'
     }
 
     assert.deepEqual(
-      addImportAndExport(component, options).fileSnippet,
+      addImportAndExport({component, options}).fileSnippet,
       `\
 import React from 'react';
 import {Router} from 'react-router';

@@ -5,12 +5,12 @@ var addDeclaration = require('../../../lib/add-declaration')
 describe('add-declaration', function () {
   it('should add declaration', function () {
     var component = {
-      name: 'ComponentA',
+      componentName: 'ComponentA',
       jsxSnippet: '<div></div>'
     }
 
     assert.deepEqual(
-      addDeclaration(component).declarationSnippet,
+      addDeclaration({component}).declarationSnippet,
       `\
 class ComponentA extends React.Component {
   render() {

@@ -1,12 +1,12 @@
 /* eslint-env mocha */
-var fs = require('fs')
-var path = require('path')
-var assert = require('chai').assert
-var processFormattedSnippets = require('../../../../../lib/plugins/main/process-formatted-snippets.js')
+const fs = require('fs')
+const path = require('path')
+const assert = require('chai').assert
+const processFormattedSnippets = require('../../../../../lib/plugins/main/process-formatted-snippets.js')
 
 describe('lib/plugins/main/process-formatted-snippets', function () {
   it('should generate a file', function () {
-    var formattedFileSnippet = `\
+    const formattedFileSnippet = `\
 import ComponentB from './components/ComponentB.jsx';
 
 class ComponentA extends React.Component {
@@ -17,9 +17,9 @@ class ComponentA extends React.Component {
 
 export default ComponentA;`
 
-    var components = {
+    const components = {
       ComponentA: {
-        name: 'ComponentA',
+        componentName: 'ComponentA',
         formattedFileSnippet: formattedFileSnippet,
         removedComments: [],
         removedScriptTags: []
@@ -38,7 +38,7 @@ export default ComponentA;`
   })
 
   it('should report removed codes', function () {
-    var formattedFileSnippet = `\
+    const formattedFileSnippet = `\
 class ComponentA extends React.Component {
   render() {
     return <div></div>
@@ -48,7 +48,7 @@ class ComponentA extends React.Component {
     processFormattedSnippets({
       components: {
         ComponentA: {
-          name: 'ComponentA',
+          componentName: 'ComponentA',
           formattedFileSnippet: formattedFileSnippet,
           removedComments: ['<!-- -->'],
           removedScriptTags: ['<script></script>'],

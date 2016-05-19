@@ -1,5 +1,8 @@
 # Architecture
 
+## TODO
+- allow for processAll
+
 ## Summary
 
 There are two main ideas in the architecture:
@@ -23,9 +26,9 @@ to apply to the data.
   {
     htmlFiles: {
       [filePath]: {
-        name: [name],
-        path: [path],
-        htmlFile: [htmlFile]
+        fileName: [fileName],
+        filePath: [filePath],
+        fileContent: [fileContent]
       }
     },
     options: { }
@@ -39,7 +42,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet]
       }
     },
@@ -54,7 +57,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet]
       }
@@ -70,7 +73,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet]
@@ -87,7 +90,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],
@@ -105,7 +108,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],
@@ -124,7 +127,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],
@@ -144,7 +147,7 @@ to apply to the data.
       [componentName]: {
         fromPath: [fromPath],
         isPath: [isPath],
-        name: [name],
+        componentName: [componentName],
         htmlSnippet: [htmlSnippet],
         jsxSnippet: [jsxSnippet],
         declarationSnippet: [declarationSnippet],

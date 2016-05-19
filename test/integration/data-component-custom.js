@@ -10,7 +10,7 @@ describe('data-component-custom', function () {
   })
 
   it('should create a custom component', function () {
-    const components = reacterminator(
+    reacterminator(
       {
         type: 'path',
         content: './examples/test/test-data-component-custom.html'
@@ -21,9 +21,9 @@ describe('data-component-custom', function () {
       }
     )
 
-    const TestDataComponentCustomExpected  = `\
+    const TestDataComponentCustomExpected = `\
 import React from 'react';
-import Custom from '../custom-components/Custom'
+import Custom from '../custom-components/Custom';
 
 class TestDataComponentCustom extends React.Component {
   render() {
@@ -50,7 +50,9 @@ import React from 'react';
 class Custom extends React.Component {
   render() {
     return (
-      <div>custom</div>
+      <div>
+        custom
+      </div>
       );
   }
 }
