@@ -2,9 +2,14 @@
 const fs = require('fs')
 const path = require('path')
 const assert = require('chai').assert
+const shell = require('shelljs')
 const processFormattedSnippets = require('../../../../../lib/plugins/main/process-formatted-snippets.js')
 
 describe('lib/plugins/main/process-formatted-snippets', function () {
+  beforeEach(function () {
+    shell.exec('rm -rf ./reacterminator')
+  })
+
   it('should generate a file', function () {
     const formattedFileSnippet = `\
 import ComponentB from './components/ComponentB.jsx';
@@ -20,7 +25,7 @@ export default ComponentA;`
     const components = {
       ComponentA: {
         componentName: 'ComponentA',
-        formattedFileSnippet: formattedFileSnippet,
+        formattedFileSnippet,
         removedComments: [],
         removedScriptTags: []
       }
@@ -28,11 +33,11 @@ export default ComponentA;`
 
     processFormattedSnippets({
       components,
-      options: {outputPath: path.resolve('./components')}
+      options: {outputPath: path.resolve('./reacterminator')}
     })
 
     assert.deepEqual(
-      fs.readFileSync(process.cwd() + '/components/readonly-components/ComponentA.jsx', 'utf-8'),
+      fs.readFileSync(process.cwd() + '/reacterminator/readonly-components/ComponentA.jsx', 'utf-8'),
       formattedFileSnippet
     )
   })
@@ -55,11 +60,11 @@ class ComponentA extends React.Component {
           removedStyleTags: ['<style></style>']
         }
       },
-      options: {outputPath: path.resolve('./components')}
+      options: {outputPath: path.resolve('./reacterminator')}
     })
 
     assert.deepEqual(
-      fs.readFileSync(process.cwd() + '/components/readonly-components/ComponentA.jsx', 'utf-8'),
+      fs.readFileSync(process.cwd() + '/reacterminator/readonly-components/ComponentA.jsx', 'utf-8'),
       formattedFileSnippet
     )
   })
