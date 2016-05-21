@@ -32,12 +32,11 @@
   "homepage": "https://github.com/poetic/reacterminator",
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.8",
-    "istanbul": "^0.4.2",
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.3",
     "jsdoc": "^3.4.0",
     "mocha": "^2.4.5",
-    "standard": "^6.0.7",
-    "watch": "^0.17.1"
+    "standard": "^6.0.8"
   },
   "standard": {
     "ignore": [

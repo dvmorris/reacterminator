@@ -39,8 +39,13 @@ class TestDataComponentCustom extends React.Component {
 export default TestDataComponentCustom;
 `
 
+    const TestDataComponentCustomActual = fs.readFileSync(
+      './reacterminator/readonly-components/TestDataComponentCustom.jsx',
+      'utf-8'
+    )
+
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/readonly-components/TestDataComponentCustom.jsx', 'utf-8'),
+      TestDataComponentCustomActual,
       TestDataComponentCustomExpected
     )
 
@@ -60,9 +65,39 @@ class Custom extends React.Component {
 
 export default Custom;
 `
-    assert.deepEqual(
-      fs.readFileSync('./reacterminator/custom-components/Custom.jsx', 'utf-8'),
-      CustomExpected
+
+    const CustomActual = fs.readFileSync(
+      './reacterminator/custom-components/Custom.jsx',
+      'utf-8'
     )
+
+    assert.deepEqual(CustomActual, CustomExpected)
+  })
+
+  it('should not override if there is already custom components', function () {
+    shell.exec('mkdir -p ./reacterminator/custom-components/')
+
+    fs.writeFileSync(
+      './reacterminator/custom-components/Custom.jsx',
+      'CUSTOM'
+    )
+
+    reacterminator(
+      {
+        type: 'path',
+        content: './examples/test/test-data-component-custom.html'
+      },
+      {
+        generateFiles: true,
+        fileToComponent: true
+      }
+    )
+
+    const CustomFileContent = fs.readFileSync(
+      './reacterminator/custom-components/Custom.jsx',
+      'utf-8'
+    )
+
+    assert.deepEqual(CustomFileContent, 'CUSTOM')
   })
 })
