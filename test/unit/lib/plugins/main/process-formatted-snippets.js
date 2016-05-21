@@ -33,7 +33,10 @@ export default ComponentA;`
 
     processFormattedSnippets({
       components,
-      options: {outputPath: path.resolve('./reacterminator')}
+      options: {
+        generateFiles: true,
+        outputPath: path.resolve('./reacterminator')
+      }
     })
 
     assert.deepEqual(
@@ -60,7 +63,10 @@ class ComponentA extends React.Component {
           removedStyleTags: ['<style></style>']
         }
       },
-      options: {outputPath: path.resolve('./reacterminator')}
+      options: {
+        generateFiles: true,
+        outputPath: path.resolve('./reacterminator')
+      }
     })
 
     assert.deepEqual(

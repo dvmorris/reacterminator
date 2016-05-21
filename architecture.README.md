@@ -16,8 +16,8 @@ Plugins should be as independent as possible.
 Plugins modify the data piped through and can attach pulgin specific
 data or manipulate data as however the plugin want.
 
-The pipline will find a function called [stageName]Process in the plugin object
-to apply to the data.
+The pipline will find a function called process\[Each|All\]\[StageName\]
+in the plugin object to apply to the data.
 
 ## Stages
 
