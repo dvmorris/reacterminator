@@ -10,7 +10,22 @@ describe('reacterminator with file input', function () {
   })
 
   it('should generate one file with one component', function () {
-    var ComponentA = `\
+    reacterminator(
+      {
+        type: 'path',
+        content: './examples/test/component-a.html'
+      },
+      {
+        generateFiles: true
+      }
+    )
+
+    const ComponentAActual = fs.readFileSync(
+      './reacterminator/readonly-components/ComponentA.jsx',
+      'utf8'
+    )
+
+    const ComponentAExpected = `\
 import React from 'react';
 
 class ComponentA extends React.Component {
@@ -24,20 +39,7 @@ class ComponentA extends React.Component {
 
 export default ComponentA;\n`
 
-    reacterminator(
-      {
-        type: 'path',
-        content: './examples/test/component-a.html'
-      },
-      {
-        generateFiles: true
-      }
-    )
-
-    assert.deepEqual(
-      fs.readFileSync('./reacterminator/readonly-components/ComponentA.jsx', 'utf8'),
-      ComponentA
-    )
+    assert.deepEqual(ComponentAActual, ComponentAExpected)
   })
 
   it('should emit an error when the input type is not allowed', function () {

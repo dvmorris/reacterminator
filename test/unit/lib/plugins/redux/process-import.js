@@ -25,7 +25,7 @@ describe('lib/plugins/redux/add-import', function () {
       importResult.importSnippet,
 `\
 import { connect as reduxConnect } from 'react-redux';
-import { default as action } from '../action-creators/index';
+import action from '../action-creators/readonly-index';
 `
     )
   })

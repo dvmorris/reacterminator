@@ -5,7 +5,7 @@ var addExport = require('../../../../../lib/plugins/redux/process-export')
 describe('lib/plugins/redux/process-export', function () {
   it('should wrap component if there is state', function () {
     var exportResult = addExport({
-      component: {plugins: {redux: {state: ['stateA']}}},
+      component: {plugins: {redux: {state: ['stateA', 'stateB']}}},
       exportSnippet: '',
       exportName: 'ComponentA'
     })
@@ -14,7 +14,8 @@ describe('lib/plugins/redux/process-export', function () {
       exportResult.exportSnippet,
 `const ComponentAWithRedux = reduxConnect(
   (state) => ({
-    'state.stateA': state.stateA
+    'state.stateA': state.stateA,
+'state.stateB': state.stateB
   }),
   {}
 )(ComponentA);\n`

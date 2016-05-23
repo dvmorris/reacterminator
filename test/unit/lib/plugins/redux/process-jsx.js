@@ -1,26 +1,51 @@
 /* eslint-env mocha */
-var assert = require('chai').assert
-var parse = require('../../../../../lib/helpers/parse')
-var processJsx = require('../../../../../lib/plugins/redux/process-jsx')
+const assert = require('chai').assert
+const parse = require('../../../../../lib/helpers/parse')
+const processJsx = require('../../../../../lib/plugins/redux/process-jsx')
 
-describe('lib/plugins/redux/process-jsx', function () {
-  it('should extract redux-state', function () {
-    var ast = parse('<div data-component-redux-state="stateA,stateB"/>')
-    var jsxResult = processJsx({component: {plugins: {redux: {}}}, ast: ast})
+// TODO: use path name instead of component name to name space
+const component = {
+  componentName: 'User',
+  plugins: {
+    redux: {}
+  }
+}
+
+describe.only('lib/plugins/redux/process-jsx', function () {
+  it('should add value and onChange to input', function () {
+    const ast = parse('<input id="name" />')
+    const jsxResult = processJsx({component, ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.state,
-      ['stateA', 'stateB']
+      ['user.name']
     )
-  })
-
-  it('should extract redux-action', function () {
-    var ast = parse('<div data-component-redux-action="actionA,actionB"/>')
-    var jsxResult = processJsx({component: {plugins: {redux: {}}}, ast: ast})
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
-      ['actionA', 'actionB']
+      ['user.changeName']
+    )
+
+    // TODO: check jsxResult snippet
+  })
+
+  it('should add onClick to button', function () {
+    const ast = parse('<button id="delete" />')
+    const jsxResult = processJsx({component, ast})
+
+    assert.deepEqual(
+      jsxResult.component.plugins.redux.action,
+      ['user.clickDelete']
+    )
+  })
+
+  it('should add onSubmit to form', function () {
+    const ast = parse('<form id="add-user" />')
+    const jsxResult = processJsx({component, ast})
+
+    assert.deepEqual(
+      jsxResult.component.plugins.redux.action,
+      ['user.submitAddUser']
     )
   })
 })

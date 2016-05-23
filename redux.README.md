@@ -61,13 +61,17 @@ They are generated and overriden by reacterminator from html.
 
 NOTE: only tags with ids are recognized.
 
-- input -> onChange, value
+- button -> onClick
+- input[type=text] -> onChange, value
 - input[type=radio] -> onChange, checked
 - input[type=checkbox] -> onChange, checked
 - input[type=submit] -> onClick
 - form -> onSubmit
 - select -> onChange, selected
 - textarea -> onChange, value
+
+- data-component-redux-type
+  We will generate redux code even though it is not a input type
 
 ## Data Attributes
 
