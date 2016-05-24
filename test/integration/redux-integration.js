@@ -72,7 +72,23 @@ export default ReduxExampleWithRedux;
 
     assert.deepEqual(ReduxExampleActual, ReduxExampleExpected)
 
-    // TODO: Assert generated redux file
+    const storeActual = fs.readFileSync(
+      './reacterminator/store.js',
+      'utf8'
+    )
+
+    const storeExpected = `\
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './reducers/index';
+
+export default createStore(reducers, applyMiddleware(thunk));
+`
+
+    assert.deepEqual(
+      storeActual,
+      storeExpected
+    )
 
     // action-type-constants
     // action-creators
