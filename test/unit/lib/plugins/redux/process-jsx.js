@@ -62,4 +62,19 @@ describe('lib/plugins/redux/process-jsx', function () {
       '<form id="add-user" onSubmit={this.props[\'action.user.submitAddUser\']} />;'
     )
   })
+
+  it('should not add any props to a div', function () {
+    const ast = parse('<div id="add-user" />')
+    const jsxResult = processJsx({component, ast})
+
+    assert.deepEqual(
+      jsxResult.component.plugins.redux.action,
+      []
+    )
+
+    assert.deepEqual(
+      generate(ast, {}, '').code,
+      '<div id="add-user" />;'
+    )
+  })
 })
