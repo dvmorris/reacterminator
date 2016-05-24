@@ -9,7 +9,7 @@
   "bin": "bin/reacterminator.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
-    "watch": "mocha --watch",
+    "watch": "rm -rf ./reacterminator && mocha --watch",
     "cover": "standard && istanbul cover _mocha",
     "doc": "jsdoc lib -d doc"
   },

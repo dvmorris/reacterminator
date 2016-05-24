@@ -4,7 +4,7 @@ const shell = require('shelljs')
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe('redux-integration', function () {
+describe.only('redux-integration', function () {
   beforeEach(function () {
     shell.exec('rm -rf ./reacterminator')
   })
@@ -72,6 +72,7 @@ export default ReduxExampleWithRedux;
 
     assert.deepEqual(ReduxExampleActual, ReduxExampleExpected)
 
+    // assert store content
     const storeActual = fs.readFileSync(
       './reacterminator/store.js',
       'utf8'
@@ -90,8 +91,57 @@ export default createStore(reducers, applyMiddleware(thunk));
       storeExpected
     )
 
-    // action-type-constants
-    // action-creators
-    // reducers
+    // assert action-type-constants content
+    const constantFileActual = fs.readFileSync(
+      './reacterminator/action-type-constants/redux-example/change-name.js',
+      'utf8'
+    )
+
+    const constantFileExpected = `\
+export default 'REDUX_EXAMPLE_CHANGE_NAME';
+`
+
+    assert.deepEqual(
+      constantFileActual,
+      constantFileExpected
+    )
+
+    // assert action-type-constants redux-example readonly-index
+    const constantReduxExampleIndexFileActual = fs.readFileSync(
+      './reacterminator/action-type-constants/redux-example/readonly-index.js',
+      'utf8'
+    )
+
+    const constantReduxExampleIndexFileExpected = `\
+export { default as changeName } from './change-name';
+export { default as changePhoneNumber } from './change-phone-number';
+export { default as clickSingleButton } from './click-single-button';
+export { default as submitEmailForm } from './submit-email-form';
+`
+
+    assert.deepEqual(
+      constantReduxExampleIndexFileActual,
+      constantReduxExampleIndexFileExpected
+    )
+
+    // assert action-type-constants readonly-index
+    const constantIndexFileActual = fs.readFileSync(
+      './reacterminator/action-type-constants/readonly-index.js',
+      'utf8'
+    )
+
+    const constantIndexFileExpected = `\
+export { default as redux-example } from './redux-example/readonly-index.js';
+`
+
+    assert.deepEqual(
+      constantIndexFileActual,
+      constantIndexFileExpected
+    )
+
+    // assert action-creators content
+
+    // assert reducers
+
   })
 })

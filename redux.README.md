@@ -17,7 +17,7 @@ They are generated and overriden by reacterminator from html.
   - [path-name/] e.g. login/
     - [action-type-constant-name.js] e.g. password.js
       ```
-      export default const LOGIN_PASSWORD
+      export default const 'LOGIN_PASSWORD'
       ```
     - readonly-index.js
   - readonly-index.js
