@@ -5,4 +5,3 @@ doc
 components
 reacterminator
 .coveralls.yml
-lib/plugins/redux/process-all-formatted-snippets/templates

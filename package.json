@@ -41,7 +41,8 @@
   "standard": {
     "ignore": [
       "/coverage",
-      "/doc"
+      "/doc",
+      "/lib/plugins/redux/process-all-formatted-snippets/templates"
     ]
   },
   "dependencies": {
