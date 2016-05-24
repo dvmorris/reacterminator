@@ -3,9 +3,9 @@ const fs = require('fs')
 const path = require('path')
 const assert = require('chai').assert
 const shell = require('shelljs')
-const processFormattedSnippets = require('../../../../../lib/plugins/main/process-formatted-snippets.js')
+const processAllFormattedSnippets = require('../../../../../lib/plugins/main/process-all-formatted-snippets.js')
 
-describe('lib/plugins/main/process-formatted-snippets', function () {
+describe('lib/plugins/main/process-all-formatted-snippets', function () {
   beforeEach(function () {
     shell.exec('rm -rf ./reacterminator')
   })
@@ -31,7 +31,7 @@ export default ComponentA;`
       }
     }
 
-    processFormattedSnippets({
+    processAllFormattedSnippets({
       components,
       options: {
         generateFiles: true,
@@ -53,7 +53,7 @@ class ComponentA extends React.Component {
   }
 }`
 
-    processFormattedSnippets({
+    processAllFormattedSnippets({
       components: {
         ComponentA: {
           componentName: 'ComponentA',
