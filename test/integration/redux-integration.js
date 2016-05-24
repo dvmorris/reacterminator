@@ -37,8 +37,15 @@ class ReduxExample extends React.Component {
     return (
       <div>
         <form id="email-form" name="email-form" onSubmit={this.props['action.reduxExample.submitEmailForm']}>
-          <input id="name" name="name" value={this.props['state.reduxExample.name']} onChange={this.props['action.reduxExample.changeName']} />
-          <input id="phone-number" type="text" name="phone-number-login" value={this.props['state.reduxExample.phoneNumber']} onChange={this.props['action.reduxExample.changePhoneNumber']}/>
+          <input id="name"
+            name="name"
+            value={this.props['state.reduxExample.name']}
+            onChange={this.props['action.reduxExample.changeName']} />
+          <input id="phone-number"
+            type="text"
+            name="phone-number-login"
+            value={this.props['state.reduxExample.phoneNumber']}
+            onChange={this.props['action.reduxExample.changePhoneNumber']} />
           <button id="single-button" onClick={this.props['action.reduxExample.clickSingleButton']}>
           </button>
         </form>

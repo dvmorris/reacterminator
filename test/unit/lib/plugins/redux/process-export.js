@@ -5,7 +5,7 @@ var addExport = require('../../../../../lib/plugins/redux/process-export')
 describe('lib/plugins/redux/process-export', function () {
   it('should wrap component if there is state', function () {
     var exportResult = addExport({
-      component: {plugins: {redux: {state: ['stateA', 'stateB']}}},
+      component: {plugins: {redux: {state: ['state.stateA', 'state.stateB']}}},
       exportSnippet: '',
       exportName: 'ComponentA'
     })
@@ -28,7 +28,7 @@ describe('lib/plugins/redux/process-export', function () {
 
   it('should wrap component if there is action', function () {
     var exportResult = addExport({
-      component: {plugins: {redux: {action: ['actionA']}}},
+      component: {plugins: {redux: {action: ['action.actionA']}}},
       exportSnippet: '',
       exportName: 'ComponentA'
     })
@@ -51,7 +51,7 @@ describe('lib/plugins/redux/process-export', function () {
 
   it('should import reduxConnect if there is action and state', function () {
     var exportResult = addExport({
-      component: {plugins: {redux: {action: ['actionA'], state: ['stateA']}}},
+      component: {plugins: {redux: {action: ['action.actionA'], state: ['state.stateA']}}},
       exportSnippet: '',
       exportName: 'ComponentA'
     })
