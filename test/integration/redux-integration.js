@@ -6,7 +6,7 @@ const reacterminator = require('../../lib/index')
 
 describe('redux-integration', function () {
   beforeEach(function () {
-    shell.exec('rm -rf ./reacterminator')
+    shell.rm('-rf', './reacterminator')
   })
 
   it('should hook redux into component and generate redux files', function () {

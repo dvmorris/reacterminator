@@ -6,7 +6,7 @@ const shell = require('shelljs')
 
 describe('data-component-custom', function () {
   beforeEach(function () {
-    shell.exec('rm -rf ./reacterminator')
+    shell.rm('-rf', './reacterminator')
   })
 
   it('should create a custom component', function () {
@@ -75,7 +75,7 @@ export default Custom;
   })
 
   it('should not override if there is already custom components', function () {
-    shell.exec('mkdir -p ./reacterminator/custom-components/')
+    shell.mkdir('-p', './reacterminator/custom-components/')
 
     fs.writeFileSync(
       './reacterminator/custom-components/Custom.jsx',

@@ -7,7 +7,7 @@ const processAllFormattedSnippets = require('../../../../../lib/plugins/main/pro
 
 describe('lib/plugins/main/process-all-formatted-snippets', function () {
   beforeEach(function () {
-    shell.exec('rm -rf ./reacterminator')
+    shell.rm('-rf', './reacterminator')
   })
 
   it('should generate a file', function () {

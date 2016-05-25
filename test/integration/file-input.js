@@ -6,7 +6,7 @@ const reacterminator = require('../../lib/index')
 
 describe('reacterminator with file input', function () {
   beforeEach(function () {
-    shell.exec('rm -rf ./reacterminator')
+    shell.rm('-rf', './reacterminator')
   })
 
   it('should generate one file with one component', function () {
