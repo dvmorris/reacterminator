@@ -4,7 +4,7 @@ const shell = require('shelljs')
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe.only('redux-integration', function () {
+describe('redux-integration', function () {
   beforeEach(function () {
     shell.exec('rm -rf ./reacterminator')
   })
@@ -142,7 +142,7 @@ export default function changeName(event) {
 import actionTypeConstants from '../../action-type-constants/readonly-index';
 
 export default function name(state = '', action) {
-  switch () {
+  switch (action.type) {
     case actionTypeConstants.reduxExample.changeName:
       return action.value;
     default:
@@ -158,7 +158,7 @@ export default function name(state = '', action) {
 import actionTypeConstants from '../../action-type-constants/readonly-index';
 
 export default function emailForm(state = '', action) {
-  switch () {
+  switch (action.type) {
     case actionTypeConstants.reduxExample.submitEmailForm:
       return '';
     default:
@@ -174,7 +174,7 @@ export default function emailForm(state = '', action) {
 import actionTypeConstants from '../../action-type-constants/readonly-index';
 
 export default function singleButton(state = '', action) {
-  switch () {
+  switch (action.type) {
     case actionTypeConstants.reduxExample.clickSingleButton:
       return '';
     default:
