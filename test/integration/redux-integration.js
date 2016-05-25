@@ -4,7 +4,7 @@ const shell = require('shelljs')
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe.only('redux-integration', function () {
+describe('redux-integration', function () {
   beforeEach(function () {
     shell.exec('rm -rf ./reacterminator')
   })
@@ -131,7 +131,7 @@ export { default as submitEmailForm } from './submit-email-form';
     )
 
     const constantIndexFileExpected = `\
-export { default as redux-example } from './redux-example/readonly-index.js';
+export { default as reduxExample } from './redux-example/readonly-index.js';
 `
 
     assert.deepEqual(
@@ -140,8 +140,75 @@ export { default as redux-example } from './redux-example/readonly-index.js';
     )
 
     // assert action-creators content
+    const actionCreatorContentActual = fs.readFileSync(
+      './reacterminator/action-creators/redux-example/change-name.js',
+      'utf8'
+    )
+
+    const actionCreatorContentExpected = `\
+import actionTypeConstants from '../action-type-constants/readonly-index.js';
+
+export default function changeName(event) {
+  event.preventDefault();
+  return {
+    type: actionTypeConstants.reduxExample.changeName,
+    value: event.target.value
+  };
+}
+`
+
+    assert.deepEqual(
+      actionCreatorContentActual,
+      actionCreatorContentExpected
+    )
 
     // assert reducers
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
+`\
+import actionTypeConstants from '../action-type-constants/readonly-index.js';
 
+export default function name(state = '', action) {
+  switch () {
+    case actionTypeConstants.reduxExample.changeName:
+      return action.value;
+    default:
+      return state;
+  }
+}
+`
+    )
+
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/redux-example/email-form.js', 'utf8'),
+`\
+import actionTypeConstants from '../action-type-constants/readonly-index.js';
+
+export default function emailForm(state = '', action) {
+  switch () {
+    case actionTypeConstants.reduxExample.submitEmailForm:
+      return '';
+    default:
+      return state;
+  }
+}
+`
+    )
+
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
+`\
+import actionTypeConstants from '../action-type-constants/readonly-index.js';
+
+export default function singleButton(state = '', action) {
+  switch () {
+    case actionTypeConstants.reduxExample.clickSingleButton:
+      return '';
+    default:
+      return state;
+  }
+}
+`
+    )
   })
 })
