@@ -216,4 +216,24 @@ reduxExample
 `
     )
   })
+
+  it('should not create reducer file for a path if there is no reducers to combile', function () {
+    reacterminator(
+      {
+        type: 'path',
+        content: './examples/test/redux-no-reducers.html'
+      },
+      {
+        fileToComponent: true,
+        generateFiles: true
+      }
+    )
+
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/redux-no-reducers/readonly-index.js', 'utf8'),
+      `\
+export default (state) => (state);
+`
+    )
+  })
 })
