@@ -93,4 +93,26 @@ describe('change links for param store', function () {
       'import {Link} from \'param-store\';'
     )
   })
+
+  it('should not change tel', function () {
+    var ast = parse('<a href="tel:918"/>')
+    var component = {ast: ast}
+    changeLinksForParamStore(component, {changeLinksForParamStore: true})
+
+    assert.deepEqual(
+      generate(ast, {}, '').code,
+      '<a href="tel:918" />;'
+    )
+  })
+
+  it('should not change mailto', function () {
+    var ast = parse('<a href="mailto:918"/>')
+    var component = {ast: ast}
+    changeLinksForParamStore(component, {changeLinksForParamStore: true})
+
+    assert.deepEqual(
+      generate(ast, {}, '').code,
+      '<a href="mailto:918" />;'
+    )
+  })
 })
