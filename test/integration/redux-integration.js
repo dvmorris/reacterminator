@@ -104,7 +104,7 @@ export { default as submitEmailForm } from './submit-email-form';
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/readonly-index.js', 'utf8'),
       `\
-export { default as reduxExample } from './redux-example/readonly-index.js';
+export { default as reduxExample } from './redux-example/readonly-index';
 `
     )
 
@@ -112,7 +112,7 @@ export { default as reduxExample } from './redux-example/readonly-index.js';
     assert.deepEqual(
     fs.readFileSync('./reacterminator/action-creators/redux-example/change-name.js', 'utf8'),
     `\
-import actionTypeConstants from '../action-type-constants/readonly-index.js';
+import actionTypeConstants from '../action-type-constants/readonly-index';
 
 export default function changeName(event) {
   event.preventDefault();
@@ -128,7 +128,7 @@ export default function changeName(event) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
       `\
-import actionTypeConstants from '../action-type-constants/readonly-index.js';
+import actionTypeConstants from '../action-type-constants/readonly-index';
 
 export default function name(state = '', action) {
   switch () {
@@ -144,7 +144,7 @@ export default function name(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/email-form.js', 'utf8'),
       `\
-import actionTypeConstants from '../action-type-constants/readonly-index.js';
+import actionTypeConstants from '../action-type-constants/readonly-index';
 
 export default function emailForm(state = '', action) {
   switch () {
@@ -160,7 +160,7 @@ export default function emailForm(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
       `\
-import actionTypeConstants from '../action-type-constants/readonly-index.js';
+import actionTypeConstants from '../action-type-constants/readonly-index';
 
 export default function singleButton(state = '', action) {
   switch () {
