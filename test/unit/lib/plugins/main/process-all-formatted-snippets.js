@@ -40,7 +40,10 @@ export default ComponentA;`
     })
 
     assert.deepEqual(
-      fs.readFileSync(process.cwd() + '/reacterminator/readonly-components/ComponentA.jsx', 'utf-8'),
+      fs.readFileSync(
+        path.resolve('./reacterminator/readonly-components/ComponentA.jsx'),
+        'utf-8'
+      ),
       formattedFileSnippet
     )
   })
@@ -70,7 +73,10 @@ class ComponentA extends React.Component {
     })
 
     assert.deepEqual(
-      fs.readFileSync(process.cwd() + '/reacterminator/readonly-components/ComponentA.jsx', 'utf-8'),
+      fs.readFileSync(
+        path.resolve('./reacterminator/readonly-components/ComponentA.jsx'),
+        'utf-8'
+      ),
       formattedFileSnippet
     )
   })
