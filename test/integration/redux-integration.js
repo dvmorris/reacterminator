@@ -22,12 +22,9 @@ describe('redux-integration', function () {
     )
 
     // Assert component content
-    const ReduxExampleActual = fs.readFileSync(
-      './reacterminator/readonly-components/ReduxExample.jsx',
-      'utf8'
-    )
-
-    const ReduxExampleExpected = `\
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/readonly-components/ReduxExample.jsx', 'utf8'),
+      `\
 import React from 'react';
 import { connect as reduxConnect } from 'react-redux';
 import action from '../action-creators/readonly-index';
@@ -69,83 +66,52 @@ const ReduxExampleWithRedux = reduxConnect(
 
 export default ReduxExampleWithRedux;
 `
-
-    assert.deepEqual(ReduxExampleActual, ReduxExampleExpected)
-
-    // assert store content
-    const storeActual = fs.readFileSync(
-      './reacterminator/store.js',
-      'utf8'
     )
 
-    const storeExpected = `\
+    // assert store content
+
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/store.js', 'utf8'),
+      `\
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers/index';
 
 export default createStore(reducers, applyMiddleware(thunk));
 `
-
-    assert.deepEqual(
-      storeActual,
-      storeExpected
     )
 
     // assert action-type-constants content
-    const constantFileActual = fs.readFileSync(
-      './reacterminator/action-type-constants/redux-example/change-name.js',
-      'utf8'
-    )
-
-    const constantFileExpected = `\
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/action-type-constants/redux-example/change-name.js', 'utf8'),
+      `\
 export default 'REDUX_EXAMPLE_CHANGE_NAME';
 `
-
-    assert.deepEqual(
-      constantFileActual,
-      constantFileExpected
     )
 
     // assert action-type-constants redux-example readonly-index
-    const constantReduxExampleIndexFileActual = fs.readFileSync(
-      './reacterminator/action-type-constants/redux-example/readonly-index.js',
-      'utf8'
-    )
-
-    const constantReduxExampleIndexFileExpected = `\
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/action-type-constants/redux-example/readonly-index.js', 'utf8'),
+      `\
 export { default as changeName } from './change-name';
 export { default as changePhoneNumber } from './change-phone-number';
 export { default as clickSingleButton } from './click-single-button';
 export { default as submitEmailForm } from './submit-email-form';
 `
-
-    assert.deepEqual(
-      constantReduxExampleIndexFileActual,
-      constantReduxExampleIndexFileExpected
     )
 
     // assert action-type-constants readonly-index
-    const constantIndexFileActual = fs.readFileSync(
-      './reacterminator/action-type-constants/readonly-index.js',
-      'utf8'
-    )
-
-    const constantIndexFileExpected = `\
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/action-type-constants/readonly-index.js', 'utf8'),
+      `\
 export { default as reduxExample } from './redux-example/readonly-index.js';
 `
-
-    assert.deepEqual(
-      constantIndexFileActual,
-      constantIndexFileExpected
     )
 
     // assert action-creators content
-    const actionCreatorContentActual = fs.readFileSync(
-      './reacterminator/action-creators/redux-example/change-name.js',
-      'utf8'
-    )
-
-    const actionCreatorContentExpected = `\
+    assert.deepEqual(
+    fs.readFileSync('./reacterminator/action-creators/redux-example/change-name.js', 'utf8'),
+    `\
 import actionTypeConstants from '../action-type-constants/readonly-index.js';
 
 export default function changeName(event) {
@@ -156,16 +122,12 @@ export default function changeName(event) {
   };
 }
 `
-
-    assert.deepEqual(
-      actionCreatorContentActual,
-      actionCreatorContentExpected
     )
 
     // assert reducers
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
-`\
+      `\
 import actionTypeConstants from '../action-type-constants/readonly-index.js';
 
 export default function name(state = '', action) {
@@ -181,7 +143,7 @@ export default function name(state = '', action) {
 
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/email-form.js', 'utf8'),
-`\
+      `\
 import actionTypeConstants from '../action-type-constants/readonly-index.js';
 
 export default function emailForm(state = '', action) {
@@ -197,7 +159,7 @@ export default function emailForm(state = '', action) {
 
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
-`\
+      `\
 import actionTypeConstants from '../action-type-constants/readonly-index.js';
 
 export default function singleButton(state = '', action) {
