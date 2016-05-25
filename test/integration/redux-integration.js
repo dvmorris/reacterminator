@@ -124,7 +124,7 @@ export default function changeName(event) {
 `
     )
 
-    // assert reducers
+    // assert reducers content
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
       `\
@@ -170,6 +170,38 @@ export default function singleButton(state = '', action) {
       return state;
   }
 }
+`
+    )
+
+    // assert reducers redux-example readonly-index
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/redux-example/readonly-index.js', 'utf8'),
+      `\
+import { combineReducers } from 'redux';
+import emailForm from './email-form';
+import name from './name';
+import phoneNumber from './phone-number';
+import singleButton from './single-button';
+
+export default combineReducers({
+emailForm,
+name,
+phoneNumber,
+singleButton
+})
+`
+    )
+
+    // assert reducers readonly-index
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/readonly-index.js', 'utf8'),
+      `\
+import { combineReducers } from 'redux';
+import reduxExample from './redux-example/readonly-index';
+
+export default combineReducers({
+reduxExample
+})
 `
     )
   })
