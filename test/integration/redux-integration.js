@@ -4,7 +4,7 @@ const shell = require('shelljs')
 const assert = require('chai').assert
 const reacterminator = require('../../lib/index')
 
-describe('redux-integration', function () {
+describe.only('redux-integration', function () {
   beforeEach(function () {
     shell.exec('rm -rf ./reacterminator')
   })
@@ -93,10 +93,17 @@ export default 'REDUX_EXAMPLE_CHANGE_NAME';
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/redux-example/readonly-index.js', 'utf8'),
       `\
-export { default as changeName } from './change-name';
-export { default as changePhoneNumber } from './change-phone-number';
-export { default as clickSingleButton } from './click-single-button';
-export { default as submitEmailForm } from './submit-email-form';
+import changeName from './change-name';
+import changePhoneNumber from './change-phone-number';
+import clickSingleButton from './click-single-button';
+import submitEmailForm from './submit-email-form';
+
+export default {
+changeName,
+changePhoneNumber,
+clickSingleButton,
+submitEmailForm
+}
 `
     )
 
@@ -104,7 +111,11 @@ export { default as submitEmailForm } from './submit-email-form';
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/readonly-index.js', 'utf8'),
       `\
-export { default as reduxExample } from './redux-example/readonly-index';
+import reduxExample from './redux-example/readonly-index';
+
+export default {
+reduxExample
+}
 `
     )
 
