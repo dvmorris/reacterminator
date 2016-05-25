@@ -232,7 +232,7 @@ reduxExample
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-no-reducers/readonly-index.js', 'utf8'),
       `\
-export default (state) => (state);
+export default (state = {}) => (state);
 `
     )
   })
