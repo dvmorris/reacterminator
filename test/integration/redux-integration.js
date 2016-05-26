@@ -23,7 +23,7 @@ describe('redux-integration', function () {
 
     // Assert component content
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/readonly-components/ReduxExample.jsx', 'utf8'),
+      fs.readFileSync('./reacterminator/components/ReduxExample.jsx', 'utf8'),
       `\
 import React from 'react';
 import { connect as reduxConnect } from 'react-redux';

@@ -9,7 +9,6 @@ program
   .option('-i, --input-path <inputPath>', '(REQUIRED) specify input path, it can be a file or a folder')
   .option('-p, --output-path [./component]', 'specify output path')
   .option('-r, --recursive', 'find files in the input folder recursivly')
-  .option('-o, --override-files', 'override existing files in the output path')
   .option('-f, --file-to-component', 'create one component for each file, replace body with div tag')
 
 program.on('--help', function () {

@@ -21,7 +21,7 @@ describe('reacterminator with file input', function () {
     )
 
     const ComponentAActual = fs.readFileSync(
-      './reacterminator/readonly-components/ComponentA.jsx',
+      './reacterminator/components/ComponentA.jsx',
       'utf8'
     )
 
@@ -71,7 +71,7 @@ export default ComponentA;\n`
   })
 
   it('should generate files for all the files in a folder non-recursivly', function () {
-    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/ComponentA.jsx') })
+    assert.throws(function () { fs.statSync('./reacterminator/components/ComponentA.jsx') })
 
     reacterminator(
       {
@@ -83,13 +83,13 @@ export default ComponentA;\n`
       }
     )
 
-    assert(fs.statSync('./reacterminator/readonly-components/ComponentA.jsx').isFile())
-    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/SubFolder.jsx') })
+    assert(fs.statSync('./reacterminator/components/ComponentA.jsx').isFile())
+    assert.throws(function () { fs.statSync('./reacterminator/components/SubFolder.jsx') })
   })
 
   it('should generate files for all the files in a folder recursivly', function () {
-    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/SubFolder.jsx') })
-    assert.throws(function () { fs.statSync('./reacterminator/readonly-components/ComponentA.jsx') })
+    assert.throws(function () { fs.statSync('./reacterminator/components/SubFolder.jsx') })
+    assert.throws(function () { fs.statSync('./reacterminator/components/ComponentA.jsx') })
 
     reacterminator(
       {
@@ -102,8 +102,8 @@ export default ComponentA;\n`
       }
     )
 
-    assert(fs.statSync('./reacterminator/readonly-components/SubFolder.jsx').isFile())
-    assert(fs.statSync('./reacterminator/readonly-components/ComponentA.jsx').isFile())
+    assert(fs.statSync('./reacterminator/components/SubFolder.jsx').isFile())
+    assert(fs.statSync('./reacterminator/components/ComponentA.jsx').isFile())
   })
 
   it('should throw an error when the input file is not a file or directory', function () {

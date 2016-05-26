@@ -41,7 +41,7 @@ export default ComponentA;`
 
     assert.deepEqual(
       fs.readFileSync(
-        path.resolve('./reacterminator/readonly-components/ComponentA.jsx'),
+        path.resolve('./reacterminator/components/ComponentA.jsx'),
         'utf-8'
       ),
       formattedFileSnippet
@@ -74,7 +74,7 @@ class ComponentA extends React.Component {
 
     assert.deepEqual(
       fs.readFileSync(
-        path.resolve('./reacterminator/readonly-components/ComponentA.jsx'),
+        path.resolve('./reacterminator/components/ComponentA.jsx'),
         'utf-8'
       ),
       formattedFileSnippet

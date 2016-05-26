@@ -2,14 +2,10 @@
 
 ## Folder Structure
 
-NOTE: components prefixed with `readonly` should not be touched.
-They are generated and overriden by reacterminator from html.
+NOTE: if a file starts with `//`,
+it is not no going to be managed by reacterminator
 
-- readonly-components/
-  - [PathName.jsx] e.g. Login.jsx
-  - App.jsx
-
-- custom-components/
+- components/
   - [PathName.jsx] e.g. Calendar.jsx
   - App.jsx
 

@@ -149,20 +149,6 @@ for a comprehensive example of what reacterminator is capable of.
   }
   ```
 
-- data-component-custom
-
-  FROM:
-  ```
-  <div data-component-name="Unicorn" data-component-custom="true">
-  </div>
-  ```
-
-  TO:
-  ```
-  // file: custom-components/Unicorn.jsx
-  <div/>
-  ```
-
 ### [REDUX INTEGRATION](redux.README.md)
 
 ### CLI
@@ -181,7 +167,6 @@ Options:
   -i, --input-path <inputPath>     (REQUIRED) specify input path, it can be a file or a folder
   -p, --output-path [./component]  specify output path
   -r, --recursive                  find files in the input folder recursivly
-  -o, --override-files             override existing files in the output path
   -f, --file-to-component          create one component for each file, replace body with div tag
   -R, --redux                      add redux support in the generator
 
