@@ -15,14 +15,14 @@ it is not no going to be managed by reacterminator
       ```
       export default const 'LOGIN_PASSWORD'
       ```
-    - readonly-index.js
-  - readonly-index.js
+    - index.js
+  - index.js
 
 - action-creators/
   - [path-name/] e.g. login/
     - [action-creator-name.js] e.g. change-password.js
       ```
-      import actionTypeConstants from '../../action-type-constants/readonly-index';
+      import actionTypeConstants from '../../action-type-constants/index';
 
       export default function changeInviteCode(event) {
         return {
@@ -31,14 +31,14 @@ it is not no going to be managed by reacterminator
         }
       }
       ```
-    - readonly-index.js
-  - readonly-index.js
+    - index.js
+  - index.js
 
 - reducers/
   - [path-name/] e.g. login/
     - [reducer-name.js] e.g. password.js
       ```
-      import actionTypeConstants from '../../action-type-constants/readonly-index';
+      import actionTypeConstants from '../../action-type-constants/index';
 
       export default function password(state = '', action) {
         switch (action.type) {
@@ -49,8 +49,8 @@ it is not no going to be managed by reacterminator
         }
       }
       ```
-    - readonly-index.js
-  - readonly-index.js
+    - index.js
+  - index.js
 - store.js
 
 ## Recognized HTML tags

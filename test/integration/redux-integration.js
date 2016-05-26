@@ -27,7 +27,7 @@ describe('redux-integration', function () {
       `\
 import React from 'react';
 import { connect as reduxConnect } from 'react-redux';
-import action from '../action-creators/readonly-index';
+import action from '../action-creators/index';
 
 class ReduxExample extends React.Component {
   render() {
@@ -89,9 +89,9 @@ export default 'REDUX_EXAMPLE_CHANGE_NAME';
 `
     )
 
-    // assert action-type-constants redux-example readonly-index
+    // assert action-type-constants redux-example index
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/action-type-constants/redux-example/readonly-index.js', 'utf8'),
+      fs.readFileSync('./reacterminator/action-type-constants/redux-example/index.js', 'utf8'),
       `\
 import changeName from './change-name';
 import changePhoneNumber from './change-phone-number';
@@ -107,11 +107,11 @@ submitEmailForm
 `
     )
 
-    // assert action-type-constants readonly-index
+    // assert action-type-constants index
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/action-type-constants/readonly-index.js', 'utf8'),
+      fs.readFileSync('./reacterminator/action-type-constants/index.js', 'utf8'),
       `\
-import reduxExample from './redux-example/readonly-index';
+import reduxExample from './redux-example/index';
 
 export default {
 reduxExample
@@ -123,7 +123,7 @@ reduxExample
     assert.deepEqual(
     fs.readFileSync('./reacterminator/action-creators/redux-example/change-name.js', 'utf8'),
     `\
-import actionTypeConstants from '../../action-type-constants/readonly-index';
+import actionTypeConstants from '../../action-type-constants/index';
 
 export default function changeName(event) {
   return {
@@ -138,7 +138,7 @@ export default function changeName(event) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
       `\
-import actionTypeConstants from '../../action-type-constants/readonly-index';
+import actionTypeConstants from '../../action-type-constants/index';
 
 export default function name(state = '', action) {
   switch (action.type) {
@@ -154,7 +154,7 @@ export default function name(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/email-form.js', 'utf8'),
       `\
-import actionTypeConstants from '../../action-type-constants/readonly-index';
+import actionTypeConstants from '../../action-type-constants/index';
 
 export default function emailForm(state = '', action) {
   switch (action.type) {
@@ -170,7 +170,7 @@ export default function emailForm(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
       `\
-import actionTypeConstants from '../../action-type-constants/readonly-index';
+import actionTypeConstants from '../../action-type-constants/index';
 
 export default function singleButton(state = '', action) {
   switch (action.type) {
@@ -183,9 +183,9 @@ export default function singleButton(state = '', action) {
 `
     )
 
-    // assert reducers redux-example readonly-index
+    // assert reducers redux-example index
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/reducers/redux-example/readonly-index.js', 'utf8'),
+      fs.readFileSync('./reacterminator/reducers/redux-example/index.js', 'utf8'),
       `\
 import { combineReducers } from 'redux';
 import emailForm from './email-form';
@@ -202,12 +202,12 @@ singleButton
 `
     )
 
-    // assert reducers readonly-index
+    // assert reducers index
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/reducers/readonly-index.js', 'utf8'),
+      fs.readFileSync('./reacterminator/reducers/index.js', 'utf8'),
       `\
 import { combineReducers } from 'redux';
-import reduxExample from './redux-example/readonly-index';
+import reduxExample from './redux-example/index';
 
 export default combineReducers({
 reduxExample
@@ -229,7 +229,7 @@ reduxExample
     )
 
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/reducers/redux-no-reducers/readonly-index.js', 'utf8'),
+      fs.readFileSync('./reacterminator/reducers/redux-no-reducers/index.js', 'utf8'),
       `\
 export default (state = {}) => (state);
 `
