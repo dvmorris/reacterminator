@@ -1,6 +1,5 @@
 {
   "name": "reacterminator",
-  "version": "0.6.5",
   "engines": {
     "node": ">=6.1.0"
   },
@@ -11,7 +10,8 @@
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
     "watch": "rm -rf ./reacterminator && mocha --watch",
     "cover": "standard && istanbul cover _mocha",
-    "doc": "jsdoc lib -d doc"
+    "doc": "jsdoc lib -d doc",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     "istanbul": "^0.4.3",
     "jsdoc": "^3.4.0",
     "mocha": "^2.4.5",
-    "standard": "^6.0.8"
+    "standard": "^6.0.8",
+    "semantic-release": "^4.3.5"
   },
   "standard": {
     "ignore": [
