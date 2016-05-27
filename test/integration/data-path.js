@@ -55,4 +55,38 @@ export default App;
     const AppActual = components.App.formattedFileSnippet
     assert.deepEqual(AppActual, AppExpected)
   })
+
+  it('should create Index component with \'\' as path', function () {
+    const content = `\
+<div data-component-name="Index" data-component-path="index">
+</div>`
+
+    const AppExpected = `\
+import React from 'react';
+import Index from './Index';
+import { Stack } from 'react-super-components';
+import { Provider } from 'react-redux';
+import store from '../store';
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Stack index="path">
+          <Index index="" />
+        </Stack>
+      </Provider>
+      );
+  }
+}
+;
+
+export default App;
+`
+
+    const components = reacterminator({type: 'string', content: content})
+
+    const AppActual = components.App.formattedFileSnippet
+    assert.deepEqual(AppActual, AppExpected)
+  })
 })
