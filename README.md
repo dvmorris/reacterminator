@@ -6,7 +6,7 @@
 
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
-[![semantic-release](semantic-release-image)](semantic-release-url)
+[![semantic-release][semantic-release-image]][semantic-release-url]
 [![coverall][coverall-image]][coverall-url]
 [![js-standard-style][js-standard-style-image]][js-standard-style-url]
 
@@ -15,7 +15,7 @@
 [npm-image]:               https://img.shields.io/npm/v/reacterminator.svg
 [npm-url]:                 https://npmjs.org/package/reacterminator
 [semantic-release-image]:  https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-release-url]:  https://github.com/semantic-release/semantic-release
+[semantic-release-url]:    https://github.com/semantic-release/semantic-release
 [coverall-image]:          https://img.shields.io/coveralls/poetic/reacterminator.svg
 [coverall-url]:            https://coveralls.io/github/poetic/reacterminator
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
