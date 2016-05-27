@@ -11,9 +11,9 @@ it is not no going to be managed by reacterminator
 
 - action-type-constants/
   - [path-name/] e.g. login/
-    - [action-type-constant-name.js] e.g. password.js
+    - [action-type-constant-name.js] e.g. change-password.js
       ```
-      export default const 'LOGIN_PASSWORD'
+      export default const 'LOGIN_CHANGE_PASSWORD'
       ```
     - index.js
   - index.js
@@ -26,7 +26,7 @@ it is not no going to be managed by reacterminator
 
       export default function changeInviteCode(event) {
         return {
-          type: actionTypeConstants.login.password,
+          type: actionTypeConstants.login.changePassword,
           value: event.target.value
         }
       }
@@ -42,7 +42,7 @@ it is not no going to be managed by reacterminator
 
       export default function password(state = '', action) {
         switch (action.type) {
-          case actionTypeConstants.login.password:
+          case actionTypeConstants.login.changePassword:
             return action.value;
           default:
             return state;
@@ -68,56 +68,3 @@ NOTE: only tags with ids are recognized.
 
 - data-component-redux-type
   We will generate redux code even though it is not a input type
-
-## Data Attributes
-
-- data-component-redux-state
-
-  FROM:
-  ```
-  <div data-component-name="Unicorn" data-component-redux-state="login.password,login.username" />
-  ```
-
-  TO:
-  ```
-  class Unicorn extends React.Component {
-    ...
-  }
-
-  const UnicornWithRedux = connect(
-    (state) => (
-      {
-        'state.login.password': state.login.password
-        'state.login.username': state.login.username
-      }
-    )
-  )(Unicorn);
-
-  export default UnicornWithRedux;
-  ```
-
-- data-component-redux-action
-
-  FROM:
-  ```
-  <div data-component-name="Unicorn" data-component-redux-action="login.loginWithPassword,login.forgetPassword" />
-  ```
-
-  TO:
-  ```
-  import actionCreators from '../action-creators/index'
-
-  class Unicorn extends React.Component {
-    ...
-  }
-
-  const UnicornWithRedux = connect(
-    null,
-    {
-      'action.login.loginWithPassword': actionCreators.login.loginWithPassword
-      'action.login.forgetPassword': actionCreators.login.forgetPassword
-    }
-  )(Unicorn);
-
-  export default UnicornWithRedux;
-  ```
