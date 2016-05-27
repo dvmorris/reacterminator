@@ -14,8 +14,8 @@
 [travis-url]:              https://travis-ci.org/poetic/reacterminator
 [npm-image]:               https://img.shields.io/npm/v/reacterminator.svg
 [npm-url]:                 https://npmjs.org/package/reacterminator
-[semantic-release-url]:    https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-release-image]:  https://github.com/semantic-release/semantic-release
+[semantic-release-image]:    https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-release-url]:  https://github.com/semantic-release/semantic-release
 [coverall-image]:          https://img.shields.io/coveralls/poetic/reacterminator.svg
 [coverall-url]:            https://coveralls.io/github/poetic/reacterminator
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
