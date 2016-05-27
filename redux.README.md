@@ -58,9 +58,10 @@ it is not no going to be managed by reacterminator
 NOTE: only tags with ids are recognized.
 
 - button -> onClick
-- input[type=text] -> onChange, value
+- input[type=text] and other text-like inputs -> onChange, value
 - input[type=radio] -> onChange, checked
 - input[type=checkbox] -> onChange, checked
+- input[type=button] -> onClick
 - input[type=submit] -> onClick
 - form -> onSubmit
 - select -> onChange, selected
