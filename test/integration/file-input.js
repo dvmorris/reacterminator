@@ -26,6 +26,7 @@ describe('reacterminator with file input', function () {
     )
 
     const ComponentAExpected = `\
+/* eslint-disable */
 import React from 'react';
 
 class ComponentA extends React.Component {

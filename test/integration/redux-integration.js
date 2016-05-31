@@ -25,6 +25,7 @@ describe('redux-integration', function () {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/components/ReduxExample.jsx', 'utf8'),
       `\
+/* eslint-disable */
 import React from 'react';
 import { connect as reduxConnect } from 'react-redux';
 import action from '../action-creators/index';
@@ -73,6 +74,7 @@ export default ReduxExampleWithRedux;
     assert.deepEqual(
       fs.readFileSync('./reacterminator/store.js', 'utf8'),
       `\
+/* eslint-disable */
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers/index';
@@ -85,6 +87,7 @@ export default createStore(reducers, applyMiddleware(thunk));
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/redux-example/change-name.js', 'utf8'),
       `\
+/* eslint-disable */
 export default 'REDUX_EXAMPLE_CHANGE_NAME';
 `
     )
@@ -93,6 +96,7 @@ export default 'REDUX_EXAMPLE_CHANGE_NAME';
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/redux-example/index.js', 'utf8'),
       `\
+/* eslint-disable */
 import changeName from './change-name';
 import changePhoneNumber from './change-phone-number';
 import clickSingleButton from './click-single-button';
@@ -111,6 +115,7 @@ submitEmailForm
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/index.js', 'utf8'),
       `\
+/* eslint-disable */
 import reduxExample from './redux-example/index';
 
 export default {
@@ -123,6 +128,7 @@ reduxExample
     assert.deepEqual(
     fs.readFileSync('./reacterminator/action-creators/redux-example/change-name.js', 'utf8'),
     `\
+/* eslint-disable */
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function changeName(event) {
@@ -138,6 +144,7 @@ export default function changeName(event) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
       `\
+/* eslint-disable */
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function name(state = '', action) {
@@ -154,6 +161,7 @@ export default function name(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/email-form.js', 'utf8'),
       `\
+/* eslint-disable */
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function emailForm(state = '', action) {
@@ -170,6 +178,7 @@ export default function emailForm(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
       `\
+/* eslint-disable */
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function singleButton(state = '', action) {
@@ -187,6 +196,7 @@ export default function singleButton(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/index.js', 'utf8'),
       `\
+/* eslint-disable */
 import { combineReducers } from 'redux';
 import emailForm from './email-form';
 import name from './name';
@@ -206,6 +216,7 @@ singleButton
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/index.js', 'utf8'),
       `\
+/* eslint-disable */
 import { combineReducers } from 'redux';
 import reduxExample from './redux-example/index';
 
@@ -231,6 +242,7 @@ reduxExample
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-no-reducers/index.js', 'utf8'),
       `\
+/* eslint-disable */
 export default (state = {}) => (state);
 `
     )
