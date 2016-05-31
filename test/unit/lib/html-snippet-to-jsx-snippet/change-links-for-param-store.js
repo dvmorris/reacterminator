@@ -115,4 +115,15 @@ describe('change links for param store', function () {
       '<a href="mailto:918" />;'
     )
   })
+
+  it('should change #back to history back on click', function () {
+    var ast = parse('<a href="#back"/>')
+    var component = {ast: ast}
+    changeLinksForParamStore(component, {changeLinksForParamStore: true})
+
+    assert.deepEqual(
+      generate(ast, {}, '').code,
+      '<a href="#back" onClick={window.history.back()} />;'
+    )
+  })
 })
