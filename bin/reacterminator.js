@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 
-var _ = require('lodash')
-var program = require('commander')
-var reacterminator = require('../lib/index')
+const _ = require('lodash')
+const program = require('commander')
+const reacterminator = require('../lib/index')
 
 program
   .description('Convert annotated htmls to react component files')
@@ -35,12 +35,12 @@ if (!program.inputPath) {
 }
 
 // prepare options
-var options = _.extend(
+const options = _.extend(
   {generateFiles: true},
   _.pick(program, ['outputPath', 'recursive', 'fileToComponent'])
 )
 
-var cleanedOptions = _.omitBy(options, _.isUndefined)
+const cleanedOptions = _.omitBy(options, _.isUndefined)
 
 reacterminator(
   {type: 'path', content: program.inputPath},
