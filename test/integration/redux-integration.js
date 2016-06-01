@@ -25,6 +25,8 @@ describe('redux-integration', function () {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/components/ReduxExample.jsx', 'utf8'),
       `\
+try { module.exports = require('../../custom/components/ReduxExample.jsx'); return; } catch (e) {}
+
 import React from 'react';
 import { connect as reduxConnect } from 'react-redux';
 import action from '../action-creators/index';
@@ -73,6 +75,8 @@ export default ReduxExampleWithRedux;
     assert.deepEqual(
       fs.readFileSync('./reacterminator/store.js', 'utf8'),
       `\
+try { module.exports = require(''); return; } catch (e) {}
+
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers/index';
@@ -85,6 +89,8 @@ export default createStore(reducers, applyMiddleware(thunk));
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/redux-example/change-name.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/action-type-constants/redux-example/change-name.js'); return; } catch (e) {}
+
 export default 'REDUX_EXAMPLE_CHANGE_NAME';
 `
     )
@@ -93,6 +99,8 @@ export default 'REDUX_EXAMPLE_CHANGE_NAME';
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/redux-example/index.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/action-type-constants/redux-example/index.js'); return; } catch (e) {}
+
 import changeName from './change-name';
 import changePhoneNumber from './change-phone-number';
 import clickSingleButton from './click-single-button';
@@ -111,6 +119,8 @@ submitEmailForm
     assert.deepEqual(
       fs.readFileSync('./reacterminator/action-type-constants/index.js', 'utf8'),
       `\
+try { module.exports = require('../../custom/action-type-constants/index.js'); return; } catch (e) {}
+
 import reduxExample from './redux-example/index';
 
 export default {
@@ -123,6 +133,8 @@ reduxExample
     assert.deepEqual(
     fs.readFileSync('./reacterminator/action-creators/redux-example/change-name.js', 'utf8'),
     `\
+try { module.exports = require('../../../custom/action-creators/redux-example/change-name.js'); return; } catch (e) {}
+
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function changeName(event) {
@@ -138,6 +150,8 @@ export default function changeName(event) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/reducers/redux-example/name.js'); return; } catch (e) {}
+
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function name(state = '', action) {
@@ -154,6 +168,8 @@ export default function name(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/email-form.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/reducers/redux-example/email-form.js'); return; } catch (e) {}
+
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function emailForm(state = '', action) {
@@ -170,6 +186,8 @@ export default function emailForm(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/reducers/redux-example/single-button.js'); return; } catch (e) {}
+
 import actionTypeConstants from '../../action-type-constants/index';
 
 export default function singleButton(state = '', action) {
@@ -187,6 +205,8 @@ export default function singleButton(state = '', action) {
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/index.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/reducers/redux-example/index.js'); return; } catch (e) {}
+
 import { combineReducers } from 'redux';
 import emailForm from './email-form';
 import name from './name';
@@ -206,6 +226,8 @@ singleButton
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/index.js', 'utf8'),
       `\
+try { module.exports = require('../../custom/reducers/index.js'); return; } catch (e) {}
+
 import { combineReducers } from 'redux';
 import reduxExample from './redux-example/index';
 
@@ -231,6 +253,8 @@ reduxExample
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-no-reducers/index.js', 'utf8'),
       `\
+try { module.exports = require('../../../custom/reducers/redux-no-reducers/index.js'); return; } catch (e) {}
+
 export default (state = {}) => (state);
 `
     )

@@ -17,6 +17,6 @@ describe('lib/helpers/generate-file.js', function () {
     generateFile({filePath: filePath, content: 'origin'})
     generateFile({filePath: filePath, content: 'override'})
 
-    assert.equal(fs.readFileSync(filePath, 'utf-8'), 'override')
+    assert.equal(fs.readFileSync(filePath, 'utf-8'), 'try { module.exports = require(\'\'); return; } catch (e) {}\n\noverride')
   })
 })

@@ -26,6 +26,8 @@ describe('reacterminator with file input', function () {
     )
 
     const ComponentAExpected = `\
+try { module.exports = require('../../custom/components/ComponentA.jsx'); return; } catch (e) {}
+
 import React from 'react';
 
 class ComponentA extends React.Component {
