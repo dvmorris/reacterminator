@@ -34,6 +34,7 @@ class ReduxExample extends React.Component {
     return (
       <div>
         <form id="email-form" name="email-form" onSubmit={this.props['action.reduxExample.submitEmailForm']}>
+          <a href="#" id="anchor-button" onClick={this.props['action.reduxExample.clickAnchorButton']} /> <a href="http://www.google.com" id="anchor-button-absolute-url" />
           <input id="name"
             name="name"
             value={this.props['state.reduxExample.name']}
@@ -58,6 +59,7 @@ const ReduxExampleWithRedux = reduxConnect(
   }),
   {
     'action.reduxExample.submitEmailForm': action.reduxExample.submitEmailForm,
+    'action.reduxExample.clickAnchorButton': action.reduxExample.clickAnchorButton,
     'action.reduxExample.changeName': action.reduxExample.changeName,
     'action.reduxExample.changePhoneNumber': action.reduxExample.changePhoneNumber,
     'action.reduxExample.clickSingleButton': action.reduxExample.clickSingleButton
@@ -95,12 +97,14 @@ export default 'REDUX_EXAMPLE_CHANGE_NAME';
       `\
 import changeName from './change-name';
 import changePhoneNumber from './change-phone-number';
+import clickAnchorButton from './click-anchor-button';
 import clickSingleButton from './click-single-button';
 import submitEmailForm from './submit-email-form';
 
 export default {
 changeName,
 changePhoneNumber,
+clickAnchorButton,
 clickSingleButton,
 submitEmailForm
 }
@@ -188,12 +192,14 @@ export default function singleButton(state = '', action) {
       fs.readFileSync('./reacterminator/reducers/redux-example/index.js', 'utf8'),
       `\
 import { combineReducers } from 'redux';
+import anchorButton from './anchor-button';
 import emailForm from './email-form';
 import name from './name';
 import phoneNumber from './phone-number';
 import singleButton from './single-button';
 
 export default combineReducers({
+anchorButton,
 emailForm,
 name,
 phoneNumber,
