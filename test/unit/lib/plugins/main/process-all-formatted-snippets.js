@@ -44,19 +44,7 @@ export default ComponentA;`
         path.resolve('./reacterminator/components/ComponentA.jsx'),
         'utf-8'
       ),
-`\
-try { module.exports = require('../../custom/components/ComponentA.jsx'); return; } catch (e) {}
-
-import ComponentB from './components/ComponentB.jsx';
-
-class ComponentA extends React.Component {
-  render() {
-    return <ComponentB></ComponentB>
-  }
-}
-
-export default ComponentA;`
-
+      formattedFileSnippet
     )
   })
 
@@ -89,14 +77,7 @@ class ComponentA extends React.Component {
         path.resolve('./reacterminator/components/ComponentA.jsx'),
         'utf-8'
       ),
-`\
-try { module.exports = require('../../custom/components/ComponentA.jsx'); return; } catch (e) {}
-
-class ComponentA extends React.Component {
-  render() {
-    return <div></div>
-  }
-}`
+      formattedFileSnippet
     )
   })
 })
