@@ -44,7 +44,7 @@ export default ComponentA;`
         path.resolve('./reacterminator/components/ComponentA.jsx'),
         'utf-8'
       ),
-      '/* eslint-disable */\n' + formattedFileSnippet
+      formattedFileSnippet
     )
   })
 
@@ -60,7 +60,7 @@ class ComponentA extends React.Component {
       components: {
         ComponentA: {
           componentName: 'ComponentA',
-          formattedFileSnippet,
+          formattedFileSnippet: formattedFileSnippet,
           removedComments: ['<!-- -->'],
           removedScriptTags: ['<script></script>'],
           removedStyleTags: ['<style></style>']
@@ -77,7 +77,7 @@ class ComponentA extends React.Component {
         path.resolve('./reacterminator/components/ComponentA.jsx'),
         'utf-8'
       ),
-      '/* eslint-disable */\n' + formattedFileSnippet
+      formattedFileSnippet
     )
   })
 })
