@@ -123,7 +123,7 @@ describe('change links for param store', function () {
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<a href="#back" onClick={window.history.back()} />;'
+      '<a href="#back" onClick={() => window.history.back()} />;'
     )
   })
 })
