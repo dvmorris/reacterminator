@@ -4,9 +4,9 @@ const parse = require('../../../../../lib/helpers/parse')
 const processJsx = require('../../../../../lib/plugins/redux/process-jsx')
 const generate = require('babel-generator').default
 
-// TODO: use path name instead of component name to name space
 const component = {
   componentName: 'User',
+  isPath: 'true',
   plugins: {
     redux: {}
   }

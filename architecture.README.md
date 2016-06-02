@@ -1,8 +1,5 @@
 # Architecture
 
-## TODO
-- allow for processAll
-
 ## Summary
 
 There are two main ideas in the architecture:
