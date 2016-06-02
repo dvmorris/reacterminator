@@ -15,13 +15,13 @@ describe('lib/helpers/clean-folder.js', function () {
 
     shell.mkdir(folderPath)
     const notCustomPath = path.resolve(folderPath, 'not-custom.js')
-    fs.writeFileSync(notCustomPath, 'not custom')
+    fs.writeFileSync(notCustomPath, '/* eslint-disable */\nnot custom')
     const customPath = path.resolve(folderPath, 'custom.js')
     fs.writeFileSync(customPath, '//')
 
     cleanFolder(folderPath)
 
-    assert(!shell.test('-f', notCustomPath), 'not custom file should not exist')
+    assert(!shell.test('-f', notCustomPath), 'generated file should not exist')
     assert(shell.test('-f', customPath), 'custom file should exist')
   })
 })
