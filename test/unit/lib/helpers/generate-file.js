@@ -11,7 +11,16 @@ describe('lib/helpers/generate-file.js', function () {
     shell.mkdir('./reacterminator')
   })
 
-  it('should override the file', function () {
+  it('should not override if the file is custom', function () {
+    const filePath = path.resolve('./reacterminator/custom.js')
+
+    generateFile({filePath: filePath, content: '//'})
+    generateFile({filePath: filePath, content: 'override'})
+
+    assert.equal(fs.readFileSync(filePath, 'utf-8'), '//')
+  })
+
+  it('should override if the file is not custom', function () {
     const filePath = path.resolve('./reacterminator/custom.js')
 
     generateFile({filePath: filePath, content: 'origin'})
