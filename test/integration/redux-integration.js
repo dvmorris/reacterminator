@@ -40,6 +40,11 @@ class ReduxExample extends React.Component {
             name="name"
             value={this.props['state.reduxExample.name']}
             onChange={this.props['action.reduxExample.changeName']} />
+          <input id="is-going"
+            type="checkbox"
+            name="is-going"
+            checked={this.props['state.reduxExample.isGoing']}
+            onChange={this.props['action.reduxExample.toggleIsGoing']} />
           <input id="phone-number"
             type="text"
             name="phone-number-login"
@@ -56,12 +61,14 @@ class ReduxExample extends React.Component {
 const ReduxExampleWithRedux = reduxConnect(
   (state) => ({
     'state.reduxExample.name': state.reduxExample.name,
+    'state.reduxExample.isGoing': state.reduxExample.isGoing,
     'state.reduxExample.phoneNumber': state.reduxExample.phoneNumber
   }),
   {
     'action.reduxExample.submitEmailForm': action.reduxExample.submitEmailForm,
     'action.reduxExample.clickAnchorButton': action.reduxExample.clickAnchorButton,
     'action.reduxExample.changeName': action.reduxExample.changeName,
+    'action.reduxExample.toggleIsGoing': action.reduxExample.toggleIsGoing,
     'action.reduxExample.changePhoneNumber': action.reduxExample.changePhoneNumber,
     'action.reduxExample.clickSingleButton': action.reduxExample.clickSingleButton
   }
@@ -104,13 +111,15 @@ import changePhoneNumber from './change-phone-number';
 import clickAnchorButton from './click-anchor-button';
 import clickSingleButton from './click-single-button';
 import submitEmailForm from './submit-email-form';
+import toggleIsGoing from './toggle-is-going';
 
 export default {
 changeName,
 changePhoneNumber,
 clickAnchorButton,
 clickSingleButton,
-submitEmailForm
+submitEmailForm,
+toggleIsGoing
 }
 `
     )
@@ -196,6 +205,23 @@ export default function singleButton(state = '', action) {
 `
     )
 
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/reducers/redux-example/is-going.js', 'utf8'),
+      `\
+/* eslint-disable */
+import actionTypeConstants from '../../action-type-constants/index';
+
+export default function isGoing(state = false, action) {
+  switch (action.type) {
+    case actionTypeConstants.reduxExample.toggleIsGoing:
+      return !state;
+    default:
+      return state;
+  }
+}
+`
+    )
+
     // assert reducers redux-example index
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/index.js', 'utf8'),
@@ -204,6 +230,7 @@ export default function singleButton(state = '', action) {
 import { combineReducers } from 'redux';
 import anchorButton from './anchor-button';
 import emailForm from './email-form';
+import isGoing from './is-going';
 import name from './name';
 import phoneNumber from './phone-number';
 import singleButton from './single-button';
@@ -211,6 +238,7 @@ import singleButton from './single-button';
 export default combineReducers({
 anchorButton,
 emailForm,
+isGoing,
 name,
 phoneNumber,
 singleButton

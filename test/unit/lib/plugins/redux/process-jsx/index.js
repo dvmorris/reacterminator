@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const assert = require('chai').assert
-const parse = require('../../../../../lib/helpers/parse')
-const processJsx = require('../../../../../lib/plugins/redux/process-jsx')
+const parse = require('../../../../../../lib/helpers/parse')
+const processJsx = require('../../../../../../lib/plugins/redux/process-jsx')
 const generate = require('babel-generator').default
 
 const component = {
@@ -169,12 +169,12 @@ describe('lib/plugins/redux/process-jsx', function () {
 
     assert.deepEqual(
       jsxResult.component.plugins.redux.action,
-      ['action.user.changeName']
+      ['action.user.toggleName']
     )
 
     assert.deepEqual(
       generate(ast, {}, '').code,
-      '<input id="name" type="checkbox" checked={this.props[\'state.user.name\']} onChange={this.props[\'action.user.changeName\']} />;'
+      '<input id="name" type="checkbox" checked={this.props[\'state.user.name\']} onChange={this.props[\'action.user.toggleName\']} />;'
     )
   })
 
