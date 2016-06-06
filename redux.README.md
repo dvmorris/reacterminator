@@ -84,7 +84,3 @@ export default function selectNotificationsSessionUpdates(event) {
   };
 }
 ```
-
-## How to set multiple state, say you want to reset a from?
-You can let multiple reducers recognize the same action type and
-reset the state accordingly
