@@ -191,23 +191,6 @@ export default function emailForm(state = '', action) {
     )
 
     assert.deepEqual(
-      fs.readFileSync('./reacterminator/reducers/redux-example/single-button.js', 'utf8'),
-      `\
-/* eslint-disable */
-import actionTypeConstants from '../../action-type-constants/index';
-
-export default function singleButton(state = '', action) {
-  switch (action.type) {
-    case actionTypeConstants.reduxExample.clickSingleButton:
-      return '';
-    default:
-      return state;
-  }
-}
-`
-    )
-
-    assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/is-going.js', 'utf8'),
       `\
 /* eslint-disable */
@@ -230,20 +213,16 @@ export default function isGoing(state = false, action) {
       `\
 /* eslint-disable */
 import { combineReducers } from 'redux';
-import anchorButton from './anchor-button';
 import emailForm from './email-form';
 import isGoing from './is-going';
 import name from './name';
 import phoneNumber from './phone-number';
-import singleButton from './single-button';
 
 export default combineReducers({
-anchorButton,
 emailForm,
 isGoing,
 name,
-phoneNumber,
-singleButton
+phoneNumber
 })
 `
     )
