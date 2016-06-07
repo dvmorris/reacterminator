@@ -155,6 +155,21 @@ export default function changeName(event) {
 `
     )
 
+    assert.deepEqual(
+    fs.readFileSync('./reacterminator/action-creators/redux-example/toggle-is-going.js', 'utf8'),
+    `\
+/* eslint-disable */
+import actionTypeConstants from '../../action-type-constants/index';
+
+export default function toggleIsGoing(event) {
+  return {
+    type: actionTypeConstants.reduxExample.toggleIsGoing,
+    value: event.target.value
+  };
+}
+`
+    )
+
     // assert reducers content
     assert.deepEqual(
       fs.readFileSync('./reacterminator/reducers/redux-example/name.js', 'utf8'),
