@@ -277,4 +277,58 @@ export default (state = {}) => (state);
 `
     )
   })
+
+  it('should hook redux into a sub-component and generate redux files', function () {
+    reacterminator(
+      {
+        type: 'path',
+        content: './examples/test/redux-example-subcomponent.html'
+      },
+      {
+        fileToComponent: true,
+        generateFiles: true
+      }
+    )
+
+    // Assert component content
+    assert.deepEqual(
+      fs.readFileSync('./reacterminator/components/ReduxExampleEmailForm.jsx', 'utf8'),
+      `\
+/* eslint-disable */
+import React from 'react';
+import { connect as reduxConnect } from 'react-redux';
+import action from '../action-creators/index';
+
+class ReduxExampleEmailForm extends React.Component {
+  render() {
+    return (
+      <div>
+        <form id="email-form" name="email-form" onSubmit={this.props['action.reduxExampleEmailForm.submitEmailForm']}>
+          <input id="name"
+            name="name"
+            value={this.props['state.reduxExampleEmailForm.name']}
+            onChange={this.props['action.reduxExampleEmailForm.changeName']} />
+          <button id="single-button" onClick={this.props['action.reduxExampleEmailForm.clickSingleButton']}>
+          </button>
+        </form>
+      </div>
+      );
+  }
+}
+;
+const ReduxExampleEmailFormWithRedux = reduxConnect(
+  (state) => ({
+    'state.reduxExampleEmailForm.name': state.reduxExampleEmailForm.name,
+  }),
+  {
+    'action.reduxExampleEmailForm.submitEmailForm': action.reduxExampleEmailForm.submitEmailForm,
+    'action.reduxExampleEmailForm.changeName': action.reduxExampleEmailForm.changeName,
+    'action.reduxExampleEmailForm.clickSingleButton': action.reduxExampleEmailForm.clickSingleButton
+  }
+)(ReduxExampleEmailForm);
+
+export default ReduxExampleEmailFormWithRedux;
+`
+    )
+  })
 })
